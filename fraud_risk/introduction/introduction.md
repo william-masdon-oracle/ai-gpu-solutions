@@ -5,7 +5,7 @@
 Real case scenarios analysis based on Fraud detection techniques. Harness the capabilities of NVIDIA GPUs and advanced machine learning algorithms like XGBoost to gain practical experience in deploying scalable fraud detection solutions using Terraform. This workshop provides a comprehensive introduction to essential tools and strategies for effectively combating fraud and safeguarding sensitive financial data.
 
 Once the deployment is successful, the customer can connect to Jupyter Notebook and review the step by step analysis. These lab files guide users through various stages of implementing, deploying, and analyzing financial fraud detection models using advanced machine learning techniques and GPU acceleration. The labs demonstrate the use of XGBoost, SMOTE, Triton Inference Server, and RAPIDS to achieve high-performance fraud detection.
-The location for the lab files is ~/Models_for_test_final and it will be visible in Jupyter.
+The location for the lab files is ~/Modelsfortestfinal and it will be visible in Jupyter.
 
 Estimated Workshop Time: 2 hours
 

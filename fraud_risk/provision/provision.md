@@ -112,9 +112,9 @@ This lab assumes you have:
                </copy>
             ```
 
-    Finally run *cat jupyter.log* and get the access token and make the following URL to access jupyter notebooks where VM_PUB_IP would be public IP of your instance.
+    Finally run *cat jupyter.log* and get the access token and make the following URL to access jupyter notebooks where VMPUBIP would be public IP of your instance.
 
-    https://VM_PUB_IP:8888/?token=XXXXXXXXXXXXXXXXX
+    https://VMPUBIP:8888/?token=XXXXXXXXXXXXXXXXX
 
 6. If you chose Ubuntu as your operating system then run the following commands for Jupyter access.
 
@@ -192,9 +192,9 @@ This lab assumes you have:
                </copy>
             ```
 
-    Finally run *cat jupyter.log* and get the access token and make the following URL to access jupyter notebooks where VM_PUB_IP would be public IP of your instance.
+    Finally run *cat jupyter.log* and get the access token and make the following URL to access jupyter notebooks where VMPUBIP would be public IP of your instance.
 
-    https://VM_PUB_IP:8888/?token=XXXXXXXXXXXXXXXXX
+    https://VMPUBIP:8888/?token=XXXXXXXXXXXXXXXXX
 
 Once the deployment is successful, user can connect to Jupyter Notebook and review the step by step analysis. These lab files guide users through various stages of implementing, deploying, and analyzing financial fraud detection models using advanced machine learning techniques and GPU acceleration. The labs demonstrate the use of XGBoost, SMOTE, Triton Inference Server, and RAPIDS to achieve high-performance fraud detection
 

@@ -4,7 +4,7 @@
 
 This lab will take you through the steps needed to run Fraud detection examples in the jupyter notebook. We have following Fraud detection models
 
-**Fraud_Detection_models
+**Fraud Detection models**
 The instances contains Jupyter notebooks for the following Fraud Detection models:
 [https://domino.ai/blog/credit-card-fraud-detection-using-xgboost-smote-and-threshold-moving](https://domino.ai/blog/credit-card-fraud-detection-using-xgboost-smote-and-threshold-moving)
 
@@ -25,8 +25,9 @@ Estimated Time: 1 hour 30 minutes
 To execute Fraud detection models in Jupyter Notebook.
 To execute/modify the notebooks you can use following environments based on the examples location (the notebooks are already saved with the kernel components):
 
-**Models_for_test_final/Fraud_Tests/* works with triton_example_kernel**
-**Models_for_test_final/XGBOOST_SMOTE_Domino Credit_Card_Fraud_Detection_using_XGBoost_GPU works with domino_example_kernel**
+**Models_for_test_final/Fraud_Tests/** - Works with triton_example_kernel**
+
+**Models_for_test_final/XGBOOST_SMOTE_Domino** - Credit_Card_Fraud_Detection_using_XGBoost_GPU works with domino_example_kernel
 
 ### Prerequisites
 
@@ -38,7 +39,7 @@ This lab assumes you have:
 
 ## Task 1: Run Fraud Tests Example
 
-1. Copy the URL created in the last lab and paste in a browser of your choice to access JupyterHub as shown in the image below and click on *Models_for_test_final*
+1. Copy the URL created in the last lab and paste in a browser of your choice to access JupyterHub as shown in the image below and click on *Modelsfortestfinal*
 
     ![Access JupyterHub](images/access_jupyter.png)
 
@@ -46,7 +47,7 @@ This lab assumes you have:
 
     ![Fraud Tests](images/fraud_tests.png)
 
-3. Click on *00-getting-started* to open first notebook. It introduces Jupyter notebooks, covering how to edit and execute cells, use built-in Python functions for help, restart and clean up the kernel, and manage GPU memory. 
+3. Click on *00-getting-started* to open first notebook. It introduces Jupyter notebooks, covering how to edit and execute cells, use built-in Python functions for help, restart and clean up the kernel, and manage GPU memory.
 Different types (prose, code, UI elements), editing and execution. How to restart the kernel and run up to the selected cell.
 
 4. Click on *01-eda* to open this notebook. It presents how to explore data through exploratory analysis, including examining variable distributions, identifying patterns, and comparing features like transaction types and amounts to uncover insights before transitioning to more advanced analysis techniques.
@@ -73,16 +74,16 @@ Install Triton client requirements. Connect to Triton server, ensuring it is onl
 Utilizes IEEE-CIS Fraud Detection dataset and trains XGBoost models, supporting categorical variables. Models are serialized for Triton Inference Server, deployed on GPUs for higher throughput and lower latency. Triton's tools like perf_analyzer are used for tuning and comparing CPU vs GPU performance.
 
 
-## Task 2: Run XGBOOST_SMOTE_Domino example
+## Task 2: Run XGBOOST SMOTE Domino example
 
-1. Copy the URL created in the last lab and paste in a browser of your choice to access JupyterHub and click on *Models_for_test_final*. This time we will go through *XGBOOST_SMOTE_Domino*. Click on *XGBOOST_SMOTE_Domino* as shown below
+1. Copy the URL created in the last lab and paste in a browser of your choice to access JupyterHub and click on *Modelsfortestfinal*. This time we will go through *XGBOOSTSMOTEDomino*. Click on *XGBOOSTSMOTEDomino* as shown below
 
-    ![Fraud Tests](images/fraud_tests.png)
+    ![XG Boost](images/xgboost.png)
 
 2. Click on the *Credit_Card_Fraud_Detection_using_XGBoost_GPU* to open this notebook. It explores a credit card fraud detection approach using XGBoost, SMOTE, and threshold moving. It begins with preprocessing data to handle class imbalance with SMOTE, followed by training an XGBoost model to detect fraud. The key enhancement involves adjusting the decision threshold to improve performance metrics like precision and recall, resulting in better fraud detection accuracy. The approach emphasizes the importance of threshold tuning for optimizing model performance in fraud detection scenarios.
 
 XGBoost, SMOTE, and threshold moving for classification. Handle class imbalance with SMOTE, train XGBoost classifier, and adjust thresholds for better performance. Improved accuracy, effective handling of imbalance, and optimized performance through threshold tuning.
-    
+
 This concludes our Workshop.
 
 ## Acknowledgements
