@@ -19,17 +19,17 @@ This lab assumes you have:
 
 ## Task 1: Add a device
 
-Go to Entities -> Devices -> Add new device by clicking on the plus sign. Please find the image below
+1. Go to Entities -> Devices -> Add new device by clicking on the plus sign. Please find the image below
 
-![Devices Thingsboard](images/add_device.png)
+    ![Devices Thingsboard](images/add_device.png)
 
-Give it a name and click on Add. Leave everything else as default. 
+2. Give it a name and click on Add. Leave everything else as default.
 
-Go to the Linux tab in the new opened window and save the curl command in your notes for later use. You can use this command to send data from your machine to Thingsboard.
+3. Go to the Linux tab in the new opened window and save the curl command in your notes for later use. You can use this command to send data from your machine to Thingsboard.
 
-You can also find this information in the Check connectivity section of Devices. Also, go to Manage Credentials and save Access Token for later use. It will be used in Task 4 of this lab. Please find it shown in the image below.
+4. You can also find this information in the Check connectivity section of Devices. Also, go to Manage Credentials and save Access Token for later use. It will be used in Task 4 of this lab. Please find it shown in the image below.
 
-![Credentials](images/credentials.png)
+    ![Credentials](images/credentials.png)
 
 ## Task 2: Send data using Thingsboard
 
@@ -67,20 +67,20 @@ You can also find this information in the Check connectivity section of Devices.
 
 7. Next, scroll down to the bottom of the window and fill Key-Value information in Other Properties section as shown in the image below. 
 
-* **security.protocol** : SASL_SSL
-* **sasl.mechanism** : PLAIN
-* **ssl.endpoint.identification.algorithm** : https
-* **sasl.jaas.config** : <SASL Connection Strings:>
+    * **security.protocol** : SASL_SSL
+    * **sasl.mechanism** : PLAIN
+    * **ssl.endpoint.identification.algorithm** : https
+    * **sasl.jaas.config** : *SASL Connection Strings*
 
     ![Other_Properties](images/other_properties.png)
 
-The SASL Connection Strings can be copied from Kafka Connection Settings. It'd be something like this
+    The SASL Connection Strings can be copied from Kafka Connection Settings. It'd be something like this
 
-*org.apache.kafka.common.security.plain.PlainLoginModule required username=”//" password="AUTH_TOKEN";*
+    *org.apache.kafka.common.security.plain.PlainLoginModule required username=”//" password="AUTH_TOKEN";*
 
-You may need to add 'oracleidentitycloudservice' between your tenancy and email address in the username part of this string depending on the type of your account.
+    You may need to add 'oracleidentitycloudservice' between your tenancy and email address in the username part of this string depending on the type of your account.
 
-To generate an AUTH_TOKEN go to the top-right corner of the OCI Dashboardscreen, click on the profile icon. UnderUser Profile, click Auth Token, generate a token and copy the value: AUTH_TOKEN. You can also use an existing token.
+    To generate an AUTHTOKEN go to the top-right corner of the OCI Dashboardscreen, click on the profile icon. UnderUser Profile, click Auth Token, generate a token and copy the value: AUTHTOKEN. You can also use an existing token.
 
 8. Next, connect the Save Timeseries box with the Kafka box and select link label as Success as shown in the image below. Also, save it by clicking on the Apply Changes button in the bottom right of the screen.
 
@@ -94,11 +94,11 @@ To generate an AUTH_TOKEN go to the top-right corner of the OCI Dashboardscreen,
 
 1. Go to OCI Streaming service in OCI Dashboard and click on your existing stream which you have used to send the data. Click on Load Messages and you'll see a new row of data with 'temperature: 25' coming from Thingsboard as shown below.
 
-    ![Stream_Message](images/stream_meesage.png)
+    ![Stream_Message](images/stream_message.png)
 
 2. Use the following python script to send a random temperature after every second. Click on the link to download the script: [send_telemetry.py](https://objectstorage.us-ashburn-1.oraclecloud.com/p/OaVlhC2SwLpwqkAZ4sfijoYU_nOcRSX8yPT1WZD3-fqN_XwdOwZcSnZVoEPI5ELE/n/c4u02/b/hosted_workshops/o/send_telemetry.py)
 
-3. You will need to change the url and device id on line 7 and 8 of the script. In the url section, replace the public ip of the instance. For device id, use Access Token saved in Task 1. Also shown in the image below. 
+3. You will need to change the url and device id on line 7 and 8 of the script. In the url section, replace the public ip of the instance. For device id, use Access Token saved in Task 1. Also shown in the image below.
 
     ![Access_Token](images/access_token.png)
 
@@ -114,9 +114,9 @@ To generate an AUTH_TOKEN go to the top-right corner of the OCI Dashboardscreen,
 
 2. Click on Create connector and provide the following information. Provide the information for **Compartment**, **Connector Name** , **Source (Select Streaming)**, **Target**
 
-Click **Create**
+    Click **Create**
 
-![Create_Connector](images/create_connector.png)
+    ![Create_Connector](images/create_connector.png)
 
 You can select Target according to your preference and play around with the data. This is the end of the workshop.
 
