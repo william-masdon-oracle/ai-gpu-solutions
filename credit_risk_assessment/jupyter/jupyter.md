@@ -4,10 +4,10 @@
 
 This lab will take you through the steps needed to run examples in the jupyter notebook. We have following notebooks
 
-**1 mortcudf data prep.ipynb**
-**2 mortcudf XGB Pytorch.ipynb**
-**3 mortcudf captum.ipynb**
-**4 mortcudf shapley viz.ipynb**
+* 1 mortcudf data prep.ipynb**
+* 2 mortcudf XGB Pytorch.ipynb**
+* 3 mortcudf captum.ipynb**
+* 4 mortcudf shapley viz.ipynb**
 
 with RAPIDS ETL code, XGBoost classifier code, SHAP value code, PyTorch classifier code, Captum code, Shapley Clustering and Visualization
 

@@ -20,7 +20,7 @@ This lab assumes you have:
 
 ## Task 1: Provision resources
 
-1. Go to Resource manager -> Stacks -> Creat Stack. Choose My configuration and upload the provided zip file and click Next: [orm_stack_a10_gpu-ai_fin_new_vcn.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/MowTvhjhvgsR5msJwtCzVxhveQKdE9T0ii9jcWnCZvwKScoR7TFkuDdCDLITZorc/n/c4u02/b/hosted_workshops/o/orm_stack_a10_gpu-ai_fin_new_vcn.zip)
+1. Go to Resource manager -> Stacks -> Create Stack. Choose My configuration and upload the provided zip file and click Next: [orm_stack_a10_gpu-ai_fin_new_vcn.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/MowTvhjhvgsR5msJwtCzVxhveQKdE9T0ii9jcWnCZvwKScoR7TFkuDdCDLITZorc/n/c4u02/b/hosted_workshops/o/orm_stack_a10_gpu-ai_fin_new_vcn.zip)
 
     ![Resource Manager](images/resource_manager.png)
 
@@ -64,5 +64,5 @@ You may now proceed to the next lab.
 
 **Authors**
 
-* **Cristian Vlada**, Principal Cloud Architect, NACIE
+* **Cristian Vlad**, Principal Cloud Architect, NACIE
 * **Abhinav Jain**, Senior Cloud Engineer, NACIE
