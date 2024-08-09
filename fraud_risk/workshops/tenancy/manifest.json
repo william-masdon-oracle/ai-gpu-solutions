@@ -1,0 +1,31 @@
+{
+    "workshoptitle": "Role of Fraud Detection in Cybersecurity and Financial transactions",
+    "help": "livelabs-help-aiservices_us@oracle.com",
+    "tutorials": [
+      {
+        "title": "Introduction",
+        "description": "The Introduction is always second for LiveLabs. The title and contents menu title match for the Introduction.",
+        "filename": "../../introduction/introduction.md"
+      },
+      {
+        "title": "Getting Started",
+        "description": "Get a Free Trial",
+        "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/pre-register-free-tier-account.md"
+      },
+      {
+        "title": "Lab 1: Provision of resources to run JupyterHub Notebook",
+        "description": "Provision of resources to run JupyterHub Notebook",
+        "filename": "../../provision/provision.md"
+      },
+      {
+        "title": "Lab 2: Run JupyterHub Notebook",
+        "description": "Run JupyterHub Notebook",
+        "filename": "../../jupyter/jupyter.md"
+      },
+      {
+        "title": "Need Help?",
+        "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+        "filename": "https://oracle-livelabs.github.io/common/labs/need-help/need-help-freetier.md"
+      }
+    ]
+  }
