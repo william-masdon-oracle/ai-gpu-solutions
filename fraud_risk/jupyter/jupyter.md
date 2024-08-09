@@ -25,9 +25,9 @@ Estimated Time: 1 hour 30 minutes
 To execute Fraud detection models in Jupyter Notebook.
 To execute/modify the notebooks you can use following environments based on the examples location (the notebooks are already saved with the kernel components):
 
-**Models_for_test_final/Fraud_Tests/** - Works with triton_example_kernel**
+**Models for test final/FraudTests/** - Works with triton example kernel
 
-**Models_for_test_final/XGBOOST_SMOTE_Domino** - Credit_Card_Fraud_Detection_using_XGBoost_GPU works with domino_example_kernel
+**Models for test final/XGBOOST SMOTE Domino** - Credit Card Fraud Detection using XGBoost GPU works with domino example kernel
 
 ### Prerequisites
 
@@ -39,7 +39,7 @@ This lab assumes you have:
 
 ## Task 1: Run Fraud Tests Example
 
-1. Copy the URL created in the last lab and paste in a browser of your choice to access JupyterHub as shown in the image below and click on *Modelsfortestfinal*
+1. Copy the URL created in the last lab and paste in a browser of your choice to access JupyterHub as shown in the image below and click on *Models for test final*
 
     ![Access JupyterHub](images/access_jupyter.png)
 
@@ -54,7 +54,7 @@ Different types (prose, code, UI elements), editing and execution. How to restar
 Examine data structure and column types, identify categorical and continuous variables. Analyze distribution of transaction types and foreign vs. domestic transactions. Evaluate transaction amounts, explore distributions, and assess time gaps between transactions.
 
 5. Click on *02-visualization* to open this notebook. It presents how to visualize multidimensional data using PCA and UMAP, leveraging RAPIDS and NVIDIA GPUs for dimensionality reduction and interactive exploration.
-Reduce dimensions, emphasize variance, requiring scaled numeric features and encoded categorical data. Nonlinear dimensionality reduction with key hyperparameters like n_neighbors and min_dist.
+Reduce dimensions, emphasize variance, requiring scaled numeric features and encoded categorical data. Nonlinear dimensionality reduction with key hyper-parameters like n_neighbors and min_dist.
 
 6. Click on *03-model-rules-engine* to open this notebook. It presents how to create and evaluate a rule-based fraud detection system, focusing on defining rules, calculating performance metrics, and comparing results with more advanced models.
 Define simple rules for fraud detection (e.g., amount > $200), evaluate performance using precision and recall, refine rules, and compare rule-based performance with advanced models.
@@ -76,7 +76,7 @@ Utilizes IEEE-CIS Fraud Detection dataset and trains XGBoost models, supporting 
 
 ## Task 2: Run XGBOOST SMOTE Domino example
 
-1. Copy the URL created in the last lab and paste in a browser of your choice to access JupyterHub and click on *Modelsfortestfinal*. This time we will go through *XGBOOSTSMOTEDomino*. Click on *XGBOOSTSMOTEDomino* as shown below
+1. Copy the URL created in the last lab and paste in a browser of your choice to access JupyterHub and click on *Models for test final*. This time we will go through *XGBOOST SMOTE Domino*. Click on *XGBOOST SMOTE Domino* as shown below
 
     ![XG Boost](images/xgboost.png)
 
