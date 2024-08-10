@@ -38,9 +38,9 @@ This lab assumes you have:
 
 6. Check Helm | Deploy nVidia NIM LLM box
 
-7. Keep the Helm | NIM - Container image repo as default *nvcr.io/nim/meta/llama3-8b-instruct*
+7. Keep the Helm | NIM - Container image repo as default: *nvcr.io/nim/meta/llama3-8b-instruct*
 
-8. Keep the Helm | NIM - Container image tag as default *latest*
+8. Keep the Helm | NIM - Container image tag as default: *latest*
 
 9. To generate Helm | NIM-NGC API KEY - Follow the steps listed in the following link to generate an api key. [NGC API Key](https://docs.nvidia.com/ai-enterprise/deployment-guide-spark-rapids-accelerator/0.1.0/appendix-ngc.html)
 
@@ -56,11 +56,11 @@ This lab assumes you have:
 
 13. The model is fetched from HuggingFace so you have to connect to HuggingFace. The default model is 'meta-llama/CodeLlama-7B-Instruct-hf'.
 
-14. Leave max_model_len as default *8192*
+14. Leave maxmodellen as default: *8192*
 
 15. Check Helm | NIM - Cuopt box to deploy cuopt model.
 
-16. Leave Helm | NIM Cuopt - cuopt helm chart link as default *https://helm.ngc.nvidia.com/nvidia/charts/cuopt-24.03.00.tgz*
+16. Leave Helm | NIM Cuopt - cuopt helm chart link as default: *https://helm.ngc.nvidia.com/nvidia/charts/cuopt-24.03.00.tgz*
 
 17. Click Next and then select Run Apply and finally click on Create as shown below.
 

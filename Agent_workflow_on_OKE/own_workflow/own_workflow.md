@@ -24,7 +24,7 @@ This lab assumes you have:
 
 ## Task 1: Create your workflow
 
-1. In the jupiter environment create a new notebook my_agent_workflow.ipynb. Start by importing the required modules and install them(this can differ based on your use case): To install python modules directly from jupiter notebook you can create another cell that it will be run before the cell with the code:
+1. In the jupiter environment create a new notebook myagentworkflow.ipynb. Start by importing the required modules and install them(this can differ based on your use case): To install python modules directly from jupiter notebook you can create another cell that it will be run before the cell with the code:
 
      ```text
        <copy>
@@ -48,12 +48,11 @@ This lab assumes you have:
        </copy>
     ```
 
-2. Add links to the models enpoints. The models are deployed in OKE and we are using the service name(kubectl get service):
+2. Add links to the models endpoints. The models are deployed in OKE and we are using the service name(kubectl get service):
 
-    agent_base_url = [http://llama3/v1](http://llama3/v1)
-    code_base_url = [http://codellama/v1]([http://codellama/v1])
-    optimization_base_url = [http://cuopt-cuopt-deployment-cuopt-service:5000/cuopt/routes](http://cuopt-cuopt-deployment-cuopt-service:5000/cuopt/routes)
-
+    * agent_base_url = [http://llama3/v1](http://llama3/v1)
+    * code_base_url = [http://codellama/v1]([http://codellama/v1])
+    * optimization_base_url = [http://cuopt-cuopt-deployment-cuopt-service:5000/cuopt/routes](http://cuopt-cuopt-deployment-cuopt-service:5000/cuopt/routes)
 
 3. Next step is setup the parameters for different models.
 
@@ -123,7 +122,7 @@ This lab assumes you have:
        </copy>
     ```
 
-6. At this point, all the prerequistes function are defined and we can start to build functions to interact with each model:
+6. At this point, all the prerequisites function are defined and we can start to build functions to interact with each model:
 Define function for the main agent to decide what agent can provide the best answer:
 
     ```text
@@ -144,7 +143,7 @@ Define function for the main agent to decide what agent can provide the best ans
        </copy>
     ```
 
-    This behaivior can be achieved using different prompt engeniring techniques. In our example we are defining in the prompt how the decision should be take. Also we are defining each category and it s meaning. Please make sure you are giving clear instruction to the model and test multiple propts as each model respond differently based on the data that was trained.
+    This behavior can be achieved using different prompt engineering techniques. In our example we are defining in the prompt how the decision should be take. Also we are defining each category and it s meaning. Please make sure you are giving clear instruction to the model and test multiple prompts as each model respond differently based on the data that was trained.
 
 7. Define functions to interact with different agents:
 
@@ -195,10 +194,10 @@ Define function for the main agent to decide what agent can provide the best ans
        </copy>
     ```
 
-    Another example of question is:Optimize the delivery routes for two delivery trucks. Truck 1 has a capacity of 15 units and starts at location [0, 0]. Truck 2 has a capacity of 3 units and starts at location [0, 0]. They need to deliver packages to locations [2, 2] with a demand of 2 units and [3, 3] with a demand of 15 unit. Both locations have a time window from 0 to 1080, and the service time at each location is 1 unit. The cost to travel between each location is provided in the following cost matrix: from [0, 0] to [2, 2] costs 10, from [0, 0] to [3, 3] costs 15, from [2, 2] to [3, 3] costs 35. This is the expected JSON for the second example question: {{"cost_matrix_data":{{"data":{{"0":[[0,10,15],[10,0,35],[15,35,0]]}}}},"task_data":{{"task_locations":[1,2],"demand":[[2,15]],"task_time_windows":[[0,1080],[0,1080]],"service_times":[1,1]}},"fleet_data":{{"vehicle_locations":[[0,0],[0,0]],"capacities":[[15,3]],"vehicle_time_windows":[[0,1080],[0,1080]]}},"solver_config":{{"time_limit":2}}}}.
+    Another example of question is:Optimize the delivery routes for two delivery trucks. Truck 1 has a capacity of 15 units and starts at location [0, 0]. Truck 2 has a capacity of 3 units and starts at location [0, 0]. They need to deliver packages to locations [2, 2] with a demand of 2 units and [3, 3] with a demand of 15 unit. Both locations have a time window from 0 to 1080, and the service time at each location is 1 unit. The cost to travel between each location is provided in the following cost matrix: from [0, 0] to [2, 2] costs 10, from [0, 0] to [3, 3] costs 15, from [2, 2] to [3, 3] costs 35. This is the expected JSON for the second example question: {{"costmatrixdata":{{"data":{{"0":[[0,10,15],[10,0,35],[15,35,0]]}}}},"taskdata":{{"tasklocations":[1,2],"demand":[[2,15]],"tasktimewindows":[[0,1080],[0,1080]],"servicetimes":[1,1]}},"fleetdata":{{"vehiclelocations":[[0,0],[0,0]],"capacities":[[15,3]],"vehicletimewindows":[[0,1080],[0,1080]]}},"solverconfig":{{"timelimit":2}}}}.
     Respond only with the JSON. Do not include any additional text.
-    When generating the JSON don`t change the provided JSON structure. The only exception is the cost_matrix_data where the number of locations define the dimension of the square matrix. It needs to contains one list for each locatation, and the lenght of each list is the total number of locations.
-    Learn to identify the correct intergers in the question provided as example and generate the JSON for the next question.
+    When generating the JSON don`t change the provided JSON structure. The only exception is the cost_matrix_data where the number of locations define the dimension of the square matrix. It needs to contains one list for each location, and the length of each list is the total number of locations.
+    Learn to identify the correct integers in the question provided as example and generate the JSON for the next question.
 
     ```text
        <copy>
@@ -225,7 +224,6 @@ Define function for the main agent to decide what agent can provide the best ans
             except json.JSONDecodeError as e:
                 print("Failed to parse generated text:", e)
                 cuopt_payload = None
-    
             optimized_routes = "Failed to generate optimized routes."
             if cuopt_payload:
             # Send the payload to cuOpt
@@ -250,7 +248,6 @@ Define function for the main agent to decide what agent can provide the best ans
         def get_preliminary_response(query):
             decision = get_decision_from_agent(query)
             log = f"Decision by Agent Workflow: '{decision}'\n----------------------\n"
-    
             if "code" in decision:
                 log += "Response generated by: Code Agent(CodeLlama)\n----------------------\n"
                 response = get_response_from_code_model(query)
@@ -261,7 +258,6 @@ Define function for the main agent to decide what agent can provide the best ans
             else:
                 log += "Response generated by: General Agent(Llama3)\n----------------------\n"
                 response = get_general_response_from_agent(query)
-    
             log += f"Preliminary response:\n{response}\n----------------------\n"
             return response, log
        </copy>
@@ -321,7 +317,7 @@ Define function for the main agent to decide what agent can provide the best ans
        </copy>
     ```
 
-11. Last step is to create the gradio interface function and initiate gradio.
+11. Last step is to create the Gradio interface function and initiate Gradio.
 
     ```text
        <copy>
@@ -343,8 +339,8 @@ Define function for the main agent to decide what agent can provide the best ans
        </copy>
     ```
 
-Follwing these steps, you will be able to setup from zero an Agent Workflow scenario using Llama3 as main agent, CodeLlama as the code agent and CuOpt as the optimization agent.
-If you want to use other models the code gives this posibility but you will need to change the prompts context and to add any additional steps for that might be required by different models.
+Following these steps, you will be able to setup from zero an Agent Workflow scenario using Llama3 as main agent, CodeLlama as the code agent and CuOpt as the optimization agent.
+If you want to use other models the code gives this possibility but you will need to change the prompts context and to add any additional steps for that might be required by different models.
 
 ## Acknowledgements
 
