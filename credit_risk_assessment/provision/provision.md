@@ -20,9 +20,11 @@ This lab assumes you have:
 
 ## Task 1: Provision resources
 
-1. Go to Resource manager -> Stacks -> Create Stack. Choose My configuration and upload the provided zip file and click Next: [orm_stack_a10_gpu-ai_fin_new_vcn.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/MowTvhjhvgsR5msJwtCzVxhveQKdE9T0ii9jcWnCZvwKScoR7TFkuDdCDLITZorc/n/c4u02/b/hosted_workshops/o/orm_stack_a10_gpu-ai_fin_new_vcn.zip)
+1. Go to Resource manager -> Stacks -> Create Stack. Choose My configuration and upload the provided zip file and click Next: [orm_stack_a100_credit_risk_assesment.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/a0d6AI719MJQGAqApz2s_bKuWFggL7C9kyFng90Ezf65rXOeQ8I-Nbayvd5bDLSO/n/c4u02/b/hosted_workshops/o/orm_stack_a100_credit_risk_assesment.zip)
 
     ![Resource Manager](images/resource_manager.png)
+
+    [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-ashburn-1.oraclecloud.com/p/a0d6AI719MJQGAqApz2s_bKuWFggL7C9kyFng90Ezf65rXOeQ8I-Nbayvd5bDLSO/n/c4u02/b/hosted_workshops/o/orm_stack_a100_credit_risk_assesment.zip)
 
 2. Provide the information for **Compartment**, **VCN (Any suitable name)**, **Subnet**, **VM Display Name(Any suitable name)**
 

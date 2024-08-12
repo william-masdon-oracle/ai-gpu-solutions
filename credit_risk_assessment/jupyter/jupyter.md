@@ -35,7 +35,7 @@ This lab assumes you have:
 
     ![Bucket Access](images/bucket_access.png)
 
-3. Go to Object Storage in OCI Console and upload dataset in the above mentioned bucket. Access dataset from here [http://rapidsai-data.s3-website.us-east-2.amazonaws.com/notebook-mortgage-data/mortgage_2000-2016.tgz](http://rapidsai-data.s3-website.us-east-2.amazonaws.com/notebook-mortgage-data/mortgage_2000-2016.tgz)
+3. Go to Object Storage in OCI Console and upload dataset in the above mentioned bucket. Access dataset from here. Keep in mind this dataset is huge close to 195GB in size so you need appropriate space in your system to download it and then you will have to upload it to the OCI Object Storage. [http://rapidsai-data.s3-website.us-east-2.amazonaws.com/notebook-mortgage-data/mortgage_2000-2016.tgz](http://rapidsai-data.s3-website.us-east-2.amazonaws.com/notebook-mortgage-data/mortgage_2000-2016.tgz)
 
 4. Run all the code blocks in the notebook to go through this example.
 
