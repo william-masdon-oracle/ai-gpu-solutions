@@ -144,7 +144,7 @@ Follow the steps listed in the following link to generate an api key which will 
         EOF
         </copy>
     ```
-  
+
 4. Reload systemd and start the service
 
     ```text
