@@ -24,9 +24,9 @@ This lab assumes you have:
 
 ## Task 1: Run JupyterHub Notebook
 
-1. Once the job is succeeded go to Stack details -> Application Information and copy the URL to access JupyterHub as shown in the image below.
+1. Once the job is succeeded go to Outputs and copy the JupyterHub URL to access JupyterHub as shown in the image below.
 
-    ![Access JupyterHub](images/access_jupyterhub.png)
+    ![Access Jupyter](images/access_jupyternim.png)
 
 2. Paste the URL in a browser of your choice and provide the Username and Password which you seet in previous lab in Point 4.
 
@@ -74,7 +74,7 @@ This lab assumes you have:
        </copy>
     ```
 
-    It will take about fewcseconds for it to process the query. Since this is a general topic so it would be answered by Llama3. You can see the workflow in the Output section.
+    It will take about few seconds for it to process the query. Since this is a general topic so it would be answered by Llama3. You can see the workflow in the Output section.
 
 ## Task 5: Run third workflow
 

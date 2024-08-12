@@ -179,6 +179,7 @@ Define function for the main agent to decide what agent can provide the best ans
     ```
 
     *Optimization Agent*
+    Optimization Agent To interact with optimization Agent
     To interact with  optimization Agent(CuOpt) we need to translate the question in a format that the model will be able to understand, which in our case will be a JSON with a predefined structure.
     To generate the JSON we will call the Llama3 model to create it for us based on the incoming question. To teach Llama3 model to generate the JSON we will pass the JSON format and we will give some examples of questions and how the JSON will look like.
     The JSON format is in the config.py file - use the same file or create.
@@ -191,16 +192,11 @@ Define function for the main agent to decide what agent can provide the best ans
                 "role": "user",
                 "content": f'''You need to generate a payload for cuOpt to be able to answer the Question. Bellow is the structure of the json {json_format}, and you need to capture the values from the Question and populate the JSON.
         The question will be like this: Optimize the routes for three delivery trucks. Truck 1 has a capacity of 4 units and starts at location [0, 0]. Truck 2 has a capacity of 6 units and starts at location [0, 0]. Truck 3 has a capacity of 2 units and starts at location [0, 0]. They need to deliver packages to locations [2, 2] with a demand of 1 unit, [4, 4] with a demand of 3 units, and [6, 6] with a demand of 2 units. All the locations have a time window from 0 to 1080, and the service time at each location is 1 units. The cost to travel between each location is provided in the following cost matrix: from [0, 0] to [2, 2] costs 10, from [0, 0] to [4, 4] costs 20, from [0, 0] to [6, 6] costs 30, from [2, 2] to [4, 4] costs 10, from [2, 2] to [6, 6] costs 20, from [4, 4] to [6, 6] costs 10. This is the expected JSON output for the example question: {{"cost_matrix_data":{{"data":{{"0":[[0,10,20,30],[10,0,10,20],[20,10,0,10],[30,20,10,0]]}}}},"task_data":{{"task_locations":[1,2,3],"demand":[[1,3,2]],"task_time_windows":[[0,1080],[0,1080],[0,1080]],"service_times":[1,1,1]}},"fleet_data":{{"vehicle_locations":[[0,0],[0,0],[0,0]],"capacities":[[4,6,2]],"vehicle_time_windows":[[0,1080],[0,1080],[0,1080]]}},"solver_config":{{"time_limit":2}}}}.
-       </copy>
-    ```
+        Another example of question is:Optimize the delivery routes for two delivery trucks. Truck 1 has a capacity of 15 units and starts at location [0, 0]. Truck 2 has a capacity of 3 units and starts at location [0, 0]. They need to deliver packages to locations [2, 2] with a demand of 2 units and [3, 3] with a demand of 15 unit. Both locations have a time window from 0 to 1080, and the service time at each location is 1 unit. The cost to travel between each location is provided in the following cost matrix: from [0, 0] to [2, 2] costs 10, from [0, 0] to [3, 3] costs 15, from [2, 2] to [3, 3] costs 35. This is the expected JSON for the second example question: {{"costmatrixdata":{{"data":{{"0":[[0,10,15],[10,0,35],[15,35,0]]}}}},"taskdata":{{"tasklocations":[1,2],"demand":[[2,15]],"tasktimewindows":[[0,1080],[0,1080]],"servicetimes":[1,1]}},"fleetdata":{{"vehiclelocations":[[0,0],[0,0]],"capacities":[[15,3]],"vehicletimewindows":[[0,1080],[0,1080]]}},"solverconfig":{{"timelimit":2}}}}.
+        Respond only with the JSON. Do not include any additional text.
+        When generating the JSON don`t change the provided JSON structure. The only exception is the cost_matrix_data where the number of locations define the dimension of the square matrix. It needs to contains one list for each location, and the length of each list is the total number of locations.
+        Learn to identify the correct integers in the question provided as example and generate the JSON for the next question.
 
-    Another example of question is:Optimize the delivery routes for two delivery trucks. Truck 1 has a capacity of 15 units and starts at location [0, 0]. Truck 2 has a capacity of 3 units and starts at location [0, 0]. They need to deliver packages to locations [2, 2] with a demand of 2 units and [3, 3] with a demand of 15 unit. Both locations have a time window from 0 to 1080, and the service time at each location is 1 unit. The cost to travel between each location is provided in the following cost matrix: from [0, 0] to [2, 2] costs 10, from [0, 0] to [3, 3] costs 15, from [2, 2] to [3, 3] costs 35. This is the expected JSON for the second example question: {{"costmatrixdata":{{"data":{{"0":[[0,10,15],[10,0,35],[15,35,0]]}}}},"taskdata":{{"tasklocations":[1,2],"demand":[[2,15]],"tasktimewindows":[[0,1080],[0,1080]],"servicetimes":[1,1]}},"fleetdata":{{"vehiclelocations":[[0,0],[0,0]],"capacities":[[15,3]],"vehicletimewindows":[[0,1080],[0,1080]]}},"solverconfig":{{"timelimit":2}}}}.
-    Respond only with the JSON. Do not include any additional text.
-    When generating the JSON don`t change the provided JSON structure. The only exception is the cost_matrix_data where the number of locations define the dimension of the square matrix. It needs to contains one list for each location, and the length of each list is the total number of locations.
-    Learn to identify the correct integers in the question provided as example and generate the JSON for the next question.
-
-    ```text
-       <copy>
         Question: {query}'''
         }]
         response = create_completion(client_agent, messages, agent_model_config)
@@ -209,11 +205,7 @@ Define function for the main agent to decide what agent can provide the best ans
             if chunk.choices[0].delta.content is not None:
                 payload_response += chunk.choices[0].delta.content
         return payload_response.strip().lower()
-       </copy>
-    ```
 
-    ```text
-       <copy>
         def get_response_from_optimization(query):
             generated_text = prepare_optimization_input(query)
             log = f"JSON generated by Llama3 that will be passed to Optimization Agent(CuOpt):\n{generated_text}\n----------------------\n"
