@@ -1,14 +1,14 @@
-# Pass data through ThingsBoard
+# Integrating ThingsBoard with OCI: Streaming Sensor Data and Connecting to OCI Services
 
 ## Introduction
 
-This lab will take you through the steps needed to pass data through Thingsboard into OCI using OCI streaming
+This lab will guide you through the process of passing sensor data from ThingsBoard into OCI. We’ll use OCI Streaming as the entry point for the data.”
 
-Estimated Time: 1 hour 30 minutes
+Estimated Time: 1 hour
 
 ### Objectives
 
-To pass data through ThingsBoard, where it may undergo transformation, preparing it for ingestion into OCI. Integration occurs via OCI Streaming, enabling further utilization across different services.
+This lab will demonstrate how to route data from  ThingsBoard, where it may undergo different transformation, into OCI. The integration is facilitated by OCI Streaming, which is Kafka under the hood, and you will leverage the Connector Hub service to forward the data to other services within OCI.
 
 ### Prerequisites
 
@@ -31,9 +31,9 @@ This lab assumes you have:
 
     ![Credentials](images/credentials.png)
 
-## Task 2: Send data using Thingsboard
+## Task 2: Simulate incoming sensor data
 
-1. Go to terminal on your laptop and paste the curl command saved in previous task. This will send a single line of data 'temperature: 25' to thingsboard. Please find it shown in the image below.
+1. Go to terminal on your laptop and paste the curl command saved in previous task. This will send a single line of data 'temperature: 25' to Thingsboard. Please find it shown in the image below.
 
     ![Terminal](images/terminal_data.png)
 
@@ -45,7 +45,7 @@ This lab assumes you have:
 
     ![RuleChain](images/root_rule_chain.png)
 
-2. The data we have just sent would be the input for this rule chain and was sent through Port telemetry to Save Timeseries. You should be able to see it in the Save Timeseries by clicking on it. Next, Activate the Debug Mode and click on Apply Changes. Next, you'll also have to apply changes to the root level. For that, click on Apply Changes at the bottom right as shown in the image below.
+2. The data we have just sent would be the input for this rule chain and was sent through Port telemetry to Save Timeseries. You should be able to see it in the Save Timeseries by clicking on it. Next, activate the Debug Mode and click on Apply Changes. Next, you'll also have to apply changes to the root level. For that, click on Apply Changes at the bottom right as shown in the image below.
 
     ![Apply_telemetry](images/apply_rule.png)
 
@@ -53,11 +53,11 @@ This lab assumes you have:
 
     ![Refresh_telemetry](images/refresh_data.png)
 
-4. Next, we will send this data to OCI. For this, go to External Section and drag and drop Kafka on the right side of Save Timeseries as shown below.
+4. Next, we will send this data to OCI Streaming using a ThingsBoard external node. For this, go to External nodes section(orange) and drag and drop a Kafka node on the right side of Save Timeseries as shown below.
 
     ![External_Kafka](images/external_kafka.png)
 
-5. Click on Kafka and a new window will open. Fill in the Name (Anything) and Topic Pattern information. Topic Pattern would be an existing stream in OCI. If you do not already have a stream go to OCI dashboard and create a new stream as shown below.
+5. Click on Kafka node and a new window will open. Fill in the Name (Anything) and Topic Pattern information. Topic Pattern would be an existing stream in OCI. If you do not already have a stream go to OCI dashboard and create a new stream as shown below.
 
     ![Create_Stream](images/create_stream.png)
 
@@ -65,7 +65,7 @@ This lab assumes you have:
 
     ![Bootstrap_Server](images/bootstrap_server.png)
 
-7. Next, scroll down to the bottom of the window and fill Key-Value information in Other Properties section as shown in the image below. 
+7. Next, scroll down to the bottom of the window and fill Key-Value information in Other Properties section as shown in the image below.
 
     * **security.protocol** : SASL_SSL
     * **sasl.mechanism** : PLAIN
@@ -92,7 +92,7 @@ This lab assumes you have:
 
 ## Task 4: Ingest Data in Streams
 
-1. Go to OCI Streaming service in OCI Dashboard and click on your existing stream which you have used to send the data. Click on Load Messages and you'll see a new row of data with 'temperature: 25' coming from Thingsboard as shown below.
+1. Go to OCI Streaming service in OCI Dashboard and click on your existing stream which you have used to send the data. Click on Load Messages and you'll see a new row of data with 'temperature: 25' coming from Thingsboard as shown below. This will be visible only if the curl command was executed in the last minute, so if needed please resend the temperature reading.
 
     ![Stream_Message](images/stream_message.png)
 
@@ -102,7 +102,7 @@ This lab assumes you have:
 
     ![Access_Token](images/access_token.png)
 
-4. To run the script type python 'script_name.py' from your Terminal. You should have new messages coming in every second. Verify it by clicking on Load Messages in your stream as shown below.
+4. To run the script type *python3 scriptname.py* from your Terminal. You should have new messages coming in every second. Verify it by clicking on Load Messages in your stream as shown below.
 
      ![New_Messages](images/new_messages.png)
 

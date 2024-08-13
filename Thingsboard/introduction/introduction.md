@@ -6,7 +6,7 @@ OCI currently lacks an IoT solution, so we're exploring a third-party option cal
 
 ![Marketplace Thingsboard](images/marketplace.png)
 
-Estimated Workshop Time: 2 hours
+Estimated Workshop Time: 1 hour 30 minutes
 
 ### Objectives
 

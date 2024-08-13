@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This lab will take you through the steps needed to provision Thingsboard image
+This lab will take you through the steps needed to provision Thingsboard instance.
 
 Estimated Time: 30 minutes
 
@@ -27,7 +27,7 @@ Go to Marketplace -> All Applications and search for Thingsboard. Choose your co
 
 ![Marketplace Thingsboard](images/marketplace.png)
 
-This task will help you to create Thingsboard VM under your choosen compartment.
+This task will help you to create Thingsboard VM under your chosen compartment.
 
 1. Provide the information for **Compartment**, **Name** , **Availability Domain**, **Image (Keep it as it is)**, **Shape (Keep as it is or select according to your choice)**, **VCN**, **Subnet (It has to be Public)**, **Add SSH Keys (Add keys to access your instance)**
 
@@ -37,11 +37,11 @@ This task will help you to create Thingsboard VM under your choosen compartment.
 
 ## Task 2: Access Thingsboard UI
 
-1. In few minutes the status of recently created  instance will change from **Provisioning** to **Running**
+1. In a few minutes the status of recently created  instance will change from **Provisioning** to **Running**
 
     ![Running Thingsboard Instance](images/thingsboard_vm_running.png)
 
-Wait for a minute or two before accessing the thingsboard UI using the browser. You can access it by copying the IP address of the instance and adding port 8080 to it. So complete address would be IP_Address:8080. Please find it below in the image
+When the ThingsBoard VM is ready, it may take up to an additional 2 minutes for the ThingsBoard UI to initialize. After that, you can access it on the public IP of the instance via port 80, making the complete address ‘http://<PublicIP>:8080,’ as shown in the image below.
 
 ![UI Thingsboard](images/thingsboard_ui.png)
 
