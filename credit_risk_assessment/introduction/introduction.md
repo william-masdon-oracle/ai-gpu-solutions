@@ -20,7 +20,7 @@ This lab assumes you have:
 
 * An Oracle Cloud account
 * Administrator permissions or permissions to use the OCI Compute and Identity Domains
-* Access to A10 or GPU shape, Usage of the Terraform code for one click deployment.
+* Access to A100 or GPU shape, Usage of the Terraform code for one click deployment.
 
 ## Learn More
 
