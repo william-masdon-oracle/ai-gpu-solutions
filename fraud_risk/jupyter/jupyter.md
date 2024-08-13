@@ -48,31 +48,22 @@ This lab assumes you have:
     ![Fraud Tests](images/fraud_tests.png)
 
 3. Click on *00-getting-started* to open first notebook. It introduces Jupyter notebooks, covering how to edit and execute cells, use built-in Python functions for help, restart and clean up the kernel, and manage GPU memory.
-Different types (prose, code, UI elements), editing and execution. How to restart the kernel and run up to the selected cell.
 
 4. Click on *01-eda* to open this notebook. It presents how to explore data through exploratory analysis, including examining variable distributions, identifying patterns, and comparing features like transaction types and amounts to uncover insights before transitioning to more advanced analysis techniques.
-Examine data structure and column types, identify categorical and continuous variables. Analyze distribution of transaction types and foreign vs. domestic transactions. Evaluate transaction amounts, explore distributions, and assess time gaps between transactions.
 
 5. Click on *02-visualization* to open this notebook. It presents how to visualize multidimensional data using PCA and UMAP, leveraging RAPIDS and NVIDIA GPUs for dimensionality reduction and interactive exploration.
-Reduce dimensions, emphasize variance, requiring scaled numeric features and encoded categorical data. Nonlinear dimensionality reduction with key hyper-parameters like n_neighbors and min_dist.
 
 6. Click on *03-model-rules-engine* to open this notebook. It presents how to create and evaluate a rule-based fraud detection system, focusing on defining rules, calculating performance metrics, and comparing results with more advanced models.
-Define simple rules for fraud detection (e.g., amount > $200), evaluate performance using precision and recall, refine rules, and compare rule-based performance with advanced models.
 
 7. Click on *04-rapids-gpu-pipeline* to open this notebook. It presents how to train and to  evaluate XGBoost models on NVIDIA GPUs with RAPIDS, including data encoding, model storage, performance comparison with CPU, and hyperparameter tuning.
-Import RAPIDS libraries, load and split data. Perform one-hot and target encoding for categorical features, impute and scale numerical features. Train XGBoost model on GPU, store and serialize model. Compare GPU vs CPU training time and accuracy, evaluate metrics, and adjust sample size. Experiment with XGBoost parameters to optimize performance and reduce false positives.
 
 8. Click on *05-explaining-predictions* to open this notebook. It presents XGBoost model predictions using SHAP values for better model interpretability, feature importance, and interactions.
-Explain model predictions and feature importance using SHAP values. Compute feature importance on GPU and identify feature interactions. Plot feature importance and interactions, comparing GPU vs CPU performance.
 
 9. Click on *06-accelerating-inference* to open this notebook. It presents installation of Triton client, monitoring server logs, ensuring correct categorical variable handling, and using the same data frame for consistency.
-Install Triton client requirements. Connect to Triton server, ensuring it is online and error-free. Deploy models and submit requests, handling categorical variables correctly.
 
 10. Click on *07-triton-client-inference* to open this notebook. It presents inference with NVIDIA Triton Inference FIL backend: setup, server connection, inference requests, and handling categorical variables.
 
 11. Click on *Fraud_Detection_Example* to open this notebook. It presents how to train and deploy an XGBoost fraud detection model using Triton-FIL backend for optimized performance analysis and real-time serving.
-Utilizes IEEE-CIS Fraud Detection dataset and trains XGBoost models, supporting categorical variables. Models are serialized for Triton Inference Server, deployed on GPUs for higher throughput and lower latency. Triton's tools like perf_analyzer are used for tuning and comparing CPU vs GPU performance.
-
 
 ## Task 2: Run XGBOOST SMOTE Domino example
 
@@ -82,7 +73,7 @@ Utilizes IEEE-CIS Fraud Detection dataset and trains XGBoost models, supporting 
 
 2. Click on the *Credit_Card_Fraud_Detection_using_XGBoost_GPU* to open this notebook. It explores a credit card fraud detection approach using XGBoost, SMOTE, and threshold moving. It begins with preprocessing data to handle class imbalance with SMOTE, followed by training an XGBoost model to detect fraud. The key enhancement involves adjusting the decision threshold to improve performance metrics like precision and recall, resulting in better fraud detection accuracy. The approach emphasizes the importance of threshold tuning for optimizing model performance in fraud detection scenarios.
 
-XGBoost, SMOTE, and threshold moving for classification. Handle class imbalance with SMOTE, train XGBoost classifier, and adjust thresholds for better performance. Improved accuracy, effective handling of imbalance, and optimized performance through threshold tuning.
+    XGBoost, SMOTE, and threshold moving for classification. Handle class imbalance with SMOTE, train XGBoost classifier, and adjust thresholds for better performance. Improved accuracy, effective handling of imbalance, and optimized performance through threshold tuning.
 
 This concludes our Workshop.
 
