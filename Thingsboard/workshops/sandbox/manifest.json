@@ -1,6 +1,6 @@
 {
     "workshoptitle": "Integrate ThingsBoard with OCI Streaming Services",
-    "help": "livelabs-help-aiservices_us@oracle.com",
+    "help": "livelabs-help-oci_us@oracle.com",
     "tutorials": [
       {
         "title": "Introduction",
@@ -18,7 +18,7 @@
         "filename": "../../provision/provision.md"
       },
       {
-        "title": "Lab 2: Pass data into OCI Streaming",
+        "title": "Lab 2: Integrating ThingsBoard with OCI: Streaming Sensor Data and Connecting to OCI Services",
         "description": "To pass data through ThingsBoard",
         "filename": "../../data/data.md"
       },
