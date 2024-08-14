@@ -4,7 +4,7 @@
 
 This lab will take you through the steps needed to run the JupyterHub notebook
 
-Estimated Time: 1 hour 30 minutes
+Estimated Time: 1 hour
 
 ### Objectives
 

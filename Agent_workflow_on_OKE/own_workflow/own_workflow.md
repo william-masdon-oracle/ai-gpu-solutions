@@ -4,7 +4,7 @@
 
 If you want to learn how to create an Agent workflow we have provided all the steps in this lab to achieve that.
 
-Estimated Time: 2 hours
+Estimated Time: 1 hour 30 minutes
 
 ### Objectives
 
