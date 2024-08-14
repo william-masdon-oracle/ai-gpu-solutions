@@ -6,7 +6,7 @@ In this workshop we will run Nvidia container on oci instance with an A10 shape 
 
 NVIDIA cuOpt is an optimization tool that specializes in routing. It is run as a microservice in the cloud using the container provided. The cuOpt microservice leverages OpenAPI standards, serving endpoints running on port 5000 (by default) to accept optimization input data and return optimized routing solutions.
 
-Estimated Workshop Time: 1 hour
+Estimated Workshop Time: 45 minutes
 
 ### Objectives
 
