@@ -20,13 +20,13 @@ This lab assumes you have:
 
 ## Task 1: Provision resources
 
-1. Go to Resource manager -> Stacks -> Create Stack. Choose My configuration and upload the provided zip file and click Next: [orm_stack_a100_credit_risk_assesment.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/a0d6AI719MJQGAqApz2s_bKuWFggL7C9kyFng90Ezf65rXOeQ8I-Nbayvd5bDLSO/n/c4u02/b/hosted_workshops/o/orm_stack_a100_credit_risk_assesment.zip)
+1. Go to Resource manager -> Stacks -> Create Stack. Choose My configuration and upload the provided zip file and click Next: [orm_stack_a100_credit_risk_assessment.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/f529N9oupKjccM9-Eq60f10pWuw5Gm28VrPOVIjPhiI_OISf72917QPLNJpieuRT/n/c4u02/b/hosted_workshops/o/orm_stack_a100_credit_risk_assessment.zip)
 
     ![Resource Manager](images/resource_manager.png)
 
     Or you could use a single click deployment button shown below
 
-    [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-ashburn-1.oraclecloud.com/p/a0d6AI719MJQGAqApz2s_bKuWFggL7C9kyFng90Ezf65rXOeQ8I-Nbayvd5bDLSO/n/c4u02/b/hosted_workshops/o/orm_stack_a100_credit_risk_assesment.zip)
+    [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-ashburn-1.oraclecloud.com/p/f529N9oupKjccM9-Eq60f10pWuw5Gm28VrPOVIjPhiI_OISf72917QPLNJpieuRT/n/c4u02/b/hosted_workshops/o/orm_stack_a100_credit_risk_assessment.zip)
 
 2. Provide the information for **Compartment**, **VCN (Any suitable name)**, **Subnet**, **VM Display Name(Any suitable name)**
 
