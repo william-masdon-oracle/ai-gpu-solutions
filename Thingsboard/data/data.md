@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This lab will guide you through the process of passing sensor data from ThingsBoard into OCI. We’ll use OCI Streaming as the entry point for the data.”
+This lab will guide you through the process of passing sensor data from ThingsBoard into OCI. We’ll use OCI Streaming as the entry point for the data.
 
 Estimated Time: 1 hour
 

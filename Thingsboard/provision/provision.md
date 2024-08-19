@@ -41,7 +41,7 @@ This task will help you to create Thingsboard VM under your chosen compartment.
 
     ![Running Thingsboard Instance](images/thingsboard_vm_running.png)
 
-When the ThingsBoard VM is ready, it may take up to an additional 2 minutes for the ThingsBoard UI to initialize. After that, you can access it on the public IP of the instance via port 80, making the complete address ‘http://<PublicIP>:8080,’ as shown in the image below.
+When the ThingsBoard VM is ready, it may take up to an additional 2 minutes for the ThingsBoard UI to initialize. After that, you can access it on the public IP of the instance via port 8080, making the complete address ‘http://<PublicIP>:8080,’ as shown in the image below.
 
 ![UI Thingsboard](images/thingsboard_ui.png)
 
