@@ -1,0 +1,31 @@
+{
+  "workshoptitle": "Integrate ThingsBoard with OCI Streaming Services",
+  "help": "livelabs-help-oci_us@oracle.com",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "The Introduction is always second for LiveLabs. The title and contents menu title match for the Introduction.",
+      "filename": "../../introduction/introduction.md"
+    },
+    {
+      "title": "Get Started with noVNC Remote Desktop",
+      "description": "Using noVNC Remote Desktop",
+      "filename": "https://oracle-livelabs.github.io/common/labs/remote-desktop/using-novnc-remote-desktop.md"
+    },
+    {
+      "title": "Lab 1: Provision Thingsboard Instance",
+      "description": "Provisioning of Thingsboard instance",
+      "filename": "../../provision/provision.md"
+    },
+    {
+      "title": "Lab 2: Integrating ThingsBoard with OCI: Streaming Sensor Data and Connecting to OCI Services",
+      "description": "To pass data through ThingsBoard",
+      "filename": "../../data/data.md"
+    },
+    {
+      "title": "Need Help?",
+      "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+      "filename": "https://oracle-livelabs.github.io/common/labs/need-help/need-help-livelabs.md"
+    }
+  ]
+}
