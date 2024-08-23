@@ -45,7 +45,7 @@ This lab assumes you have:
 
     ![RuleChain](images/root_rule_chain.png)
 
-2. The data we have just sent would be the input for this rule chain and was sent through Port telemetry to Save Timeseries. You should be able to see it in the Save Timeseries by clicking on it. Next, activate the Debug Mode and click on Apply Changes. Next, you'll also have to apply changes to the root level. For that, click on Apply Changes at the bottom right as shown in the image below.
+2. The data we have just sent would be the input for this rule chain and was sent through Post telemetry to Save Timeseries. You should be able to see it in the Save Timeseries by clicking on it. Next, activate the Debug Mode and click on Apply Changes. Next, you'll also have to apply changes to the root level. For that, click on Apply Changes at the bottom right as shown in the image below.
 
     ![Apply_telemetry](images/apply_rule.png)
 
