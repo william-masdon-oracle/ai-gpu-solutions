@@ -14,8 +14,8 @@ This lab will demonstrate how to route data from  ThingsBoard, where it may unde
 
 This lab assumes you have:
 
-* An Oracle account
-* Administrator permissions or permissions to use the OCI Streaming, OCI Compute and Identity Domains
+* An Oracle account.
+* Administrator permissions or permissions to use the OCI Streaming, OCI Compute and Identity Domains.
 
 ## Task 1: Add a device
 
