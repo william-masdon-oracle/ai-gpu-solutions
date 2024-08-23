@@ -21,8 +21,8 @@ In this workshop, you will learn how to:
 
 This lab assumes you have:
 
-* An Oracle Cloud account
-* Administrator permissions or permissions to use the OCI Streaming, OCI Compute and Identity Domains
+* An Oracle Cloud account.
+* Administrator permissions or permissions to use the OCI Streaming, OCI Compute and Identity Domains.
 
 ## Learn More
 

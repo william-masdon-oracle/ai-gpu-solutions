@@ -20,7 +20,7 @@ In this workshop, you will learn how to:
 
 This lab assumes you have:
 
-* An Oracle Cloud account
+* An Oracle Cloud account.
 * Administrator permissions or permissions to use the OCI Compute, Identity Domains, A10 images, NGC API Key.
 
 ## Learn More
