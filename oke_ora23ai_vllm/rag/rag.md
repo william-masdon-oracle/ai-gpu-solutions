@@ -37,7 +37,7 @@ This lab assumes you have:
 
 Note: If you wish to use the Cohere embedding model you need to have a Trial key and put it in the embedding API key section.
 
-    ![Gradio Interface](images/gradio_interface.png)
+   ![Gradio Interface](images/gradio_interface.png)
 
 3. Click the Load Model and wait for the models to finish loading
 
