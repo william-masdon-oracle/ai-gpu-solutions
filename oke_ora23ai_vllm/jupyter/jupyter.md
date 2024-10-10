@@ -15,11 +15,11 @@ This lab contains an example on how to chat with the LLM chatbot.
 This lab assumes you have:
 
 * An Oracle Cloud account
-* Administrator permissions or permissions to use the OCI tenancy
-* Ability to spin-up A10 instances in OCI
-* Ability to spin-up an Oracle 23ai Autonomous Database
+* Administrator privileges or access rights to the OCI tenancy
+* Ability to provision A10 instances in OCI
+* Ability to provision an Oracle 23ai Autonomous Database
 * Ability to create resources with Public IP addresses (Load Balancer, Instances, OKE API Endpoint)
-* Access to HuggingFace, accept selected HuggingFace model license agreement.
+* Access to Hugging Face and acceptance of selected model license agreements
 * Database admin password stored in a vault secret.
 
 ## Task 1: Run JupyterHub Notebook

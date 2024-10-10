@@ -2,24 +2,24 @@
 
 ## Introduction
 
-This lab will guide you through the steps needed to provision the infrastructure using Resource manager.
+This lab will guide you through the steps needed to provision the infrastructure using the Resource Manager.
 
 Estimated Time: 30 minutes
 
-### Objectives
+### **Objectives**
 
-Provisioning of the infrastructure using OCI Resource Manage.
+Provisioning of the infrastructure using OCI Resource Manager.
 
-### Prerequisites
+### **Prerequisites**
 
 This lab assumes you have:
 
 * An Oracle Cloud account
-* Administrator permissions or permissions to use the OCI tenancy
-* Ability to spin-up A10 instances in OCI
-* Ability to spin-up an Oracle 23ai Autonomous Database
+* Administrator privileges or access rights to the OCI tenancy
+* Ability to provision A10 instances in OCI
+* Ability to provision an Oracle 23ai Autonomous Database
 * Ability to create resources with Public IP addresses (Load Balancer, Instances, OKE API Endpoint)
-* Access to HuggingFace, accept selected HuggingFace model license agreement.
+* Access to Hugging Face and acceptance of selected model license agreements
 * Database admin password stored in a vault secret.
 
 ## Task 1: Provision resources
@@ -28,11 +28,16 @@ This lab assumes you have:
 
     ![Resource Manager](images/resource_manager.png)
 
-    Or you could use a single click deployment button shown below
+    Or you could use the single click deployment button shown below
 
     [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/1S-rMvxqTZDtyXZoq_QC6PvaEdqn_tvj9tZICRj9iWPGCv-2BoXcbIEg1zUJt89H/n/ocisateam/b/LiveLabs/o/terraform-oke-ora23ai.zip)
 
-2. Provide the information for **Compartment**, **Kubernetes Cluster Name (Any suitable name)** , **Check Create new VCN**, **VCN Name (Any suitable name)**, **Leave other Networking information as default**, **Kubernetes nodepool configuration (Change the GPU nodepool size to two and the rest can be left as default or be changed as seen fit)**
+2. Provide the following information: 
+
+**Select Compartment**: Choose the appropriate compartment for the Kubernetes cluster.
+**Cluster Name**: Enter a descriptive name for the cluster.
+**Create New VCN**: Check the option to create a new VCN, provide a name, and leave other networking details as default.
+**Node Pool Configuration**: Set the GPU node pool size to two; leave other settings as default or adjust as needed.
 
 3. Next, check all 3 options in Access to the Kubernetes cluster and provide your ssh key to connect to the bastion and operator hosts.
 
@@ -54,7 +59,7 @@ This lab assumes you have:
 
     ![Token](images/huggingface_token.png)
 
-9. vLLM API Key is used to secure your LLM deployment. It could be anything you want according to your preference or you can remember. For example it could be "dummy" or "live-lab".
+9. vLLM API Key is used to secure your LLM deployment. It could be anything you want according to your preference or you can remember. Choose any value for the key according to your preference, such as "dummy" or "live-lab."
 
 10. The HuggingFace model deployed is 'google/gemma-2-2b-it'.
 
@@ -62,9 +67,9 @@ This lab assumes you have:
 
 12. Click Next and then select Run Apply and finally click on Create as shown below.
 
-    ![Apply Stack](images/apply_stack.png)
+    ![Apply Stack](images/run_apply.png)
 
-13. Wait for the Job to succeed. It may take 15-20 minutes for it to be successful and before infrastructure is provisioned.
+13. Wait for the job to complete, which may take 15-20 minutes before the infrastructure is fully provisioned.
 
 You may now proceed to the next lab.
 

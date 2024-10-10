@@ -13,8 +13,8 @@
         "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/cloud-login-livelabs2.md"
     },
       {
-        "title": "Lab 1: Provision of resources to run JupyterHub Notebook",
-        "description": "Provision of resources to run JupyterHub Notebook",
+        "title": "Lab 1: Provisioning of resources for running a JupyterHub Notebook",
+        "description": "Provisioning of resources for running a JupyterHub Notebook",
         "filename": "../../provision/provision.md"
       },
       {

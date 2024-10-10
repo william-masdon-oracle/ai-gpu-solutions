@@ -2,11 +2,11 @@
 
 ## About this Workshop
 
-Retrieval-augmented generation is a paradigm that couples the strengths of retrieval-based and generative models, particularly large language models, in NLP. In an improved RAG pipeline, an LLM uses external data relevant to answering questions or generating responses, retrieved from a vector database. In particular, RAG is very useful because it enables LLMs to give correct responses concerning up-to-date data, or specialized knowledge from domains they were never trained on. This is completed in a way that reduces the need for continual model retraining and fine-tuning, making the approach more cost-effective and scalable.
+Retrieval-augmented generation is a paradigm that couples the strengths of retrieval-based and generative models(LLMs), particularly large language models, in NLP. In an improved RAG pipeline, an LLM uses external data relevant to answering questions or generating responses, retrieved from a vector database. In particular, RAG is very useful because it enables LLMs to give correct responses concerning up-to-date data, or specialized knowledge from domains they were never trained on. This is achieved in a way that reduces the need for continual model retraining and fine-tuning, making the approach more cost-effective and scalable.
 
 Estimated Workshop Time: 3 hours
 
-### Objectives
+### **Objectives**
 
 Objective of this workshop is to set-up a RAG application in OCI using Resource manager:
 
@@ -15,16 +15,16 @@ In this workshop, you will learn how to:
 * Configure & set-up JupyterHub Notebook
 * Run a RAG Chatbot application
 
-### Prerequisites
+### **Prerequisites**
 
 This lab assumes you have:
 
 * An Oracle Cloud account
-* Administrator permissions or permissions to use the OCI tenancy
-* Ability to spin-up A10 instances in OCI
-* Ability to spin-up an Oracle 23ai Autonomous Database
+* Administrator privileges or access rights to the OCI tenancy
+* Ability to provision A10 instances in OCI
+* Ability to provision an Oracle 23ai Autonomous Database
 * Ability to create resources with Public IP addresses (Load Balancer, Instances, OKE API Endpoint)
-* Access to HuggingFace, accept selected HuggingFace model license agreement.
+* Access to Hugging Face and acceptance of selected model license agreements
 * Database admin password stored in a vault secret.
 
 ## Learn More
