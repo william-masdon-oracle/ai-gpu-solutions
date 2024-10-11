@@ -4,7 +4,7 @@
 
 This lab will guide you through the steps needed to provision the infrastructure using the Resource Manager.
 
-Estimated Time: 30 minutes
+Estimated Time: 45 minutes
 
 ### **Objectives**
 
@@ -24,13 +24,13 @@ This lab assumes you have:
 
 ## Task 1: Provision resources
 
-1. Go to Resource manager -> Stacks -> Create Stack. Choose My configuration and upload the provided zip file and click Next: [terraform-oke-vllm-ora23ai.zip](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/1S-rMvxqTZDtyXZoq_QC6PvaEdqn_tvj9tZICRj9iWPGCv-2BoXcbIEg1zUJt89H/n/ocisateam/b/LiveLabs/o/terraform-oke-ora23ai.zip)
+1. Go to Resource manager -> Stacks -> Create Stack. Choose My configuration and upload the provided zip file and click Next: [livelab-llm-23ai.zip](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/8-btEMcZOTjZUKrbH9J-AcyiD48TigmbOX0w4ap_9SjDdjvOh22sGIH7aqyF2VHb/n/ocisateam/b/LiveLabs/o/livelab-llm-23ai.zip)
 
     ![Resource Manager](images/resource_manager.png)
 
     Or you could use the single click deployment button shown below
 
-    [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/1S-rMvxqTZDtyXZoq_QC6PvaEdqn_tvj9tZICRj9iWPGCv-2BoXcbIEg1zUJt89H/n/ocisateam/b/LiveLabs/o/terraform-oke-ora23ai.zip)
+    [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/8-btEMcZOTjZUKrbH9J-AcyiD48TigmbOX0w4ap_9SjDdjvOh22sGIH7aqyF2VHb/n/ocisateam/b/LiveLabs/o/livelab-llm-23ai.zip)
 
 2. Provide the following information: 
 
@@ -53,7 +53,7 @@ This lab assumes you have:
 
 7. Check Helm | Deploy vLLM box
 
-8. The model that is being downloaded is from HuggingFace so you have have an account on HuggingFace. The default model is 'google/gemma-2-2b-it'. You will need to go to HuggingFace website and create an account and generate a token to use here. Go to huggingface.co and create an account.
+8. The model that is being downloaded is from HuggingFace so you have have an account on HuggingFace. The default model is 'meta-llama/Llama-3.2-1B-Instruct'. You will need to go to HuggingFace website huggingface.co, create an account, accept the T&C for the model you'd like to use and generate a token to use here.
 
     Go to Profile -> Settings -> Access Tokens and generate a token as shown below
 
@@ -61,7 +61,7 @@ This lab assumes you have:
 
 9. vLLM API Key is used to secure your LLM deployment. It could be anything you want according to your preference or you can remember. Choose any value for the key according to your preference, such as "dummy" or "live-lab."
 
-10. The HuggingFace model deployed is 'google/gemma-2-2b-it'.
+10. The HuggingFace model deployed is 'meta-llama/Llama-3.2-1B-Instruct'.
 
 11. Leave the maximum context length as default '-1'.
 
