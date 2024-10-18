@@ -20,7 +20,7 @@ This lab assumes you have:
 * Ability to provision an Oracle 23ai Autonomous Database
 * Ability to create resources with Public IP addresses (Load Balancer, Instances, OKE API Endpoint)
 * Access to Hugging Face and acceptance of selected model license agreements
-* A Hugging Face token with at least read permissions (steps to create)
+* A Hugging Face token with at least read permissions (Go to Profile -> Settings -> Access Tokens)
 * Database admin password stored in a vault secret.
 
 ## Task 1: Run JupyterHub Notebook
