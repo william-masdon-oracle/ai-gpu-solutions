@@ -53,7 +53,7 @@ This lab assumes you have:
 
     To install the libraries go to the first cell block and hit Shift+Enter to execute it.
 
-    ![Notebook](images/libraries.png)
+    ![Notebook](images/libreries.png)
 
 4. After the libraries finish installing(this takes a 2-3 minutes) the next step is to restart the kernel as shown below. 
 

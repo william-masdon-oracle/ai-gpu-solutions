@@ -25,13 +25,13 @@ This lab assumes you have:
 
 ## Task 1: Provision resources
 
-1. Go to Resource manager -> Stacks -> Create Stack. Choose My configuration and upload the provided zip file and click Next: [livelab-llm-23ai.zip](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/8-btEMcZOTjZUKrbH9J-AcyiD48TigmbOX0w4ap_9SjDdjvOh22sGIH7aqyF2VHb/n/ocisateam/b/LiveLabs/o/livelab-llm-23ai.zip)
+1. Go to Resource manager -> Stacks -> Create Stack. Choose My configuration and upload the provided zip file and click Next: [livelab-llm-23ai.zip](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/8jwmISGYydt3QpwellsJN29NwKU8r4PHyA_UhjQQ1UBaWhZ0tMkzeDr40au1qoGP/n/ocisateam/b/LiveLabs/o/livelab-llm-23ai.zip)
 
     ![Resource Manager](images/resource_manager.png)
 
     Or you could use the single click deployment button shown below
 
-    [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/8-btEMcZOTjZUKrbH9J-AcyiD48TigmbOX0w4ap_9SjDdjvOh22sGIH7aqyF2VHb/n/ocisateam/b/LiveLabs/o/livelab-llm-23ai.zip)
+    [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/8jwmISGYydt3QpwellsJN29NwKU8r4PHyA_UhjQQ1UBaWhZ0tMkzeDr40au1qoGP/n/ocisateam/b/LiveLabs/o/livelab-llm-23ai.zip)
 
 2. Provide the following information: 
 
