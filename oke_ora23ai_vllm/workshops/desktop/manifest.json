@@ -1,5 +1,5 @@
 {
-  "workshoptitle": "Deployment of LLMs in OKE using vLLM and Ora23ai vector database",
+  "workshoptitle": "Run vLLM on OKE with Oracle DB 23ai Vector Search",
   "help": "livelabs-help-aiservices_us@oracle.com",
   "tutorials": [
     {

@@ -27,7 +27,7 @@ This lab assumes you have:
 * Access to Hugging Face and acceptance of selected model license agreements
 * Database admin password stored in a vault secret.
 
-## Learn More
+### Learn More
 
 * [What Is RAG Pipeline?](https://developer.nvidia.com/blog/rag-101-demystifying-retrieval-augmented-generation-pipelines/)
 * [What are Large Language Models?](https://www.nvidia.com/en-us/glossary/large-language-models/)
@@ -36,7 +36,7 @@ This lab assumes you have:
 
 You may now proceed to the next lab.
 
-## Acknowledgements
+### Acknowledgements
 
 **Authors**
 
