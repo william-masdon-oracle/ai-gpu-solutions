@@ -53,7 +53,7 @@ This lab assumes you have:
 
     To install the libraries go to the first cell block and hit Shift+Enter to execute it.
 
-    ![Notebook](images/notebook.png)
+    ![Notebook](images/libraries.png)
 
 4. After the libraries finish installing(this takes a 2-3 minutes) the next step is to restart the kernel as shown below. 
 
@@ -61,7 +61,7 @@ This lab assumes you have:
 
 5. Next, execute the second cell block by hitting Shift+Enter.
 
-    ![Second cell](images/restart_kernel.png)
+    ![Second cell](images/second_cell.png)
 
 6. Finally, after the second cell finishes execution you will be able to see and access the Gradio interface by using the public URL provided in the output of the cell as seen in below image.
 
