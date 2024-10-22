@@ -66,3 +66,4 @@ This concludes our RAG application workshop.
 
 * **Dragos Nicu**, Senior Cloud Engineer, NACIE
 * **Guido Alejandro Ferreyra**, Principal Cloud Architect,NACIE
+* **Last Updated By/Date** - Dragos Nicu, October 2024
