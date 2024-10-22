@@ -1,5 +1,5 @@
 {
-  "workshoptitle": "Deployment of LLMs in OKE using vLLM",
+  "workshoptitle": "Deployment of LLMs in OKE using vLLM and Ora23ai vector database",
   "help": "livelabs-help-aiservices_us@oracle.com",
   "tutorials": [
     {
@@ -13,8 +13,8 @@
       "filename": "https://oracle-livelabs.github.io/common/labs/remote-desktop/using-novnc-remote-desktop.md"
     },
     {
-      "title": "Lab 1: Provisioning of resources for running a JupyterHub Notebook",
-      "description": "Provisioning of resources for running a JupyterHub Notebook",
+      "title": "Lab 1: Provision of resources to run a JupyterHub Notebook",
+      "description": "Provision of resources to run a JupyterHub Notebook",
       "filename": "../../provision/provision.md"
     },
     {
