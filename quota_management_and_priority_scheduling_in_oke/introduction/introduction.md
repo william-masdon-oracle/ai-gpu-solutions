@@ -42,3 +42,4 @@ You may now proceed to the next lab.
 **Authors**
 
 * **Cristian Vlad**, Principal Cloud Architect, NACIE
+* **Last Updated By/Date** - Cristian Vlad, October 2024

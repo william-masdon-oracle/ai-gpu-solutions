@@ -106,3 +106,4 @@ k delete rayjob rayjob-name
 **Authors**
 
 * **Cristian Vlad**, Principal Cloud Architect, NACIE
+* **Last Updated By/Date** - Cristian Vlad, October 2024

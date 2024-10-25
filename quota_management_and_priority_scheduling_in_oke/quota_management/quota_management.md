@@ -109,3 +109,4 @@ This will also remove the pods created within the jobs.
 **Authors**
 
 * **Cristian Vlad**, Principal Cloud Architect, NACIE
+* **Last Updated By/Date** - Cristian Vlad, October 2024
