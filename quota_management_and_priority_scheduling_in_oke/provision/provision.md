@@ -1,66 +1,68 @@
-# Provision of resources to run JupyterHub Notebook
+# Provision of OCI infrastructure
 
 ## Introduction
 
-This lab will take you through the steps needed to provision the infrastructure using Resource manager and access Jupyter notebooks.
+This lab will guide you through the steps needed to provision the infrastructure using the Resource Manager.
 
-Estimated Time: 30 minutes
+Estimated Time: 20 minutes
 
-### Objectives
+### **Objectives**
 
-Provisioning of infrastructure using Resource manager.
+Provisioning of the infrastructure using OCI Resource Manager.
 
-### Prerequisites
+### **Prerequisites**
 
 This lab assumes you have:
 
 * An Oracle Cloud account
-* Administrator permissions or permissions to use the OCI Compute and Identity Domains
-* Access to A100 or GPU shape, Usage of the Terraform code for one click deployment.
+* Administrator permissions or permissions to use the OCI Compute, OKE and Identity Domains
+* Ability to provision A10 vm instances in OCI
 
 ## Task 1: Provision resources
 
-1. Go to Resource manager -> Stacks -> Create Stack. Choose My configuration and upload the provided zip file and click Next: [orm_stack_a100_credit_risk_assessment.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/viJR1QQJZiZd7rqW8-LyDqNo9iZmihIelxvnisP9d2QkIim5wS4X1wnd3qs-LvYC/n/c4u02/b/hosted_workshops/o/orm_stack_a100_credit_risk_assessment.zip)
+1. Go to Resource manager -> Stacks -> Create Stack. Choose My configuration and upload the provided zip file and click Next: [ORM zip file](https://github.com/vladcristi/orm-stack-kueue-ray-deployment/archive/refs/heads/main.zip)
 
     ![Resource Manager](images/resource_manager.png)
 
-    Or you could use a single click deployment button shown below
+    Or you could use the single click deployment button shown below
 
-    [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-ashburn-1.oraclecloud.com/p/viJR1QQJZiZd7rqW8-LyDqNo9iZmihIelxvnisP9d2QkIim5wS4X1wnd3qs-LvYC/n/c4u02/b/hosted_workshops/o/orm_stack_a100_credit_risk_assessment.zip)
+    [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://github.com/vladcristi/orm-stack-kueue-ray-deployment/archive/refs/heads/main.zip)
 
-2. Provide the information for **Compartment**, **VCN (Any suitable name)**, **Subnet**, **VM Display Name(Any suitable name)**
+2. Provide the following information: 
 
-3. Provide your SSH Key to access the instance. Fill AD and bucket_namespace (Your tenancy namespace) information to create an object storage bucket needed in the next lab as shown below in the image.
+**Select Compartment**: Choose the appropriate compartment for the Kubernetes cluster.
 
-    ![Credit Configure](images/credit_configure.png)
+**Cluster Name**: Enter a descriptive name for the cluster.
+![Compartment and Cluster name](images/compartment_and_cluster_name.png)
 
-4. Click Next and then select Run Apply and finally click on Create as shown below.
+**Create New VCN**: Check the option to create a new VCN, provide a name, and leave other networking details as default.
+![Network Configuration](images/network_config.png)
 
-    ![Apply Stack](images/apply_stacks.png)
+**Node Pool Configuration**: Set the GPU node pool size to 2; leave other settings as default or adjust as needed.
+![OKE Configuration](images/oke_config.png)
 
-5. Wait for the Job to succeed. It may take 5-10 minutes for it to be successful and before infrastructure is provisioned.
 
-## Task 2: Access the notebooks
+3. Next, we have 3 options in Access to the Kubernetes cluster and provide your ssh key to connect to the bastion and operator hosts.
 
-1. Once the instance is created, wait for the cloud init completion and then you will be able to launch the jupyter notebook interface.
+    You can deploy the resources in two ways: 
+    - you check "Create a bastion and operator hosts" and "Create operator IAM policy". In this way the operator host would be configured with kubectl so you can directly execute command from operator against the kubernetes cluster 
+    - you don't check "Create a bastion and operator hosts" and "Create operator IAM policy" and you check "Create public OKE API" and commands can be executed from oracle resource manager runner.
 
-2. Go to security list of your subnet and give access to port 8888.
+    Note: If you create bastion and operator hosts then creating a public oke endpoint is optional. 
+    
+    For this workshop you will check "Create a bastion and operator hosts" and "Create operator IAM policy" and provide your public key to connect to the bastion and operator hosts.
 
-3. Copy the Public IP of the instance and ssh into the instance using Terminal.
+![Access to OKE](images/access_to_oke.png)
 
-4. Run the following command from /home/opc
+5. Next, in Helm Chart deployments section check all the 2 boxes and leave them as default. 
 
-    ```text
-        <copy>
-        nohup jupyter notebook --ip=0.0.0.0 --port=8888 > /home/opc/jupyter.log 2>&1 &
-        </copy>
-    ```
+![Access to OKE](images/helm_charts.png)
 
-    Finally run *cat jupyter.log* and get the access token and make the following URL to access jupyter notebooks where VMPUBIP would be public IP of your instance.
+6. Click Next and then select Run Apply and finally click on Create as shown below.
 
-    [https://VMPUBIP:8888/tree?token=XXXXXXXXXXXXXXXXX](https://VMPUBIP:8888/tree?token=XXXXXXXXXXXXXXXXX)
+![Review Create](images/review_create.png)
 
-Once the deployment is successful, user can connect to Jupyter Notebook and review the step by step analysis. We use the widely available public U.S. Fannie Mae mortgage dataset to show an XGBoost classifer for predicting loan delinquencies.
+13. Wait for the job to complete, which may take aproximatively 15-20 minutes before the infrastructure is fully provisioned.
 
 You may now proceed to the next lab.
 
@@ -69,4 +71,3 @@ You may now proceed to the next lab.
 **Authors**
 
 * **Cristian Vlad**, Principal Cloud Architect, NACIE
-* **Abhinav Jain**, Senior Cloud Engineer, NACIE

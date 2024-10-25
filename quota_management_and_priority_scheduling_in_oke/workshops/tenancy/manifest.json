@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Credit Risk Assessment",
+    "workshoptitle": "Quota management and Priority Scheduling in OKE",
     "help": "livelabs-help-oci_us@oracle.com",
     "tutorials": [
       {
@@ -13,12 +13,17 @@
         "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/pre-register-free-tier-account.md"
       },
       {
-        "title": "Lab 1: Quota Management",
+        "title": "Lab 1: Provision of OCI infrastructure",
+        "description": "Provision of infrastructure with deployment of Kueue and Kuberay-Operator",
+        "filename": "../../provision/provision.md"
+      },
+      {
+        "title": "Lab 2: Quota Management",
         "description": "Quota Management",
         "filename": "../../quota_management/quota_management.md"
       },
       {
-        "title": "Lab 2: Priority Scheduling",
+        "title": "Lab 3: Priority Scheduling",
         "description": "Priority Scheduling",
         "filename": "../../priority_scheduling/priority_scheduling.md"
       },
