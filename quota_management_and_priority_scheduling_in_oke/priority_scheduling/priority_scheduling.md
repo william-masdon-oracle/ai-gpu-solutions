@@ -2,6 +2,9 @@
 
 ## Introduction
 In this lab, we’ll explore how to leverage Kueue for efficient resource scheduling within OKE clusters while managing AI/ML tasks using the Kuberay-Operator. We’ll set up a simulation of two distinct environments running within the same OKE cluster and how to prioritize between them
+
+ 
+Estimated Workshop Time: 1 h
  
 ### Objectives
 
