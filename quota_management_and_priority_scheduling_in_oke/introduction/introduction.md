@@ -29,6 +29,7 @@ This lab assumes you have:
 * Administrator permissions or permissions to use the OCI Compute, OKE and Identity Domains
 * Ability to provision A10 vm instances in OCI
 
+
 ## Learn More
 
 * [What Is Kuberay?](https://ray-project.github.io/kuberay/)

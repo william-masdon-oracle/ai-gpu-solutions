@@ -36,9 +36,11 @@ In the ```Outputs``` sections of the apply-job in Resource Manager you will see 
 
 3. Verify localqueue and clusterqueue are deployed with the following commands: 
 ```
+<copy>
 k get clusterqueue 
 k get localqueue -n team-a 
 k get localqueue -n team-b 
+</copy>
 ```
 Note: ClusterQueues are cluster-wide objects that manage a shared pool of resources (CPU, memory, hardware accelerators) and LocalQueues are namespace-specific objects linked to ClusterQueues, enabling resource allocation from the cluster pool to support LocalQueue workloads. 
 
@@ -52,7 +54,9 @@ In our example *cq-team-a* and *cq-team-b* share the same cohort *all-teams* and
 1. In ```/home/opc``` you have a folder named ```kubectl-files```. Under that folder you have multiple yaml files. For this lab we will use ```ray-job.pytorch-team-a.yaml``` and ```ray-job.pytorch-team-b.yaml```. 
 2. First you will run the following command: 
 ``` 
+<copy>
 k create -f /home/opc/kubectl-files/ray-job.pytorch-team-a.yaml
+</copy>
 ```
 This command will create a rayjob which deploys a pod that runs a **Fine-tuning model of PyTorch Lightning Text Classifier**. For first job that runs this it will take up to 25 minutes because it pulls the **rayproject/ray-ml:2.9.0-gpu** image for running the Ray cluster besides the actual run of the fine-tune model into Ray cluster. For the rest of job runs it will take 8-10minutes
 
@@ -67,11 +71,12 @@ This command will create a rayjob which deploys a pod that runs a **Fine-tuning 
 - in order to see when the job is finished run the following commands:
 
 ```
+<copy>
 kubectl get rayjobs.ray.io rayjob-name -o jsonpath='{.status.jobStatus}' -n team-a/b
-
 kubectl get rayjobs.ray.io rayjob-name -o jsonpath='{.status.jobDeploymentStatus}' -n team-a/b
+</copy>
 ```
-
+Example:
 ![Succeded](images/succeded.png)
 ![Complete](images/complete.png)
 
@@ -79,12 +84,16 @@ kubectl get rayjobs.ray.io rayjob-name -o jsonpath='{.status.jobDeploymentStatus
 ## Task 4: CleanUp the cluster
 1. Run the following command: 
 ``` 
+<copy>
 k get rayjob -n team-a
 k get rayjob -n team-b
+</copy>
 ```
 2. Based on the rayjobs list provided by the previous command, run the following command for each rayjob: 
 ```
-k delete rayjob <rayjob_name> -n team-<ab>
+<copy>
+k delete rayjob <rayjob_name> -n team-a/b
+</copy>
 ```  
 This will also remove the pods created within the jobs.
 

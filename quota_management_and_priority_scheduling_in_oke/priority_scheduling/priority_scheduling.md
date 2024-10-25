@@ -37,10 +37,12 @@ In the ```Outputs``` sections of the apply-job in Resource Manager you will see 
 
 3. Verify localqueue, clusterqueue, resourceflavors and workloadpriorityclass are deployed with the following commands: 
 ```
+<copy>
 k get clusterqueue
 k get localqueue
 k get resourceflavors
 k get workloadpriorityclass
+</copy>
 ```
 
 You should have something similar to the screenshot:
@@ -51,7 +53,9 @@ You should have something similar to the screenshot:
 1. In ```/home/opc``` you have a folder named ```kubectl-files```. Under that folder you have multiple yaml files. For this lab we will use ```ray-job.ps-dev-pytorch-distributed-training.yaml``` and ```ray-job.ps-prod-pytorch-distributed-training.yaml```.
 2. First you will run three times the following command: 
 ``` 
+<copy>
 k create -f /home/opc/kubectl-files/ray-job.ps-dev-pytorch-distributed-training.yaml
+</copy>
 ```
 This command will create rayjobs which deploys pods that runs a **Fine-tuning model of PyTorch Lightning Text Classifier**. For first job that runs this it will take up to 25 minutes because it pulls the **rayproject/ray-ml:2.9.0-gpu** image for running the Ray cluster besides the actual run of the fine-tune model into Ray cluster. For the rest of job runs it will take 8-10minutes.
 3. If you try a ```k get rayjob``` after you have run the create commands you will see that two rayjobs will be in suspended state and one will be in Initializing and then in Running. In Initializing state is the job when the image for pods is being pulled and in Running state is when the actual ray cluster pods started running.
@@ -68,9 +72,11 @@ You can wait for the first DEV rayjob to complete and then you go to next task a
 ## Task 4: Run rayjobs for DEV and PROD and observe priority scheduling
 1. You will run the following commands: 
 ``` 
+<copy>
 k get rayjob /*here you will see one job COMPLETE, one RUNNING and one still SUSPENDED*/
 k create -f /home/opc/kubectl-files/ray-job.ps-prod-pytorch-distributed-training.yaml /*here you create the PROD job*/
 k get rayjob /*here you will see one job COMPLETE, two jobs SUSPENDED and one RUNNING*/
+</copy>
 ```
 
 After you run these commands, for the last command you will see that the PROD rayjob is in RUNNING state even though one of the DEV rayjobs were in RUNNING state previously and that DEV rayjobs took SUSPENDED state. 
@@ -83,11 +89,15 @@ This happens because PROD rayjobs are considered with higher priority, and Kueue
 ## Task 5: CleanUp the cluster
 1. Run the following command: 
 ```
+<copy>
 k get all 
+</copy>
 ```
 2. Based on the rayjobs list provided by the previous command, run the following command for each rayjob: 
 ```
+<copy>
 k delete rayjob rayjob-name
+</copy>
 ```
 
 
