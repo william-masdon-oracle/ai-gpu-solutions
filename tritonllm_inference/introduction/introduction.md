@@ -1,6 +1,8 @@
 # Introduction
 
-## About this Workshop
+# Start the Workshop
+
+## Task
 
 In this workshop, we will focus on deploying large language models using Llama 3.2 with NVIDIA Triton Inference Server on Oracle Cloud Infrastructure (OCI). The workshop provides hands-on experience with implementing, deploying, and optimizing these models on OCI using either an A10 standalone shape or Oracle Kubernetes Engine (OKE). We will explore various stages of the deployment process, utilizing tools like TensorRT and Triton for scalable and efficient AI solutions.
 Estimated Workshop Time: 1 hour
