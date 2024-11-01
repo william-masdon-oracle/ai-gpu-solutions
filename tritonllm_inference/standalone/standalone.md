@@ -43,11 +43,11 @@ This lab assumes you have:
 
     ![Apply Stack](images/apply_stack.png)
 
-5. Wait for the Job to succeed. It may take up 30 minutes for it to be successful and before infrastructure is provisioned.
+5. Wait for the Job to complete. It may take up 3 minutes to proviosion the infrastructure.
 
 ## Task 2: Access the instance
 
-1. Once the stack is created wait for it to complete and then you should be able to connect to the created instance via ssh
+1. Once the job is finished, you will be able to connect to the created instance via ssh.
 
 2. The stack will provide you at Output the following details:
     * **`SELECTED_MODEL_ENGINE`** [reconfirms the value selected in Task 1 point 3]
@@ -56,10 +56,18 @@ This lab assumes you have:
 
 3. Execute ssh opc@`VM_PUB_IP` in Terminal.
 
-4. Check the cloudinit completion:
+4. Check the cloudinit completion (It may take between 15 and 20 minutes based on the selected OS):
 ```tail -f /var/log/cloud-init-output.log```
 
-5. Allow access for Triton_Inference if you want to use the public IP for queries
+Based on the OS you will see the following message:
+```Cloud-init v. 24.3.1-0ubuntu0~24.04.2 finished...```
+```Cloud-init v. 23.4-7.0.1.el8_10.7 finished...```
+
+You can exit from this command with CTRL+C (CONTROL +C for MAC).
+
+## Task 3: Access Triton
+
+Allow access for Triton_Inference if you want to use the public IP for queries
 
     * **Oracle Linux:**
 
