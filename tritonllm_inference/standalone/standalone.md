@@ -67,7 +67,7 @@ You can exit from this command with CTRL+C (CONTROL +C for MAC).
 
 ## Task 3: Access Triton
 
-Allow access for Triton_Inference if you want to use the public IP for queries
+1. Allow access for Triton_Inference if you want to use the public IP for queries.
 
     * **Oracle Linux:**
 
@@ -80,6 +80,7 @@ Allow access for Triton_Inference if you want to use the public IP for queries
     * **Ubuntu:**
 
     ```
+    <copy>
     sudo iptables -L
     sudo iptables -F
     sudo iptables-save > /dev/null
@@ -88,6 +89,7 @@ Allow access for Triton_Inference if you want to use the public IP for queries
     If this does not work do also this:
 
     ```
+    <copy>
     sudo systemctl stop iptables
     sudo systemctl disable iptables
 
@@ -98,17 +100,13 @@ Allow access for Triton_Inference if you want to use the public IP for queries
     sudo iptables-save > /dev/null
     ```
 
-6. Test tritonllm inference from the created instance (once the cloudinit completes)
+2. Test tritonllm inference from the created instance (once the cloudinit completes)
 
-    ```
-    curl -X POST http://localhost:8000/v2/models/ensemble/generate -d   '{"text_input": "What is machine learning?", "max_tokens": 20, "bad_words": "", "stop_words": ""}'
-    ```
+    ```curl -X POST http://localhost:8000/v2/models/ensemble/generate -d   '{"text_input": "What is machine learning?", "max_tokens": 20, "bad_words": "", "stop_words": ""}'```
 
-7. Test tritonllm inference from the created instance (once the cloudinit completes and firewall rule permits the acces)
+3. Test tritonllm inference from the created instance (once the cloudinit completes and firewall rule permits the acces)
 
-    ```
-    curl -X POST http://`<instance_public_ip>`:8000/v2/models/ensemble/generate -d   '{"text_input": "What is machine learning?", "max_tokens": 20, "bad_words": "", "stop_words": ""}'
-    ```
+    ```curl -X POST http://`<instance_public_ip>`:8000/v2/models/ensemble/generate -d   '{"text_input": "What is machine learning?", "max_tokens": 20, "bad_words": "", "stop_words": ""}'```
 
 You may now proceed to the next lab.
 
