@@ -64,10 +64,22 @@ This lab assumes you have:
 ## Task 3: Access Triton
 
 1. Some commands to check the OKE status and configuration once connected to the operator:
-    ```k get all -A``` \
-    This allows you to review and confirm if the pod and the service are created, and to collect the values needed to test the model query.
+    ```
+    k get all -A
+    ```
+    This allows you to review and confirm if the pod and the service are created and there is mo error (you will collect the value of the LB Public IP to test the model query).
 
-2. You can test the model query with the following curl command: ```curl -X POST http://<External_LB_IP>:8000/v2/models/ensemble/generate -d '{"text_input": "What is machine learning?", "max_tokens": 20, "bad_words": "", "stop_words": ""}'```
+2. Collect LB Public IP address with the following command:
+
+```
+    kubectl get service triton-inference-server -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+```
+
+3. You can test the model query with the following curl command:
+
+```
+    curl -X POST http://<External_LB_IP>:8000/v2/models/ensemble/generate -d '{"text_input": "What is machine learning?", "max_tokens": 20, "bad_words": "", "stop_words": ""}'
+```
 
 ## Acknowledgements
 
