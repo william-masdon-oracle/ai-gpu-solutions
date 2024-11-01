@@ -72,6 +72,7 @@ You can exit from this command with CTRL+C (CONTROL +C for MAC).
     * **Oracle Linux:**
 
     ```
+    <copy>
     sudo firewall-cmd --zone=public --permanent --add-port 8000/tcp
     sudo firewall-cmd --reload
     sudo firewall-cmd --list-all
