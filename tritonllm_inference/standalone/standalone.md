@@ -1,4 +1,4 @@
-# Provision of resources to run different Llama3.2 models in OCI OKE
+# Provision of resources to run different Llama3.2 models in A10 instance
 
 ## Introduction
 
