@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This lab will take you through the steps needed to provision the infrastructure using Resource manager and using OCI OKE.
+This lab will take you through the steps needed to provision the infrastructure using Resource manager and using an A10 shape..
 
 Estimated Time: 30 minutes
 
