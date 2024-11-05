@@ -20,7 +20,7 @@ This lab assumes you have:
 
 ## Task 1: Provision resources
 
-1. Go to Resource manager -> Stacks -> Create Stack. Choose My configuration and upload the provided zip file and click Next: [orm_code_tritonllm_llama3.2_A10orm_code_tritonllm_llama3.2_oke-main.zip](https://github.com/bogdanbazarca/orm_code_tritonllm_llama3.2_A10orm_code_tritonllm_llama3.2_oke/archive/refs/heads/ocisa.zip)
+1. Go to Resource manager -> Stacks -> Create Stack. Choose My configuration and upload the provided zip file and click Next: [orm-code-tritonllm-llama3.2-A10orm-code-tritonllm_llama3.2-oke-main.zip](https://github.com/bogdanbazarca/orm_code_tritonllm_llama3.2_A10orm_code_tritonllm_llama3.2_oke/archive/refs/heads/ocisa.zip)
 
     ![Resource Manager](images/resource_manager.png)
 
@@ -86,6 +86,5 @@ This lab assumes you have:
 
 ## Acknowledgements
 
-**Authors**
-
-* **Bogdan Bazarca**, Senior Cloud Engineer, NACIE
+* **Author** Bogdan Bazarca, Senior Cloud Engineer, NACIE
+* **Last Updated By/Date**: Bogdan Bazarca - Senior Cloud Engineer, Nov 2024

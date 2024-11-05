@@ -20,7 +20,7 @@ This lab assumes you have:
 
 ## Task 1: Provision resources
 
-1. Go to Resource manager -> Stacks -> Create Stack. Choose My configuration and upload the provided zip file and click Next: [orm_code_tritonllm_llama3.2_oke-main.zip](https://github.com/bogdanbazarca/orm_code_tritonllm_llama3.2_A10/archive/refs/heads/ocisa.zip)
+1. Go to Resource manager -> Stacks -> Create Stack. Choose My configuration and upload the provided zip file and click Next: [orm-code-tritonllm-llama3.2-oke-main.zip](https://github.com/bogdanbazarca/orm_code_tritonllm_llama3.2_A10/archive/refs/heads/ocisa.zip)
 
     ![Resource Manager](images/resource_manager.png)
 
@@ -103,16 +103,21 @@ You can exit from this command with CTRL+C (CONTROL +C for MAC).
 
 2. Test tritonllm inference from the created instance (once the cloudinit completes)
 
-    ```curl -X POST http://localhost:8000/v2/models/ensemble/generate -d   '{"text_input": "What is machine learning?", "max_tokens": 20, "bad_words": "", "stop_words": ""}'```
+    ```
+    <copy>
+    curl -X POST http://localhost:8000/v2/models/ensemble/generate -d   '{"text_input": "What is machine learning?", "max_tokens": 20, "bad_words": "", "stop_words": ""}'
+    ```
 
 3. Test tritonllm inference from the created instance (once the cloudinit completes and firewall rule permits the acces)
 
-    ```curl -X POST http://`<instance_public_ip>`:8000/v2/models/ensemble/generate -d   '{"text_input": "What is machine learning?", "max_tokens": 20, "bad_words": "", "stop_words": ""}'```
+    ```
+    <copy>
+    curl -X POST http://`<instance_public_ip>`:8000/v2/models/ensemble/generate -d   '{"text_input": "What is machine learning?", "max_tokens": 20, "bad_words": "", "stop_words": ""}'
+    ```
 
 You may now proceed to the next lab.
 
 ## Acknowledgements
 
-**Authors**
-
-* **Bogdan Bazarca**, Senior Cloud Engineer, NACIE
+* **Author** Bogdan Bazarca, Senior Cloud Engineer, NACIE
+* **Last Updated By/Date**: Bogdan Bazarca - Senior Cloud Engineer, Nov 2024
