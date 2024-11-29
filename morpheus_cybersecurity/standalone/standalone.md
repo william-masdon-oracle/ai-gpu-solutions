@@ -109,14 +109,36 @@ This lab assumes you have:
 
     * **Oracle Linux:**
 
-    ```
-    sudo firewall-cmd --zone=public --permanent --add-port 8888/tcp
-    sudo firewall-cmd --reload
-    sudo firewall-cmd --list-all
-    conda activate fraud_conda_env
-    ```
+        ```
+        sudo firewall-cmd --zone=public --permanent --add-port 8888/tcp
+        sudo firewall-cmd --reload
+        sudo firewall-cmd --list-all
+        conda activate fraud_conda_env
+        ```
 
-    **Note**: If you reboot the system, you will need to manually restart the Jupyter Notebook. Follow these steps from the /home/opc directory:
+    * **Ubuntu:**
+
+        ```
+        sudo iptables -L
+        sudo iptables -F
+        sudo iptables-save > /dev/null
+        conda activate fraud_conda_env
+        ```
+
+        If the above steps do not resolve the issue, try the following:
+    
+        ```
+        sudo systemctl stop iptables
+        sudo systemctl disable iptables
+    
+        sudo systemctl stop netfilter-persistent
+        sudo systemctl disable netfilter-persistent
+    
+        sudo iptables -F
+        sudo iptables-save > /dev/null
+        ```
+
+    **Note**:  For both OS versions, if you reboot the system, you will need to manually restart the Jupyter Notebook. Follow these steps from the /home/opc directory:
 
     * Activate the conda environment:
         
@@ -131,45 +153,80 @@ This lab assumes you have:
         nohup jupyter notebook --ip=0.0.0.0 --port=8888 > /home/opc/jupyter.log 2>&1 &
         ```
 
-    * Retrieve the access token by running:
+    * Retrieve the access token, as described in the next step, by running:
 
         ```cat /home/opc/jupyter.log```
 
-    * **Ubuntu:**
+2. After deployment and the above access configuration, Jupyter Notebooks for TabFormer and Sparkov will be accessible on the VM. Use the public IP address of the VM, port 8888, and the authentication token found in the jupyter.log file to access the notebooks.
 
-    ```
-    sudo iptables -L
-    sudo iptables -F
-    sudo iptables-save > /dev/null
-    conda activate fraud_conda_env
-    ```
+     ```
+     cat jupyter.log
+     ```
 
-    If this does not work do also this:
+     Example output:
 
-    ```
-    sudo systemctl stop iptables
-    sudo systemctl disable iptables
+     ![Jupyter link and token](images/jupyter_log.png)
 
-    sudo systemctl stop netfilter-persistent
-    sudo systemctl disable netfilter-persistent
+     Select any of the above highlighted links, replace "localhost" or "127.0.0.1" with the public IP address of the VM, and paste the updated link into your browser to access the Jupyter Notebooks directly:
 
-    sudo iptables -F
-    sudo iptables-save > /dev/null
-    ```
+     ![Jupyter notebooks](images/jupyter_notebooks.png)
 
-2. Test tritonllm inference from the created instance (once the cloudinit completes)
+3. After accessing Jupyter on the VM public IP, navigate to the following directory: /morpheus-experimental/ai-credit-fraud-workflow/notebooks/. Here, you can run the available labs. Make sure to select Kernel -> Change Kernel -> Fraud Conda Environment for each notebook before executing.
 
-    ```
-    <copy>
-    curl -X POST http://localhost:8000/v2/models/ensemble/generate -d   '{"text_input": "What is machine learning?", "max_tokens": 20, "bad_words": "", "stop_words": ""}'
-    ```
+    ![Inference notebooks](images/inference_notebooks.png)
 
-3. Test tritonllm inference from the created instance (once the cloudinit completes and firewall rule permits the acces)
+**Note**: In the following tasks, you will work with TabFormer and Sparkov to demonstrate inference for fraud analysis. The notebooks will have to be executed in the correct sequence. For each dataset, you'll start by running the preprocessing notebook to prepare the data. Next, the training notebook will be executed to generate the models. Finally, the inference notebook will be used to analyze unseen data and obtain predictions.
 
-    ```
-    <copy>
-    curl -X POST http://`<instance_public_ip>`:8000/v2/models/ensemble/generate -d   '{"text_input": "What is machine learning?", "max_tokens": 20, "bad_words": "", "stop_words": ""}'
-    ```
+## Task 4: Run TabFormer Jupyter notebooks in the Morpheus AI workflow for fraud detection
+
+Please select Kernel -> Change Kernel -> Fraud Conda Environment for all notebooks.
+
+### Steps for Executing TabFormer Notebooks
+
+1. **Preprocessing: `preprocess_Tabformer.ipynb`**  
+
+    Run this notebook to preprocess the data. 
+    
+    Outputs:
+    * Files saved under `./data/TabFormer/gnn` and `./data/TabFormer/xgb`.
+    * Preprocessor pipeline saved as `preprocessor.pkl`.
+    * Variables saved in `variables.json` under `./data/TabFormer`.
+
+
+2. **Training: `train_gnn_based_xgboost.ipynb`**
+    
+    Train the GNN-based XGBoost model.  
+    
+    **Important**: Before running, ensure Cell 2 has the value: `DATASET = TABFORMER`.
+
+    Outputs:
+    * Model files saved in `./data/TabFormer/models`. 
+
+
+3. **Inference: `inference_gnn_based_xgboost_TabFormer.ipynb`**  
+    
+    Use this notebook to perform inference on unseen data.  
+    
+    **Important**: 
+    * In Cell 2, set: `dataset_base_path = '../data/TabFormer/'`.  
+    * In Cell 13, ensure the TabFormer-specific selection is uncommented.
+
+4. **Optional: Pure XGBoost**  
+    
+    For building and inferring with a pure XGBoost model (without GNN):  
+    
+    **Training**: `train_xgboost.ipynb`
+    * Produces an XGBoost model in `./data/TabFormer/models`.  
+    
+    **Important**: In Cell 2, set: `DATASET = TABFORMER`.
+    
+    **Inference**: `inference_xgboost_TabFormer.ipynb`
+    * Use this notebook for inference with the pure XGBoost model.
+
+
+## Task 5: Run Sparkov Jupyter notebooks in the Morpheus AI Workflow for fraud analysis
+
+Please select Kernel -> Change Kernel -> Fraud Conda Environment for all notebooks.
 
 You may now proceed to the next lab.
 
