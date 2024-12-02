@@ -9,8 +9,8 @@ Estimated Time: 60 minutes
 ### Objectives
 
 * Provisioning of infrastructure using Resource manager.
-* Setting up the accessibility to the Morpheus VM and the related Jupyter notebooks.
-* Running Jupyter notebooks for TabFormer and Sparkov as part of workflows built within the Morpheus framework.
+* Setting up the access to the Morpheus VM and the related Jupyter notebooks.
+* Running Jupyter notebooks for TabFormer and Sparkov fraud detection models as part of workflows built within the Morpheus framework.
 
 ### Prerequisites
 
@@ -33,7 +33,7 @@ This lab assumes you have:
 
     OR
 
-    * You can use the single click deployment button below to launch the stack creation directly, the click **Next**.
+    * You can use the single click deployment button below to launch the stack creation directly, accept the terms and click **Next**.
 
         [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://github.com/bogdanbazarca/orm_morpheus_fraud_detection/archive/refs/heads/main.zip)
 
@@ -41,7 +41,7 @@ This lab assumes you have:
 
 2. Choose or fill in the deployment options, including:
 
-    * Compartment, VM display name, Shape, Operating System [Canonical Ubuntu or Oracle Linux], Operating System Version [24.04 or 8], Public SSH Key, availability domain.
+    * **Compartment**, **VM display name**, **Shape**, **Operating System** (Canonical Ubuntu or Oracle Linux), **Operating System Version** (24.04 or 8), **Public SSH Key**, **availability domain**.
 
         ![Deployment options](images/config.png)
 
