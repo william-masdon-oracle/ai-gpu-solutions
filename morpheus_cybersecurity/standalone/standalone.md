@@ -4,11 +4,13 @@
 
 This lab will walk you through the steps for automatically deploying Morpheus in a standalone configuration. Using Oracle Resource Manager (ORM), you will set up the environment required to run workflows and test Jupyter notebooks for Sparkov and TabFormer.
 
-Estimated Time: 30 minutes
+Estimated Time: 60 minutes
 
 ### Objectives
 
-Provisioning of infrastructure using Resource manager.
+* Provisioning of infrastructure using Resource manager.
+* Setting up the accessibility to the Morpheus VM and the related Jupyter notebooks.
+* Running Jupyter notebooks for TabFormer and Sparkov.
 
 ### Prerequisites
 
