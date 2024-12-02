@@ -138,7 +138,7 @@ This lab assumes you have:
         sudo iptables-save > /dev/null
         ```
 
-    **Note**:  For both OS versions, if you reboot the system, you will need to manually restart the Jupyter Notebook. Follow these steps from the /home/opc directory:
+    **Note**:  For both OS versions, if you reboot the system, you will need to manually restart the Jupyter Notebook. Follow these steps from the /home/opc or /home/ubuntu directory:
 
     * Activate the conda environment:
         
@@ -151,11 +151,17 @@ This lab assumes you have:
         ```
         > jupyter.log
         nohup jupyter notebook --ip=0.0.0.0 --port=8888 > /home/opc/jupyter.log 2>&1 &
+        OR
+        nohup jupyter notebook --ip=0.0.0.0 --port=8888 > /home/ubuntu/jupyter.log 2>&1 &
         ```
 
     * Retrieve the access token, as described in the next step, by running:
 
-        ```cat /home/opc/jupyter.log```
+        ```
+        cat /home/opc/jupyter.log
+        OR
+        cat /home/ubuntu/jupyter.log
+        ```
 
 2. After deployment and the above access configuration, Jupyter Notebooks for TabFormer and Sparkov will be accessible on the VM. Use the public IP address of the VM, port 8888, and the authentication token found in the jupyter.log file to access the notebooks.
 
@@ -179,13 +185,15 @@ This lab assumes you have:
 
 ## Task 4: Run TabFormer Jupyter notebooks in the Morpheus AI workflow for fraud detection
 
-Please select Kernel -> Change Kernel -> Fraud Conda Environment for all notebooks.
-
 ### Steps for Executing TabFormer Notebooks
 
 1. **Preprocessing: `preprocess_Tabformer.ipynb`**  
 
-    Run this notebook to preprocess the data. 
+    Select _Kernel_ -> _Change Kernel_ -> _Fraud Conda Environment_ to change the kernel. You need to perform this step for each notebook.
+
+    Run this notebook to preprocess the data - run cells one by one by pressing _Shift+Enter_, or select from the menu _Run_ -> _Run All Cells_.
+
+    ![Run Jupyter notebooks](images/run_jupyter_notebook.png)
     
     Outputs:
     * Files saved under `./data/TabFormer/gnn` and `./data/TabFormer/xgb`.
@@ -194,16 +202,25 @@ Please select Kernel -> Change Kernel -> Fraud Conda Environment for all noteboo
 
 
 2. **Training: `train_gnn_based_xgboost.ipynb`**
-    
-    Train the GNN-based XGBoost model.  
+
+    Switch to the _Fraud Conda Environment_ kernel.
     
     **Important**: Before running, ensure Cell 2 has the value: `DATASET = TABFORMER`.
 
-    Outputs:
+    Run the notebook cells to train the GNN-based XGBoost model.  
+
+    **Outputs**:
+
     * Model files saved in `./data/TabFormer/models`. 
+
+    * There is also an output at the end of the notebook:
+
+    ![TabFormer training output](images/tabformer_training_output.png)
 
 
 3. **Inference: `inference_gnn_based_xgboost_TabFormer.ipynb`**  
+    
+    Switch to the _Fraud Conda Environment_ kernel.
     
     Use this notebook to perform inference on unseen data.  
     
@@ -211,32 +228,53 @@ Please select Kernel -> Change Kernel -> Fraud Conda Environment for all noteboo
     * In Cell 2, set: `dataset_base_path = '../data/TabFormer/'`.  
     * In Cell 13, ensure the TabFormer-specific selection is uncommented.
 
-4. **Optional: Pure XGBoost**  
+    Run the notebook.
+
+    Example output:
+
+    ![TabFormer Inference example output on unseen data](images/tabformer_example_inference_output.png)
+
+**Optional: Pure XGBoost**  
     
     For building and inferring with a pure XGBoost model (without GNN):  
     
-    **Training**: `train_xgboost.ipynb`
-    * Produces an XGBoost model in `./data/TabFormer/models`.  
+4. **Training**: `train_xgboost.ipynb`
+
+    Produces an XGBoost model in `./data/TabFormer/models`.  
     
+    Switch to the _Fraud Conda Environment_ kernel.
+
     **Important**: In Cell 2, set: `DATASET = TABFORMER`.
+
+    Run the notebook. You will get some graphs:
     
-    **Inference**: `inference_xgboost_TabFormer.ipynb`
-    * Use this notebook for inference with the pure XGBoost model.
+    ![TabFormer XGBoost Training graphs](images/tabformer_pure_xgboost_training_graphs.png)
+    
+5. **Inference**: `inference_xgboost_TabFormer.ipynb`
+
+    Use this notebook for inference with the pure XGBoost model.
+
+    * Switch to the _Fraud Conda Environment_ kernel.
+
+    * Run the notebook.
+
+    * The output on unseen data will be similar to the one below:
+
+    ![TabFormer XGBoost inference](images/tabformer_xgboost_inference.png)
 
 
 ## Task 5: Run Sparkov Jupyter notebooks in the Morpheus AI Workflow for fraud analysis
 
-Please select Kernel -> Change Kernel -> Fraud Conda Environment for all notebooks.
-
 ### Steps for Executing Sparkov Notebooks
 
-To execute the labs, select **Kernel -> Restart Kernel and Run All Cells**.
-
 1. **Preprocessing: `preprocess_Sparkov.ipynb`**  
+
+    Select _Kernel_ -> _Change Kernel_ -> _Fraud Conda Environment_ to change the kernel. You need to perform this step for each notebook.
+
+    Run this notebook to preprocess the Sparkov dataset - run cells one by one by pressing _Shift+Enter_, or select from the menu _Run_ -> _Run All Cells_.  
    
-    Run this notebook to preprocess the Sparkov dataset.  
-   
-    Outputs:
+    **Outputs**:
+
     * Files saved under `./data/Sparkov/gnn` and `./data/Sparkov/xgb`.
     * Preprocessor pipeline saved as `preprocessor.pkl`.
     * Variables saved in `variables.json` under `./data/Sparkov`.
@@ -245,28 +283,53 @@ To execute the labs, select **Kernel -> Restart Kernel and Run All Cells**.
    
     Train the GNN-based XGBoost model for Sparkov.  
 
+    Switch to the _Fraud Conda Environment_ kernel.
+
     **Important**: Before running, ensure Cell 2 has the value: `DATASET = SPARKOV`.
 
-    Outputs:
+    Run the notebook.
+
+    **Outputs**:
+
     * Model files saved in `./data/Sparkov/models`.  
 
+    * There is also an output at the end of the notebook:
 
-3. **Optional: Pure XGBoost**  
+    ![TabFormer training output](images/sparkov_training_output.png)
+
+**Optional: Pure XGBoost**  
     
     For building and inferring with a pure XGBoost model (without GNN):  
     
-    **Training**: `train_xgboost.ipynb`
-    * Produces an XGBoost model in `./data/Sparkov/models`.  
+3. **Training**: `train_xgboost.ipynb`
+
+    Produces an XGBoost model in `./data/Sparkov/models`.  
+
+    Switch to the _Fraud Conda Environment_ kernel.
     
     **Important**: In Cell 2, set: `DATASET = SPARKOV`.  
+
+    Run the notebook.
+
+    Example output:
+
+    ![Sparkov XGBoost Training graphs](images/sparkov_pure_xgboost_training_graphs.png)
     
-    **Inference**: `inference_xgboost_Sparkov.ipynb`
-    * Use this notebook for inference with the pure XGBoost model.  
+4. **Inference**: `inference_xgboost_Sparkov.ipynb`
+
+    Use this notebook for inference with the pure XGBoost model.  
     
     **Important**:
     * In Cell 2, set: `dataset_base_path = '../data/Sparkov/'`.  
     * In Cell 13, ensure the Sparkov-specific content is uncommented.
+    
+    Switch to the _Fraud Conda Environment_ kernel.
 
+    Run the notebook.
+
+    The output on unseen data will be similar to the one below:
+
+    ![Sparkov XGBoost inference](images/sparkov_xgboost_inference.png)
 
 You may now proceed to the next lab.
 
