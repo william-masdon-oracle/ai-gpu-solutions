@@ -228,9 +228,54 @@ Please select Kernel -> Change Kernel -> Fraud Conda Environment for all noteboo
 
 Please select Kernel -> Change Kernel -> Fraud Conda Environment for all notebooks.
 
+### Steps for Executing Sparkov Notebooks
+
+To execute the labs, select **Kernel -> Restart Kernel and Run All Cells**.
+
+1. **Preprocessing: `preprocess_Sparkov.ipynb`**  
+   
+    Run this notebook to preprocess the Sparkov dataset.  
+   
+    Outputs:
+    * Files saved under `./data/Sparkov/gnn` and `./data/Sparkov/xgb`.
+    * Preprocessor pipeline saved as `preprocessor.pkl`.
+    * Variables saved in `variables.json` under `./data/Sparkov`.
+
+2. **Training: `train_gnn_based_xgboost.ipynb`**  
+   
+    Train the GNN-based XGBoost model for Sparkov.  
+
+    **Important**: Before running, ensure Cell 2 has the value: `DATASET = SPARKOV`.
+
+    Outputs:
+    * Model files saved in `./data/Sparkov/models`.  
+
+
+3. **Optional: Pure XGBoost**  
+    
+    For building and inferring with a pure XGBoost model (without GNN):  
+    
+    **Training**: `train_xgboost.ipynb`
+    * Produces an XGBoost model in `./data/Sparkov/models`.  
+    
+    **Important**: In Cell 2, set: `DATASET = SPARKOV`.  
+    
+    **Inference**: `inference_xgboost_Sparkov.ipynb`
+    * Use this notebook for inference with the pure XGBoost model.  
+    
+    **Important**:
+    * In Cell 2, set: `dataset_base_path = '../data/Sparkov/'`.  
+    * In Cell 13, ensure the Sparkov-specific content is uncommented.
+
+
 You may now proceed to the next lab.
 
 ## Acknowledgements
 
-* **Author** Bogdan Bazarca, Senior Cloud Engineer, NACIE
-* **Last Updated By/Date**: Bogdan Bazarca - Senior Cloud Engineer, Nov 2024
+* **Authors** 
+    * Adina Nicolescu - Senior Cloud Engineer, NACIE
+    * Bogdan Bazarca, Senior Cloud Engineer, NACIE
+
+* **Last Updated By/Date**
+    * Adina Nicolescu - Senior Cloud Engineer, NACIE - Dec 2024
+    * Bogdan Bazarca, Senior Cloud Engineer, NACIE
