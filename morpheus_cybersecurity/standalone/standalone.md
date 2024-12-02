@@ -10,7 +10,7 @@ Estimated Time: 60 minutes
 
 * Provisioning of infrastructure using Resource manager.
 * Setting up the accessibility to the Morpheus VM and the related Jupyter notebooks.
-* Running Jupyter notebooks for TabFormer and Sparkov.
+* Running Jupyter notebooks for TabFormer and Sparkov as part of workflows built within the Morpheus framework.
 
 ### Prerequisites
 
