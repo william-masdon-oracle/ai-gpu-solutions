@@ -1,5 +1,5 @@
 {
-  "workshoptitle": "NVIDIA Triton LLM Inference Server for Llama3.2 models",
+  "workshoptitle": "NVIDIA Morpheus on OCI: AI-Driven Cybersecurity Powered by NVIDIA GPUs",
   "help": "livelabs-help-oci_us@oracle.com",
   "tutorials": [
     {
@@ -13,13 +13,13 @@
       "filename": "https://oracle-livelabs.github.io/common/labs/remote-desktop/using-novnc-remote-desktop.md"
     },
     {
-      "title": "Lab 1: Deploy Llama3.2 on A10 instance",
-      "description": "Provision of resources to run Llama3.2 models on A10 instance",
+      "title": "Lab 1: Morpheus on A10 VM: Standalone Setup and Jupyter Notebooks",
+      "description": "Provision of resources to run Morpheus framework and TabFormer&Sparkov models on A10 instance",
       "filename": "../../standalone/standalone.md"
     },
     {
-      "title": "Lab 2: Deploy Llama 3.2 on OKE",
-      "description": "Provision of resources to run Llama3.2 models in OCI OKE",
+      "title": "Lab 2: Morpheus on Kubernetes: OKE Setup and Jupyter Notebooks",
+      "description": "Provision of resources to run Morpheus framework and TabFormer&Sparkov models in OCI OKE",
       "filename": "../../oke/oke.md"
     },
     {

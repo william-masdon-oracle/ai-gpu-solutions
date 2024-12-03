@@ -1,4 +1,4 @@
-# Provision of resources Standalone Morpheus on OCI A10 instance
+# Morpheus on A10 VM: Standalone Setup and Jupyter Notebooks
 
 ## Introduction
 

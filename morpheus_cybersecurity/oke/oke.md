@@ -1,4 +1,4 @@
-# Provision of resources to run different Llama3.2 models in OCI OKE
+# Morpheus on Kubernetes: OKE Setup and Jupyter Notebooks
 
 ## Introduction
 
