@@ -334,9 +334,9 @@ This lab assumes you have:
 
     ![TabFormer training output](./../../morpheus_cybersecurity/standalone/images/sparkov_training_output.png " ")
 
-**Optional: Pure XGBoost**  
+    **Optional: Pure XGBoost** 
     
-    For building and inferring with a pure XGBoost model (without GNN):  
+    * For building and inferring with a pure XGBoost model (without GNN):  
     
 3. **Training**: `train_xgboost.ipynb`
 
