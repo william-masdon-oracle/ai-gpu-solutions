@@ -92,9 +92,9 @@ This lab assumes you have:
 
 2. You can also collect the Load Balancer Public IP using the below command:
 
-```
+    ```
     kubectl get service fraud-detection-app -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
-```
+    ```
 
 3. Access Jupyter notebooks
 
