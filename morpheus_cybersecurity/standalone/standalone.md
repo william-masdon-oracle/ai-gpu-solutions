@@ -82,6 +82,7 @@ This lab assumes you have:
 
    * For Oracle Linux: 
    ```
+   <copy>
    ssh opc@<VM_PUB_IP>
    ```
    * For Ubuntu: 
