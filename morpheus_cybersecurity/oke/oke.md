@@ -71,7 +71,9 @@ This lab assumes you have:
    * **Operator**: The private IP address of the operator host.
    *  **SSH Tunnel Command**: Instructions on how to connect to the operator host via an SSH tunnel:
    ```
+   <copy>
    ssh -o ProxyCommand='ssh -W %h:%p opc@<bastion_Public_IP>' opc@<operator_Private_IP>
+   </copy>
    ```
 
 3. Copy the `ssh_to_operator` command and execute in Terminal.
@@ -83,7 +85,9 @@ This lab assumes you have:
     Run the below command to check the status and configuration of the OKE cluster once connected to the operator:
 
     ```
+    <copy>
     k get all -A
+    </copy>
     ```
 
     This command helps you verify if the pods and services have been successfully created and ensures there are no errors. Additionally, you can retrieve the Load Balancer's public IP address to use for testing the model query.
@@ -93,7 +97,9 @@ This lab assumes you have:
 2. You can also collect the Load Balancer Public IP using the below command:
     
     ```
+    <copy>
     kubectl get service fraud-detection-app -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+    </copy>
     ```
 
 3. Access Jupyter notebooks
@@ -101,7 +107,9 @@ This lab assumes you have:
     Use the Load Balancer public IP address, port 8888, and the authentication token found in the _fraud-detection-app*_ pod log file to access the Jupyter notebooks that will allow you to test running models against Morpheus on OKE.
 
     ```
+    <copy>
     k logs fraud-detection-app-...
+    </copy>
     ```
     
     and look for a value like this: **http://hostname:8888/tree?token=....**
