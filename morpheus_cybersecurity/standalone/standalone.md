@@ -81,11 +81,14 @@ This lab assumes you have:
 3. Open a terminal and run the following command to connect to your instance:  
 
    * For Oracle Linux: 
+   
    ```
    <copy>
    ssh opc@<VM_PUB_IP>
    ```
+   
    * For Ubuntu: 
+   
    ```
    ssh ubuntu@<VM_PUB_IP>
    ```
