@@ -27,7 +27,7 @@ This lab assumes you have:
 
     * Create the ORM stack manually.
     * Go to _Developer Services_ -> _Resource manager_ -> _Stacks_ -> _Create Stack_.
-    * Choose _My configuration_, upload this [Morpheus automation stack](https://github.com/bogdanbazarca/orm_morpheus_fraud_detection/archive/refs/heads/main.zip) and click **Next**.
+    * Choose _My configuration_, upload this [Morpheus automation stack](https://github.com/dranicu/orm_morpheus_fraud_detection) and click **Next**.
 
         ![Resource Manager](images/resource_manager.png)
 
@@ -35,7 +35,7 @@ This lab assumes you have:
 
     * You can use the single click deployment button below to launch the stack creation directly, accept the terms and click **Next**.
 
-        [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://github.com/bogdanbazarca/orm_morpheus_fraud_detection/archive/refs/heads/main.zip)
+        [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://github.com/dranicu/orm_morpheus_fraud_detection/archive/refs/heads/main.zip)
 
 
 
@@ -355,4 +355,3 @@ You may now proceed to the next lab.
 
 * **Last Updated By/Date**
     * Adina Nicolescu - Senior Cloud Engineer, NACIE - Dec 2024
-    * Bogdan Bazarca, Senior Cloud Engineer, NACIE
