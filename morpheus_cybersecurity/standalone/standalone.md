@@ -29,7 +29,7 @@ This lab assumes you have:
     * Go to _Developer Services_ -> _Resource manager_ -> _Stacks_ -> _Create Stack_.
     * Choose _My configuration_, upload this [Morpheus automation stack](https://github.com/dranicu/orm_morpheus_fraud_detection) and click **Next**.
 
-        ![Resource Manager](images/resource_manager.png)
+        ![Resource Manager](./../../morpheus_cybersecurity/standalone/images/resource_manager.png)
 
     OR
 
@@ -43,15 +43,15 @@ This lab assumes you have:
 
     * **Compartment**, **VM display name**, **Shape**, **Operating System** (Canonical Ubuntu or Oracle Linux), **Operating System Version** (24.04 or 8), **Public SSH Key**, **availability domain**.
 
-        ![Deployment options](images/config.png " ")
+        ![Deployment options](./../../morpheus_cybersecurity/standalone/images/config.png " ")
 
     * Select if you want to use an existent VCN or fill in the details for creating a new one:
     
-        ![Network configuration](images/networking_configuration.png " ")
+        ![Network configuration](./../../morpheus_cybersecurity/standalone/images/networking_configuration.png " ")
     
     * If you choose to create new VCN:
     
-        ![Network configuration](images/new_vcn.png " ")
+        ![Network configuration](./../../morpheus_cybersecurity/standalone/images/new_vcn.png " ")
 
     * Click **Next**.
 
@@ -59,13 +59,13 @@ This lab assumes you have:
     
     * Review the options selected in the previous steps and then select _Run Apply_ and finally click on **Create** as shown below.
         
-        ![Apply Stack](images/apply_stack.png " ")
+        ![Apply Stack](./../../morpheus_cybersecurity/standalone/images/apply_stack.png " ")
 
 4. Wait for the job to complete, which should only take a few minutes. Once the job finishes and the VM is provisioned, the cloud-init instructions will continue running in the background. For more details on monitoring progress, refer to the instructions in the next section.
 
     * Review the Job status:
 
-       ![ORM Job](images/stack_job.png " ")
+       ![ORM Job](./../../morpheus_cybersecurity/standalone/images/stack_job.png " ")
 
     
 
@@ -182,15 +182,15 @@ This lab assumes you have:
 
      Example output:
 
-     ![Jupyter link and token](images/jupyter_log.png " ")
+     ![Jupyter link and token](./../../morpheus_cybersecurity/standalone/images/jupyter_log.png " ")
 
      Select any of the above highlighted links, replace "localhost" or "127.0.0.1" with the public IP address of the VM, and paste the updated link into your browser to access the Jupyter Notebooks directly:
 
-     ![Jupyter notebooks](images/jupyter_notebooks.png " ")
+     ![Jupyter notebooks](./../../morpheus_cybersecurity/standalone/images/jupyter_notebooks.png " ")
 
 3. After accessing Jupyter on the VM public IP, navigate to the following directory: /morpheus-experimental/ai-credit-fraud-workflow/notebooks/. Here, you can run the available labs. Make sure to select Kernel -> Change Kernel -> Fraud Conda Environment for each notebook before executing.
 
-    ![Inference notebooks](images/inference_notebooks.png " ")
+    ![Inference notebooks](./../../morpheus_cybersecurity/standalone/images/inference_notebooks.png " ")
 
 **Note**: In the following tasks, you will work with TabFormer and Sparkov to demonstrate inference for fraud analysis. The notebooks will have to be executed in the correct sequence. For each dataset, you'll start by running the preprocessing notebook to prepare the data. Next, the training notebook will be executed to generate the models. Finally, the inference notebook will be used to analyze unseen data and obtain predictions.
 
@@ -204,7 +204,7 @@ This lab assumes you have:
 
     Run this notebook to preprocess the data - run cells one by one by pressing _Shift+Enter_, or select from the menu _Run_ -> _Run All Cells_.
 
-    ![Run Jupyter notebooks](images/run_jupyter_notebook.png " ")
+    ![Run Jupyter notebooks](./../../morpheus_cybersecurity/standalone/images/run_jupyter_notebook.png " ")
     
     **Outputs**:
 
@@ -227,7 +227,7 @@ This lab assumes you have:
 
     * There is also an output at the end of the notebook:
 
-    ![TabFormer training output](images/tabformer_training_output.png " ")
+    ![TabFormer training output](./../../morpheus_cybersecurity/standalone/images/tabformer_training_output.png " ")
 
 
 3. **Inference: `inference_gnn_based_xgboost_TabFormer.ipynb`**  
@@ -245,7 +245,7 @@ This lab assumes you have:
 
     Example output:
 
-    ![TabFormer Inference example output on unseen data](images/tabformer_example_inference_output.png " ")
+    ![TabFormer Inference example output on unseen data](./../../morpheus_cybersecurity/standalone/images/tabformer_example_inference_output.png " ")
 
 **Optional: Pure XGBoost**  
     
@@ -261,7 +261,7 @@ This lab assumes you have:
 
     Run the notebook. You will get some graphs:
     
-    ![TabFormer XGBoost Training graphs](images/tabformer_pure_xgboost_training_graphs.png " ")
+    ![TabFormer XGBoost Training graphs](./../../morpheus_cybersecurity/standalone/images/tabformer_pure_xgboost_training_graphs.png " ")
     
 5. **Inference**: `inference_xgboost_TabFormer.ipynb`
 
@@ -273,7 +273,7 @@ This lab assumes you have:
 
     * The output on unseen data will be similar to the one below:
 
-    ![TabFormer XGBoost inference](images/tabformer_xgboost_inference.png " ")
+    ![TabFormer XGBoost inference](./../../morpheus_cybersecurity/standalone/images/tabformer_xgboost_inference.png " ")
 
 
 ## Task 5: Run Sparkov Jupyter notebooks in the Morpheus AI Workflow for fraud analysis
@@ -308,7 +308,7 @@ This lab assumes you have:
 
     * There is also an output at the end of the notebook:
 
-    ![TabFormer training output](images/sparkov_training_output.png " ")
+    ![TabFormer training output](./../../morpheus_cybersecurity/standalone/images/sparkov_training_output.png " ")
 
 **Optional: Pure XGBoost**  
     
@@ -326,7 +326,7 @@ This lab assumes you have:
 
     Example output:
 
-    ![Sparkov XGBoost Training graphs](images/sparkov_pure_xgboost_training_graphs.png " ")
+    ![Sparkov XGBoost Training graphs](./../../morpheus_cybersecurity/standalone/images/sparkov_pure_xgboost_training_graphs.png " ")
     
 4. **Inference**: `inference_xgboost_Sparkov.ipynb`
 
@@ -343,7 +343,7 @@ This lab assumes you have:
 
     The output on unseen data will be similar to the one below:
 
-    ![Sparkov XGBoost inference](images/sparkov_xgboost_inference.png " ")
+    ![Sparkov XGBoost inference](./../../morpheus_cybersecurity/standalone/images/sparkov_xgboost_inference.png " ")
 
 You may now proceed to the next lab.
 
