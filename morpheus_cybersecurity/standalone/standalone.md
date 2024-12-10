@@ -151,7 +151,7 @@ This lab assumes you have:
     * Start the Jupyter Notebook in the background:
 
         ```
-        # linux
+        # Linux
         > jupyter.log
         nohup jupyter notebook --ip=0.0.0.0 --port=8888 > /home/opc/jupyter.log 2>&1 &
         
