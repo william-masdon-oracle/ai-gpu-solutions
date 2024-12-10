@@ -82,13 +82,19 @@ This lab assumes you have:
 
     * For Oracle Linux: 
     
-    ```ssh opc@<VM_PUB_IP>```
+    ```text
+        <copy>
+        ssh opc@<VM_PUB_IP>
+        </copy>
+    ```
     
     
     * For Ubuntu: 
     
-    ```
-    ssh ubuntu@<VM_PUB_IP>
+    ```text
+        <copy>
+        ssh ubuntu@<VM_PUB_IP>
+        </copy>
     ```
 
 4. Check the cloudinit completion (It may take between 20 and 25 minutes based on the selected OS):
