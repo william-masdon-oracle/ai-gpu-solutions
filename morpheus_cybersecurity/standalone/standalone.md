@@ -151,7 +151,7 @@ This lab assumes you have:
     * Start the Jupyter Notebook in the background:
 
         ```
-        # Linux
+        # Oracle Linux
         > jupyter.log
         nohup jupyter notebook --ip=0.0.0.0 --port=8888 > /home/opc/jupyter.log 2>&1 &
         
@@ -165,8 +165,12 @@ This lab assumes you have:
     * Retrieve the access token, as described in the next step, by running:
 
         ```
+        # Oracle Linux
         cat /home/opc/jupyter.log
-        OR
+        
+        # OR
+
+        # Ubuntu
         cat /home/ubuntu/jupyter.log
         ```
 
