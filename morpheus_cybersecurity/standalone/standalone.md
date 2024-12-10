@@ -80,18 +80,17 @@ This lab assumes you have:
 
 3. Open a terminal and run the following command to connect to your instance:  
 
-   * For Oracle Linux: 
-   
-   ```
-   <copy>
-   ssh opc@VM_PUB_IP
-   ```
-   
-   * For Ubuntu: 
-   
-   ```
-   ssh ubuntu@VM_PUB_IP
-   ```
+    * For Oracle Linux: 
+    
+    ```
+    ssh opc@<VM_PUB_IP>
+    ```
+    
+    * For Ubuntu: 
+    
+    ```
+    ssh ubuntu@<VM_PUB_IP>
+    ```
 
 4. Check the cloudinit completion (It may take between 20 and 25 minutes based on the selected OS):
 
