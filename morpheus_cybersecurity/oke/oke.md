@@ -29,7 +29,7 @@ This lab assumes you have:
     * Go to _Developer Services_ -> _Resource manager_ -> _Stacks_ -> _Create Stack_.
     * Choose _My configuration_, upload this [Morpheus automation stack](https://github.com/dranicu/orm_morpheus_fraud_detection_oke) and click **Next**.
 
-    ![Resource Manager](images/resource_manager.png)
+    ![Resource Manager](./../../morpheus_cybersecurity/oke/images/resource_manager.png)
 
     OR
 
@@ -41,23 +41,23 @@ This lab assumes you have:
 
     * **Compartment** and **Cluster Name** (default: "oke").
     
-    ![Compartment_Cluster](images/compartment_cluster.png)
+    ![Compartment_Cluster](./../../morpheus_cybersecurity/oke/images/compartment_cluster.png)
 
     * Create new VCN (if needed, otherwise you can use an existing VCN) and customize the networking options
     
-    ![Networking_config](images/networking_configuration.png)
+    ![Networking_config](./../../morpheus_cybersecurity/oke/images/networking_configuration.png)
 
     * **Kubernetes nodepool configuration** (Generic Nodepool size, Generic Nodepool shape, Generic Nodepool boot volume size - default is 200GB).
     
-    ![Nodepool configuration](images/nodepool.png)
+    ![Nodepool configuration](./../../morpheus_cybersecurity/oke/images/nodepool.png)
 
     * Access to the Kubernetes cluster - select if you want to **Create bastion and operator hosts**, **Create operator IAM policy**, **Create public OKE API** and provide **SSH public key**.
     
-    ![Access_Kubernetes](images/access_kubernetes.png)
+    ![Access_Kubernetes](./../../morpheus_cybersecurity/oke/images/access_kubernetes.png)
 
 4. Click **Next** and then select _Run Apply_ and finally click on **Create** as shown below.
 
-    ![Apply Stack](images/apply_oke_stack.png)
+    ![Apply Stack](./../../morpheus_cybersecurity/oke/images/apply_oke_stack.png)
 
 5. Wait for the Job to succeed. It may take up 30 minutes for it to be successful and before infrastructure is provisioned.
 
@@ -92,7 +92,7 @@ This lab assumes you have:
 
     This command helps you verify if the pods and services have been successfully created and ensures there are no errors. Additionally, you can retrieve the Load Balancer's public IP address to use for testing the model query.
 
-    ![Pod and Load Balancer IP](images/k_get_all.png)
+    ![Pod and Load Balancer IP](./../../morpheus_cybersecurity/oke/images/k_get_all.png)
 
 2. You can also collect the Load Balancer Public IP using the below command:
     
@@ -116,7 +116,7 @@ This lab assumes you have:
 
     Replace "localhost" or "127.0.0.1" with the public IP address of the LoadBalancer, and paste the updated link into your browser to access the Jupyter Notebooks directly.
 
-    ![Jupyter notebooks on OKE](images/jupyter_oke.png)
+    ![Jupyter notebooks on OKE](./../../morpheus_cybersecurity/oke/images/jupyter_oke.png)
 
     Browse the _notebooks_ directory to view all the available notebooks.
 
@@ -129,7 +129,7 @@ This lab assumes you have:
 
     Run this notebook to preprocess the data - run cells one by one by pressing _Shift+Enter_, or select from the menu _Run_ -> _Run All Cells_.
 
-    ![Run Jupyter notebooks](images/run_jupyter_notebook.png)
+    ![Run Jupyter notebooks](./../../morpheus_cybersecurity/oke/images/run_jupyter_notebook.png)
     
     Outputs:
     * Files saved under `./data/TabFormer/gnn` and `./data/TabFormer/xgb`.
@@ -161,8 +161,8 @@ This lab assumes you have:
     Run the notebook.
 
 **Optional: Pure XGBoost**  
-    
-    For building and inferring with a pure XGBoost model (without GNN):  
+
+For building and inferring with a pure XGBoost model (without GNN):  
     
 4. **Training**: `train_xgboost.ipynb`
 
@@ -206,8 +206,8 @@ This lab assumes you have:
     * Model files saved in `./data/Sparkov/models`.  
 
 **Optional: Pure XGBoost**  
-    
-    For building and inferring with a pure XGBoost model (without GNN):  
+
+For building and inferring with a pure XGBoost model (without GNN):  
     
 3. **Training**: `train_xgboost.ipynb`
 
