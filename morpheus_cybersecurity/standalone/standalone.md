@@ -271,9 +271,9 @@ This lab assumes you have:
 
     ![TabFormer Inference example output on unseen data](./../../morpheus_cybersecurity/standalone/images/tabformer_example_inference_output.png " ")
 
-**Optional: Pure XGBoost**  
-    
-    For building and inferring with a pure XGBoost model (without GNN):  
+**Optional: Pure XGBoost** 
+
+For building and inferring with a pure XGBoost model (without GNN):  
     
 4. **Training**: `train_xgboost.ipynb`
 
@@ -334,10 +334,10 @@ This lab assumes you have:
 
     ![TabFormer training output](./../../morpheus_cybersecurity/standalone/images/sparkov_training_output.png " ")
 
-    **Optional: Pure XGBoost** 
-    
-    * For building and inferring with a pure XGBoost model (without GNN):  
-    
+**Optional: Pure XGBoost** 
+
+    For building and inferring with a pure XGBoost model (without GNN):  
+
 3. **Training**: `train_xgboost.ipynb`
 
     Produces an XGBoost model in `./data/Sparkov/models`.  
