@@ -334,11 +334,11 @@ For building and inferring with a pure XGBoost model (without GNN):
 
     ![TabFormer training output](./../../morpheus_cybersecurity/standalone/images/sparkov_training_output.png " ")
 
-3. **Optional: Pure XGBoost** 
+**Optional: Pure XGBoost** 
 
-    For building and inferring with a pure XGBoost model (without GNN):  
-
-    a. **Training**: `train_xgboost.ipynb`
+For building and inferring with a pure XGBoost model (without GNN):  
+    
+3. **Training**: `train_xgboost.ipynb`
 
     Produces an XGBoost model in `./data/Sparkov/models`.  
 
@@ -352,7 +352,7 @@ For building and inferring with a pure XGBoost model (without GNN):
 
     ![Sparkov XGBoost Training graphs](./../../morpheus_cybersecurity/standalone/images/sparkov_pure_xgboost_training_graphs.png " ")
     
-    b. **Inference**: `inference_xgboost_Sparkov.ipynb`
+4. **Inference**: `inference_xgboost_Sparkov.ipynb`
 
     Use this notebook for inference with the pure XGBoost model.  
     
