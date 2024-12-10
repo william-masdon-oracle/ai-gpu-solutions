@@ -119,5 +119,5 @@ You may now proceed to the next lab.
 
 ## Acknowledgements
 
-* **Author** Bogdan Bazarca, Senior Cloud Engineer, NACIE
-* **Last Updated By/Date**: Bogdan Bazarca - Senior Cloud Engineer, Nov 2024
+* **Author** Dragos Nicu, Senior Cloud Engineer, NACIE
+* **Last Updated By/Date**: Dragos Nicu - Senior Cloud Engineer, Dec 2024
