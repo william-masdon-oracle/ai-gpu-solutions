@@ -84,13 +84,13 @@ This lab assumes you have:
    
    ```
    <copy>
-   ssh opc@<VM_PUB_IP>
+   ssh opc@VM_PUB_IP
    ```
    
    * For Ubuntu: 
    
    ```
-   ssh ubuntu@<VM_PUB_IP>
+   ssh ubuntu@VM_PUB_IP
    ```
 
 4. Check the cloudinit completion (It may take between 20 and 25 minutes based on the selected OS):
