@@ -201,6 +201,12 @@ This lab assumes you have:
     Run this notebook to preprocess the data - run cells one by one by pressing _Shift+Enter_, or select from the menu _Run_ -> _Run All Cells_.
 
     ![Run Jupyter notebooks](images/run_jupyter_notebook.png " ")
+    
+    **Outputs**:
+
+    * Files saved in Jupyter under `./data/TabFormer/gnn` and `./data/TabFormer/xgb`.
+    * Preprocessor pipeline saved as `preprocessor.pkl`.
+    * Variables saved in `variables.json` under `./data/TabFormer`.
 
 
 2. **Training: `train_gnn_based_xgboost.ipynb`**
@@ -210,6 +216,10 @@ This lab assumes you have:
     **Important**: Before running, ensure Cell 2 has the value: `DATASET = TABFORMER`.
 
     Run the notebook cells to train the GNN-based XGBoost model.  
+
+    **Outputs**:
+
+    * Model files saved in Jupyter under `./data/TabFormer/models`. 
 
     * There is also an output at the end of the notebook:
 
@@ -223,7 +233,8 @@ This lab assumes you have:
     Use this notebook to perform inference on unseen data.  
     
     **Important**: 
-    * In Cell 2, set: `dataset_base_path = '../data/TabFormer/'`.  
+
+    * In Cell 2, make sure the following is set: `dataset_base_path = '../data/TabFormer/'`.  
     * In Cell 13, ensure the TabFormer-specific selection is uncommented.
 
     Run the notebook.
@@ -270,6 +281,12 @@ This lab assumes you have:
     Select _Kernel_ -> _Change Kernel_ -> _Fraud Conda Environment_ to change the kernel. You need to perform this step for each notebook.
 
     Run this notebook to preprocess the Sparkov dataset - run cells one by one by pressing _Shift+Enter_, or select from the menu _Run_ -> _Run All Cells_.  
+   
+    **Outputs**:
+
+    * Files saved in Jupyter under `./data/Sparkov/gnn` and `./data/Sparkov/xgb`.
+    * Preprocessor pipeline saved as `preprocessor.pkl`.
+    * Variables saved in `variables.json` under `./data/Sparkov`.
 
 2. **Training: `train_gnn_based_xgboost.ipynb`**  
    
@@ -280,6 +297,10 @@ This lab assumes you have:
     **Important**: Before running, ensure Cell 2 has the value: `DATASET = SPARKOV`.
 
     Run the notebook.
+
+    **Outputs**:
+
+    * Model files saved in Jupyter under `./data/Sparkov/models`.  
 
     * There is also an output at the end of the notebook:
 
@@ -308,7 +329,8 @@ This lab assumes you have:
     Use this notebook for inference with the pure XGBoost model.  
     
     **Important**:
-    * In Cell 2, set: `dataset_base_path = '../data/Sparkov/'`.  
+
+    * In Cell 2, make sure the following is set: `dataset_base_path = '../data/Sparkov/'`.  
     * In Cell 13, ensure the Sparkov-specific content is uncommented.
     
     Switch to the _Fraud Conda Environment_ kernel.
