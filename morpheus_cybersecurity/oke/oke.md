@@ -91,7 +91,7 @@ This lab assumes you have:
     ![Pod and Load Balancer IP](images/k_get_all.png)
 
 2. You can also collect the Load Balancer Public IP using the below command:
-
+    
     ```
     kubectl get service fraud-detection-app -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
     ```
