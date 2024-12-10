@@ -201,11 +201,6 @@ This lab assumes you have:
     Run this notebook to preprocess the data - run cells one by one by pressing _Shift+Enter_, or select from the menu _Run_ -> _Run All Cells_.
 
     ![Run Jupyter notebooks](images/run_jupyter_notebook.png " ")
-    
-    Outputs:
-    * Files saved under `./data/TabFormer/gnn` and `./data/TabFormer/xgb`.
-    * Preprocessor pipeline saved as `preprocessor.pkl`.
-    * Variables saved in `variables.json` under `./data/TabFormer`.
 
 
 2. **Training: `train_gnn_based_xgboost.ipynb`**
@@ -215,10 +210,6 @@ This lab assumes you have:
     **Important**: Before running, ensure Cell 2 has the value: `DATASET = TABFORMER`.
 
     Run the notebook cells to train the GNN-based XGBoost model.  
-
-    **Outputs**:
-
-    * Model files saved in `./data/TabFormer/models`. 
 
     * There is also an output at the end of the notebook:
 
@@ -279,12 +270,6 @@ This lab assumes you have:
     Select _Kernel_ -> _Change Kernel_ -> _Fraud Conda Environment_ to change the kernel. You need to perform this step for each notebook.
 
     Run this notebook to preprocess the Sparkov dataset - run cells one by one by pressing _Shift+Enter_, or select from the menu _Run_ -> _Run All Cells_.  
-   
-    **Outputs**:
-
-    * Files saved under `./data/Sparkov/gnn` and `./data/Sparkov/xgb`.
-    * Preprocessor pipeline saved as `preprocessor.pkl`.
-    * Variables saved in `variables.json` under `./data/Sparkov`.
 
 2. **Training: `train_gnn_based_xgboost.ipynb`**  
    
@@ -295,10 +280,6 @@ This lab assumes you have:
     **Important**: Before running, ensure Cell 2 has the value: `DATASET = SPARKOV`.
 
     Run the notebook.
-
-    **Outputs**:
-
-    * Model files saved in `./data/Sparkov/models`.  
 
     * There is also an output at the end of the notebook:
 
