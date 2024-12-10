@@ -82,25 +82,27 @@ This lab assumes you have:
 
     * For Oracle Linux: 
     
-    ```text
-        <copy>
-        ssh opc@<VM_PUB_IP>
-        </copy>
+    ```
+    <copy>
+    ssh opc@<VM_PUB_IP>
+    </copy>
     ```
     
     
     * For Ubuntu: 
     
-    ```text
-        <copy>
-        ssh ubuntu@<VM_PUB_IP>
-        </copy>
+    ```
+    <copy>
+    ssh ubuntu@<VM_PUB_IP>
+    </copy>
     ```
 
 4. Check the cloudinit completion (It may take between 20 and 25 minutes based on the selected OS):
 
     ```
+    <copy>
     tail -f /var/log/cloud-init-output.log
+    </copy>
     ```
     
     Based on the OS you will see the following message:
@@ -120,24 +122,29 @@ This lab assumes you have:
     * **Oracle Linux:**
 
         ```
+        <copy>
         sudo firewall-cmd --zone=public --permanent --add-port 8888/tcp
         sudo firewall-cmd --reload
         sudo firewall-cmd --list-all
         conda activate fraud_conda_env
+        </copy>
         ```
 
     * **Ubuntu:**
 
         ```
+        <copy>
         sudo iptables -L
         sudo iptables -F
         sudo iptables-save > /dev/null
         conda activate fraud_conda_env
+        </copy>
         ```
 
         If the above steps do not resolve the issue, try the following:
     
         ```
+        <copy>
         sudo systemctl stop iptables
         sudo systemctl disable iptables
     
@@ -146,6 +153,7 @@ This lab assumes you have:
     
         sudo iptables -F
         sudo iptables-save > /dev/null
+        </copy>
         ```
 
     **Note**:  For both OS versions, if you reboot the system, you will need to manually restart the Jupyter Notebook. Follow these steps in a terminal from the _/home/opc_ for Linux  or _/home/ubuntu_ for Ubuntu directory:
@@ -153,12 +161,15 @@ This lab assumes you have:
     * Activate the conda environment:
         
         ```
+        <copy>
         conda activate fraud_conda_env
+        </copy>
         ```
 
     * Start the Jupyter Notebook in the background:
 
         ```
+        <copy>
         # Oracle Linux
         > jupyter.log
         nohup jupyter notebook --ip=0.0.0.0 --port=8888 > /home/opc/jupyter.log 2>&1 &
@@ -168,11 +179,13 @@ This lab assumes you have:
         # Ubuntu
         > jupyter.log
         nohup jupyter notebook --ip=0.0.0.0 --port=8888 > /home/ubuntu/jupyter.log 2>&1 &
+        </copy>
         ```
 
     * Retrieve the access token, as described in the next step, by running:
 
         ```
+        <copy>
         # Oracle Linux
         cat /home/opc/jupyter.log
         
@@ -180,12 +193,15 @@ This lab assumes you have:
 
         # Ubuntu
         cat /home/ubuntu/jupyter.log
+        </copy>
         ```
 
 2. After deployment and the above access configuration, Jupyter Notebooks for TabFormer and Sparkov will be accessible on the VM. Use the public IP address of the VM, port 8888, and the authentication token found in the jupyter.log file to access the notebooks.
 
      ```
+     <copy>
      cat jupyter.log
+     </copy>
      ```
 
      Example output:
