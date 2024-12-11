@@ -230,8 +230,8 @@ For building and inferring with a pure XGBoost model (without GNN):
 
 ## Acknowledgements
 
-* **Authors** 
+**Authors** 
     * Adina Nicolescu - Senior Cloud Engineer, NACIE
 
-* **Last Updated By/Date**
+**Last Updated By/Date**
     * Adina Nicolescu - Senior Cloud Engineer, NACIE - Dec 2024
