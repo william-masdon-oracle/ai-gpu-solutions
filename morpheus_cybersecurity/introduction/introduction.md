@@ -36,6 +36,5 @@ You may now proceed to the next lab.
 
 * **Authors** 
 * Adina Nicolescu, Senior Cloud Engineer, NACIE
-* Bogdan Bazarca, Senior Cloud Engineer, NACIE
 
 * **Last Updated By/Date**: Adina Nicolescu - Senior Cloud Engineer, Nov 2024
