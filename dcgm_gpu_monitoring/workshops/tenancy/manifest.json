@@ -1,0 +1,36 @@
+{
+    "workshoptitle": "Monitoring GPU Metrics in Oracle Cloud Infrastructure (OCI) Using DCGM, Grafana and Prometheus",
+    "help": "livelabs-help-oci_us@oracle.com",
+    "tutorials": [
+      {
+        "title": "Introduction",
+        "description": "The Introduction is always second for LiveLabs. The title and contents menu title match for the Introduction.",
+        "filename": "../../introduction/introduction.md"
+      },
+      {
+        "title": "Get Started",
+        "description": "Get a Free Trial",
+        "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/pre-register-free-tier-account.md"
+      },
+      {
+        "title": "Lab 1: ",
+        "description": "Deploy VM infrastructure (GPU shape),  Grafana and Prometheus",
+        "filename": "../../infra/infrastructure.md"
+      },
+      {
+        "title": "Lab 2: ",
+        "description": "Deploy DCGM on the existing GPU using Ansible, and configure Grafana to obtain metrics",
+        "filename": "../../dcgm/dcgm.md"
+      },
+      {
+        "title": "Lab 3: ",
+        "description": "Simulate activity on the GPU to watch it in Grafanas",
+        "filename": "../../metrics/metrics.md"
+      },
+      {
+        "title": "Need Help?",
+        "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+        "filename": "https://oracle-livelabs.github.io/common/labs/need-help/need-help-freetier.md"
+      }
+    ]
+  }
