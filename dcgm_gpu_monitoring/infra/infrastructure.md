@@ -284,185 +284,108 @@ Perform the below steps connected to the `demo_grafana` VM:
     ```
     Replace `<public-ip>` with the public IP address of the Prometheus server.
 
-
-
-
-
-
-
-
-
 ## Task 5: Install Grafana
 
+The next steps will walk you through the instructions to install Grafana, configure it, and connect it to Prometheus as a data source. These steps should be performed on the `demo_grafana` VM.
 
-------------------------------------------
-
-## Task 2: Access the oke cluster via operator
-
-1. After the stack is created, wait for the process to complete. Once finished, it will provide the necessary details to access the OKE cluster through the operator and bastion host, provided you selected this option in Task 1, point 2.
-
-2. The stack's output will include the following details:
-
-   * **Bastion**: The external IP address of the created bastion host.
-   * **Operator**: The private IP address of the operator host.
-   *  **SSH Tunnel Command**: Instructions on how to connect to the operator host via an SSH tunnel:
-   ```
-   <copy>
-   ssh -o ProxyCommand='ssh -W %h:%p opc@<bastion_Public_IP>' opc@<operator_Private_IP>
-   </copy>
-   ```
-
-3. Copy the `ssh_to_operator` command and execute in Terminal.
-
-## Task 3: Access the OKE cluster and Morpheus pod
-
-1. After running the _ssh_to_operator_ command in a terminal, you will be connected to the operator VM. This VM is equipped with all the necessary utilities to access the OKE cluster and execute kubectl commands.
-
-    Run the below command to check the status and configuration of the OKE cluster once connected to the operator:
+1. Create a new repository file for Grafana:
 
     ```
     <copy>
-    k get all -A
+    sudo vi /etc/yum.repos.d/grafana.repo
     </copy>
     ```
-
-    This command helps you verify if the pods and services have been successfully created and ensures there are no errors. Additionally, you can retrieve the Load Balancer's public IP address to use for testing the model query.
-
-    ![Pod and Load Balancer IP](./../../morpheus_cybersecurity/oke/images/k_get_all.png)
-
-2. You can also collect the Load Balancer Public IP using the below command:
+2. Add the following configuration to the file and save it:
     
     ```
     <copy>
-    kubectl get service fraud-detection-app -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+    [grafana]
+    name=grafana
+    baseurl=https://packages.grafana.com/oss/rpm
+    repo_gpgcheck=1
+    enabled=1
+    gpgcheck=1
+    gpgkey=https://packages.grafana.com/gpg.key
+    sslverify=1
+    sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+    </copy>
+    ```
+3. Install Grafana using the dnf package manager:
+    
+    ```
+    <copy>
+    sudo dnf install grafana -y
+    </copy>
+    ```
+4. Enable Grafana to start at boot:
+    
+    ```
+    <copy>
+    sudo systemctl enable grafana-server
     </copy>
     ```
 
-3. Access Jupyter notebooks
-
-    Use the Load Balancer public IP address, port 8888, and the authentication token found in the _fraud-detection-app*_ pod log file to access the Jupyter notebooks that will allow you to test running models against Morpheus on OKE.
+5. Start the Grafana service:
 
     ```
     <copy>
-    k logs fraud-detection-app-...
+    sudo systemctl start grafana-server
     </copy>
     ```
-    
-    and look for a value like this: **http://hostname:8888/tree?token=....**
 
-    Replace "localhost" or "127.0.0.1" with the public IP address of the LoadBalancer, and paste the updated link into your browser to access the Jupyter Notebooks directly.
+6. Check Grafana's status to ensure it's running:
 
-    ![Jupyter notebooks on OKE](./../../morpheus_cybersecurity/oke/images/jupyter_oke.png)
+    ```
+    <copy>
+    sudo systemctl status grafana-server
+    </copy>
+    ```
 
-    Browse the _notebooks_ directory to view all the available notebooks.
+7. Configure the firewall for Grafana, which operates on port `3000` by default. To allow access, stop the firewall temporarily, open port `3000` and restart the firewall:
 
+    ```
+    <copy>
+    sudo systemctl stop firewalld
+    sudo firewall-offline-cmd --zone=public --add-port=3000/tcp
+    sudo systemctl start firewalld
+    </copy>
+    ```
 
-## Task 4: Run TabFormer Jupyter notebooks in the Morpheus AI workflow for fraud detection
+8. To access Grafana:
 
-### Steps for Executing TabFormer Notebooks
+* Use the public IP of the `demo_grafana` VM in a browser:
 
-1. **Preprocessing: `preprocess_Tabformer.ipynb`**  
+    ```
+    <copy>
+    http://<public-ip>:3000
+    </copy>
+    ```
 
-    Run this notebook to preprocess the data - run cells one by one by pressing _Shift+Enter_, or select from the menu _Run_ -> _Run All Cells_.
+* Log in using the default credentials:
 
-    ![Run Jupyter notebooks](./../../morpheus_cybersecurity/oke/images/run_jupyter_notebook.png)
-    
-    Outputs:
-    * Files saved under `./data/TabFormer/gnn` and `./data/TabFormer/xgb`.
-    * Preprocessor pipeline saved as `preprocessor.pkl`.
-    * Variables saved in `variables.json` under `./data/TabFormer`.
+    * **Username**: admin
+    * **Password**: admin
+    _(Change the password upon first login.)_
 
+    ```
+    <copy>
+    </copy>
+    ```
 
-2. **Training: `train_gnn_based_xgboost.ipynb`**
-    
-    **Important**: Before running, ensure Cell 2 has the value: `DATASET = TABFORMER`.
+## Task 6: Add Prometheus as a data source
 
-    Run the notebook cells to train the GNN-based XGBoost model.  
+1. In the Grafana web interface, navigate to _Settings_ > _Data Sources_.
 
-    **Outputs**:
+2. Select **Prometheus** as the data source type.
 
-    * Model files saved in `./data/TabFormer/models`. 
+3. Enter the Prometheus server's private IP and port. Prometheus typically runs on port `9000`:
 
-    * There is also an output at the end of the notebook:
+* Example: `http://<private-ip>:9000`
 
-
-3. **Inference: `inference_gnn_based_xgboost_TabFormer.ipynb`**  
-    
-    Use this notebook to perform inference on unseen data.  
-    
-    **Important**: 
-    * In Cell 2, set: `dataset_base_path = '../data/TabFormer/'`.  
-    * In Cell 13, ensure the TabFormer-specific selection is uncommented.
-
-    Run the notebook.
-
-**Optional: Pure XGBoost**  
-
-For building and inferring with a pure XGBoost model (without GNN):  
-    
-4. **Training**: `train_xgboost.ipynb`
-
-    Produces an XGBoost model in `./data/TabFormer/models`.  
-
-    **Important**: In Cell 2, set: `DATASET = TABFORMER`.
-
-    Run the notebook. 
-    
-5. **Inference**: `inference_xgboost_TabFormer.ipynb`
-
-    Use this notebook for inference with the pure XGBoost model.
-
-    Run the notebook.
+4. Click Save & Test to verify the connection.
 
 
-## Task 5: Run Sparkov Jupyter notebooks in the Morpheus AI Workflow for fraud analysis
-
-### Steps for Executing Sparkov Notebooks
-
-1. **Preprocessing: `preprocess_Sparkov.ipynb`**  
-
-    Run this notebook to preprocess the Sparkov dataset - run cells one by one by pressing _Shift+Enter_, or select from the menu _Run_ -> _Run All Cells_.  
-   
-    **Outputs**:
-
-    * Files saved under `./data/Sparkov/gnn` and `./data/Sparkov/xgb`.
-    * Preprocessor pipeline saved as `preprocessor.pkl`.
-    * Variables saved in `variables.json` under `./data/Sparkov`.
-
-2. **Training: `train_gnn_based_xgboost.ipynb`**  
-   
-    Train the GNN-based XGBoost model for Sparkov.  
-
-    **Important**: Before running, ensure Cell 2 has the value: `DATASET = SPARKOV`.
-
-    Run the notebook.
-
-    **Outputs**:
-
-    * Model files saved in `./data/Sparkov/models`.  
-
-**Optional: Pure XGBoost**  
-
-For building and inferring with a pure XGBoost model (without GNN):  
-    
-3. **Training**: `train_xgboost.ipynb`
-
-    Produces an XGBoost model in `./data/Sparkov/models`.  
-    
-    **Important**: In Cell 2, set: `DATASET = SPARKOV`.  
-
-    Run the notebook.
-
-4. **Inference**: `inference_xgboost_Sparkov.ipynb`
-
-    Use this notebook for inference with the pure XGBoost model.  
-    
-    **Important**:
-    * In Cell 2, set: `dataset_base_path = '../data/Sparkov/'`.  
-    * In Cell 13, ensure the Sparkov-specific content is uncommented.
-
-    Run the notebook.
-
+You may now proceed to the next lab.
 
 ## Acknowledgements
 
