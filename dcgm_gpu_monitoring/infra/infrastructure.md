@@ -1,4 +1,4 @@
-# Deploy VM infrastructure (GPU shape),  Grafana and Prometheus
+# Deploy VM infrastructure (GPU shape); install & configure Prometheus and Grafana
 
 ## Introduction
 
@@ -29,10 +29,7 @@ Before deploying the infrastructure, ensure the following networking prerequisit
 
     The ORM stack requires an existing VCN with a public subnet. The public subnet simplifies access to:
     * The Grafana dashboard from your laptop.
-    * The Prometheus dashboard from your laptop.
-    * Running the Ansible playbook from your laptop or server.
-    
-    **Note** - The ORM stack will deploy two VM.GPU.A10.1 instances. To save costs, ensure to stop or destroy them after completing the lab.
+    * The Prometheus dashboard from your laptop.s
 
 2. **Subnet Requirements**:
 
@@ -92,6 +89,8 @@ To deploy the infrastructure for this lab, you will create and configure a stack
     * The IP addresses of these instances will be displayed in both the stack output and the stack log.
     
        ![Instances](./../../dcgm_gpu_monitoring/infra/images/orm_stack_output.png " ")
+
+    * `**Note** - The ORM stack will deploy two VM.GPU.A10.1 instances. To save costs, ensure to stop or destroy them after completing the lab.`
 
 
 ## Task 3: Install Prometheus
@@ -175,6 +174,35 @@ Follow these steps to install Prometheus on the **demo_grafana** VM:
     prometheus --version
     </copy>
     ```
+
+9. Instructions to disable SELinux:
+
+* Open the SELinux configuration file for editing:
+
+    ```
+    <copy>
+    sudo vi /etc/selinux/config
+    </copy>
+    ```
+
+* Locate the line with SELINUX= and change its value to:
+
+    ```
+    <copy>
+    SELINUX=disabled
+    </copy>
+    ```
+
+* Save the file and exit.
+
+* Reboot the system to apply the changes:
+
+    ```
+    <copy>
+    sudo reboot
+    </copy>
+    ```
+
 
 ## Task 4: Configure Prometheus as a Service
 

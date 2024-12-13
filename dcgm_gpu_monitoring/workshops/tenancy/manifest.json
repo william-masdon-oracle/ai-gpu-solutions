@@ -13,12 +13,12 @@
         "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/pre-register-free-tier-account.md"
       },
       {
-        "title": "Lab 1: ",
-        "description": "Deploy VM infrastructure (GPU shape),  Grafana and Prometheus",
+        "title": "Lab 1: Deploy VM infrastructure; install & configure Prometheus and Grafana",
+        "description": "Deploy VM infrastructure (GPU shape and regular VMs); install and configure Prometheus and Grafana for later monitoring",
         "filename": "../../infra/infrastructure.md"
       },
       {
-        "title": "Lab 2: ",
+        "title": "Lab 2: Deploy DCGM and configure Grafana for metrics",
         "description": "Deploy DCGM on the existing GPU using Ansible, and configure Grafana to obtain metrics",
         "filename": "../../dcgm/dcgm.md"
       },
