@@ -8,23 +8,23 @@
       "filename": "../../introduction/introduction.md"
     },
     {
-      "title": "Get Started",
-      "description": "Get a Free Trial",
-      "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/pre-register-free-tier-account.md"
-    },
-    {
-      "title": "Lab 1: ",
-      "description": "Deploy VM infrastructure (GPU shape),  Grafana and Prometheus",
+      "title": "Lab 1: Deploy VM infrastructure",
+      "description": "Deploy VM infrastructure (GPU shape and regular VMs); install and configure Prometheus and Grafana for later monitoring",
       "filename": "../../infra/infrastructure.md"
     },
     {
-      "title": "Lab 2: ",
+      "title": "Lab 2: Install and configure Prometheus and Grafana",
+      "description": "Deploy DCGM on the existing GPU, and configure Grafana to obtain metrics",
+      "filename": "../../monitoring/monitoring.md"
+    },
+    {
+      "title": "Lab 3: Deploy DCGM on Oracle Linux and Ubuntu",
       "description": "Deploy DCGM on the existing GPU, and configure Grafana to obtain metrics",
       "filename": "../../dcgm/dcgm.md"
     },
     {
-      "title": "Lab 3: ",
-      "description": "Simulate activity on the GPU to watch it in Grafana",
+      "title": "Lab 4: ",
+      "description": "Configure Grafana for metrics. Simulate activity on the GPU to watch it in Grafana",
       "filename": "../../metrics/metrics.md"
     },
     {

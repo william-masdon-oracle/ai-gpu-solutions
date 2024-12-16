@@ -92,7 +92,7 @@ This lab assumes you have:
     </copy>
     ```
 
-test. Create a Systemd Service for Docker Compose:
+5. Create a Systemd Service for Docker Compose:
 
 * Create the service daemon unit file:
 
@@ -125,7 +125,7 @@ test. Create a Systemd Service for Docker Compose:
 
 6. Verify the Setup:
 
-* Check the running Docker containers:
+* Check the running Docker containers(it may take a few seconds until the container is started):
 
     ```
     <copy>
@@ -156,6 +156,8 @@ test. Create a Systemd Service for Docker Compose:
     ```
     <copy>
     curl <host IP>:9400/metrics
+    OR
+    curl localhost:9400/metrics
     </copy>
     ```
 
@@ -257,7 +259,7 @@ test. Create a Systemd Service for Docker Compose:
     </copy>
     ```
 
-* Check Docker service statu
+* Check Docker service status:
 
     ```
     <copy>
@@ -318,7 +320,7 @@ test. Create a Systemd Service for Docker Compose:
 
 7. Verify the DCGM service
 
-* Check the running Docker containers:
+* Check the running Docker containers (it may take a few seconds until the container is started):
 
     ```
     <copy>
@@ -339,7 +341,9 @@ test. Create a Systemd Service for Docker Compose:
 
      ```
     <copy>
-    curl localhost:9400/metrics
+    curl <host IP>:9400/metrics
+    OR
+    curl localhost:9400/metric
     </copy>
     ```
 
