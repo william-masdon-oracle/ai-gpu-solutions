@@ -18,14 +18,9 @@
         "filename": "../../provision/provision.md"
       },
       {
-        "title": "Lab 2: Quota Management",
-        "description": "Quota Management",
-        "filename": "../../quota_management/quota_management.md"
-      },
-      {
-        "title": "Lab 3: Priority Scheduling",
-        "description": "Priority Scheduling",
-        "filename": "../../priority_scheduling/priority_scheduling.md"
+        "title": "Lab 2: AIStore CLI",
+        "description": "AIStore CLI",
+        "filename": "../../aistore_cli/aistore_cli.md"
       },
       {
         "title": "Need Help?",
