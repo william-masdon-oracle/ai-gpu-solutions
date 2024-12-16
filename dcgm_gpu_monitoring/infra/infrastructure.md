@@ -57,7 +57,7 @@ To deploy the infrastructure for this lab, you will create and configure a stack
     * Navigate to the Resource Manager section in the Oracle Cloud Console:  _Developer Services_ -> _Resource manager_ -> _Stacks_ -> _Create Stack_.
     * Choose _My configuration_, upload this [infrastructure automation stack](???) and click **Next**.
 
-        ![Resource Manager](./../../dcgm_gpu_monitoring/infra/images/resource_manager.png)    
+        ![Resource Manager](./../../dcgm_gpu_monitoring/infra/images/resource_manager.png " ")
 
     OR
 

@@ -19,12 +19,12 @@
     },
     {
       "title": "Lab 2: ",
-      "description": "Deploy DCGM on the existing GPU using Ansible, and configure Grafana to obtain metrics",
+      "description": "Deploy DCGM on the existing GPU, and configure Grafana to obtain metrics",
       "filename": "../../dcgm/dcgm.md"
     },
     {
       "title": "Lab 3: ",
-      "description": "Simulate activity on the GPU to watch it in Grafanas",
+      "description": "Simulate activity on the GPU to watch it in Grafana",
       "filename": "../../metrics/metrics.md"
     },
     {

@@ -22,6 +22,143 @@ This lab assumes you have:
 
 ## Task 1: Install DCGM on Oracle Linux
 
+1. Install Required Packages and Docker:
+
+    ```
+    <copy>
+    sudo dnf install -y dnf-utils zip unzip gcc
+    sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+    sudo dnf remove -y runc
+    sudo dnf install -y docker-ce --nobest
+    sudo systemctl enable docker.service
+    sudo systemctl start docker.service
+    sudo usermod -a -G docker opc
+    </copy>
+    ```
+
+2. Install DCGM:
+
+    ```
+    <copy>
+    sudo dnf install -y nvidia-container-toolkit
+    sudo dnf config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
+    sudo dnf clean expire-cache
+    sudo dnf install -y datacenter-gpu-manager
+    sudo systemctl --now enable nvidia-dcgm
+    </copy>
+    ```
+
+3. Configure the Firewall:
+
+    ```
+    <copy>
+    sudo systemctl stop firewalld
+    sudo firewall-offline-cmd --zone=public --add-port=9400/tcp
+    sudo systemctl start firewalld
+    </copy>
+    ```
+
+4. Set Up Docker Compose for DCGM Exporter:
+
+* Create a directory for the Docker Compose file:
+
+    ```
+    <copy>
+    mkdir /home/opc/dcgm-exporter-composer
+    cd /home/opc/dcgm-exporter-composer
+    </copy>
+    ```
+
+* Create the Docker Compose file:
+
+    ```
+    <copy>
+    cat <<EOF > dcgm-exporter-composer.yaml
+    version: '3.8'
+    services:
+    dcgm-exporter:
+        image: nvcr.io/nvidia/k8s/dcgm-exporter:3.3.7-3.5.0-ubuntu22.04
+        deploy:
+        restart_policy:
+            condition: always
+        environment:
+        - DCGM_EXPORTER_VERSION=3.3.7-3.5.0
+        network_mode: host
+        cap_add:
+        - SYS_ADMIN
+        command: ["-r", "localhost:5555", "-f", "/etc/dcgm-exporter/dcp-metrics-included.csv"]
+        container_name: dcgm-exporter
+    EOF
+    </copy>
+    ```
+
+5. Create a Systemd Service for Docker Compose:
+
+* Create the service daemon unit file:
+
+    ```
+    <copy>
+    sudo cat <<EOF > /etc/systemd/system/docker-compose-dcgm.service
+    [Service]
+    Restart=always
+    WorkingDirectory=/home/opc/dcgm-exporter-composer
+    ExecStart=/usr/bin/docker compose -f dcgm-exporter-composer.yaml up
+    ExecStop=/usr/bin/docker compose -f dcgm-exporter-composer.yaml down
+    TimeoutStartSec=30
+
+    [Install]
+    WantedBy=multi-user.target
+    EOF
+    </copy>
+    ```
+
+* Enable and start the service:
+
+    ```
+    <copy>
+    sudo systemctl daemon-reload
+    sudo systemctl enable docker-compose-dcgm.service
+    sudo systemctl start docker-compose-dcgm.service
+    sudo systemctl status docker-compose-dcgm.service
+    </copy>
+    ```
+
+6. Verify the Setup:
+
+* Check the running Docker containers:
+
+    ```
+    <copy>
+    docker ps
+    </copy>
+    ```
+
+    You should see a running container similar to the following:
+
+    ```
+    <copy>
+    CONTAINER ID   IMAGE                                                      COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+    5eb6522f4f06   nvcr.io/nvidia/k8s/dcgm-exporter:3.3.7-3.5.0-ubuntu22.04   "/usr/local/dcgm/dcg…"   41 seconds ago   Up 34 seconds   9400/tcp                                    dcgm-exporter
+    </copy>
+    ```
+
+* Check the logs:
+
+    ```
+    <copy>
+    docker logs dcgm-exporter
+    </copy>
+    ```
+
+
+* Verify the DCGM metrics:
+
+    ```
+    <copy>
+    curl <host IP>:9400/metrics
+    </copy>
+    ```
+
 ## Task 2: Install DCGM on the Ubuntu A10 GPU VM
 
 1. Download the meta-package to set up the CUDA network repository
@@ -125,7 +262,7 @@ This lab assumes you have:
     ```
     <copy>
     sudo systemctl status docker
-sudo systemctl status containerd
+    sudo systemctl status containerd
     </copy>
     ```
 
