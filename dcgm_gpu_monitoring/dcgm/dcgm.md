@@ -91,8 +91,8 @@ This lab assumes you have:
     EOF
     </copy>
     ```
-    
-5. Create a Systemd Service for Docker Compose:
+
+test. Create a Systemd Service for Docker Compose:
 
 * Create the service daemon unit file:
 
