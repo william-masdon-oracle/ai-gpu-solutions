@@ -63,7 +63,7 @@ To deploy the infrastructure for this lab, you will create and configure a stack
 
 2. Choose or fill in the deployment options, including:
 
-    * **Compartment**, **Availability domain**, **VCN**, **Public Subnet**, **Public SSH Key**
+    * Compartment, Availability domain, VCN, Public Subnet, Public SSH Key
 
         ![Deployment options](./../../dcgm_gpu_monitoring/infra/images/orm_stack_config.png " ")
 
