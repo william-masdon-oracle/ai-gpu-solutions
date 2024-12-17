@@ -2,14 +2,14 @@
 
 ## Introduction
 
-In this lab, you will deploy the foundational infrastructure required for GPU performance monitoring using Oracle Resource Manager (ORM). The ORM stack will provision two A10 GPU-enabled virtual machines (one with Oracle Linux and one with Ubuntu) in a public subnet for generating and monitoring GPU activity. Additionally, a separate VM will be deployed to host Prometheus and Grafana. While the ORM stack sets up the infrastructure, Prometheus and Grafana will be installed and configured manually in later steps. This lab lays the groundwork for the subsequent stages of the workshop, where GPU activity and metrics will be monitored and visualized.
+In this lab, you will deploy the foundational compute infrastructure required for GPU performance monitoring using Oracle Resource Manager (ORM). The ORM stack will provision two A10 GPU-enabled virtual machines (one with Oracle Linux and one with Ubuntu) in a public subnet for generating and monitoring GPU activity. Additionally, a separate VM will be deployed to host Prometheus and Grafana. While the ORM stack sets up the infrastructure, Prometheus and Grafana will be installed and configured manually in later steps. This lab lays the groundwork for the subsequent stages of the workshop, where GPU activity and metrics will be monitored and visualized.
 
 Estimated Time: 20 minutes
 
 ### Objectives
 
 * Ensure prerequisites are met from Networking point of view.
-* Provision infrastructure using ORM to deploy two A10 GPU-enabled virtual machines (Oracle Linux and Ubuntu) and a separate VM for Prometheus and Grafana.
+* Provision compute infrastructure using ORM to deploy two A10 GPU-enabled virtual machines (Oracle Linux and Ubuntu) and a separate VM for Prometheus and Grafana.
 
 
 ### Prerequisites
@@ -17,7 +17,7 @@ Estimated Time: 20 minutes
 This lab assumes you have:
 
 * An Oracle Cloud account
-* Administrator permissions or sufficient permissions to use OCI Compute and Networking services.
+* Administrator permissions or sufficient permissions to use OCI Compute and Networking services
 * Access to A10 GPU-enabled shapes, specifically the VM.GPU.A10.1 shape
 * Access to the Oracle Resource Manager(ORM).
 
@@ -25,11 +25,11 @@ This lab assumes you have:
 
 Before deploying the infrastructure, ensure the following networking prerequisites are met to allow proper functionality of the lab:
 
-1. **Existing VCN and Public Subnet**:
+1. **Existing VCN and public subnet**:
 
     The ORM stack requires an existing VCN with a public subnet. The public subnet simplifies access to:
     * The Grafana dashboard from your laptop.
-    * The Prometheus dashboard from your laptop.s
+    * The Prometheus dashboard from your laptop.
 
 2. **Subnet Requirements**:
 
@@ -57,7 +57,7 @@ To deploy the infrastructure for this lab, you will create and configure a stack
 1. **Create the ORM stack**
     
     * Navigate to the Resource Manager section in the Oracle Cloud Console:  _Developer Services_ -> _Resource manager_ -> _Stacks_ -> _Create Stack_.
-    * Choose _My configuration_, upload this [infrastructure automation stack](???) and click **Next**.
+    * Choose _My configuration_, upload this [infrastructure automation stack](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/labfiles%2Flivelab_dcgm_prometheus_grafana.zip) and click **Next**.
 
         ![Resource Manager](./../../dcgm_gpu_monitoring/infra/images/resource_manager.png " ")
 
@@ -65,7 +65,7 @@ To deploy the infrastructure for this lab, you will create and configure a stack
 
     * You can use the single click deployment button below to launch the stack creation directly, accept the terms and click **Next**.
 
-        [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=???)
+        [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/labfiles%2Flivelab_dcgm_prometheus_grafana.zip)
 
 2. Choose or fill in the deployment options, including:
 
