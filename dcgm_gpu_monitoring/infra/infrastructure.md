@@ -92,7 +92,7 @@ To deploy the infrastructure for this lab, you will create and configure a stack
     
        ![Instances](./../../dcgm_gpu_monitoring/infra/images/orm_stack_output.png " ")
 
-    * `**Note** - The ORM stack will deploy two VM.GPU.A10.1 instances. To save costs, ensure to stop or destroy them after completing the lab.`
+    * **Note** - The ORM stack will deploy two VM.GPU.A10.1 instances. To save costs, ensure to stop or destroy them after completing the lab.
 
 
 You may now proceed to the next lab.
