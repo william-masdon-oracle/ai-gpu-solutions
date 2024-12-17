@@ -361,6 +361,75 @@ This lab assumes you have:
         </copy>
         ```
 
+## Task 3: Configure Prometheus to get GPU metrics from the A10 targets
+
+1. On the Grafana server **demo_grafana** edit the `prometheus.yml` file:
+
+    * You can safely delete the previous content of the file and edit it as root. Make sure to replace the <server_ip> with the public IPs of the A10 targets
+
+        ```
+        <copy>
+        sudo su -
+        > /etc/prometheus/prometheus.yml
+        vi /etc/prometheus/prometheus.yml
+        </copy>
+        ```
+
+    * The file /etc/prometheus/prometheus.yml should look like below.
+
+        ```
+        <copy>
+        global:
+            scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+            evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+            # scrape_timeout is set to the global default (10s).
+
+        # Alertmanager configuration
+        alerting:
+            alertmanagers:
+                - static_configs:
+                    - targets:
+                    # - alertmanager:9093
+
+        # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+        rule_files:
+            # - "first_rules.yml"
+            # - "second_rules.yml"
+
+        # A scrape configuration containing exactly one endpoint to scrape:
+        # Here it's Prometheus itself.
+        scrape_configs:
+            # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+            - job_name: "prometheus"
+              static_configs:
+                - targets: ["localhost:9090"]
+            - job_name: 'dgcm-exporter'
+              static_configs:
+                - targets: ["<server_ip>:9400","<server_ip>:9400"]
+        </copy>
+        ```
+
+    * restart Prometheus to pick up the new targets
+
+        ```
+        <copy>
+        sudo systemctl daemon-reload
+        sudo systemctl stop prometheus
+        sudo systemctl start prometheus
+        sudo systemctl status prometheus
+        </copy>
+        ```
+
+2. Check that the target metrics are accessible on the Grafana VM.
+
+    * On the **demo_grafana* VM run the below command, using the private IPs of the GPU VMs:
+
+        ```
+        <copy>
+        curl <GPU_private_ip>:9400/metrics
+        </copy>
+        ```
+
 You may now proceed to the next lab.
 
 ## Acknowledgements

@@ -19,15 +19,53 @@ This lab assumes you have:
 * Administrator permissions or permissions to use the OCI Compute and OCI Networking services
 * Access to the previously deployed A10 or GPU shape
 
-## Task 1: 
+## Task 1: Import Grafana dashboard
 
-## Task 2: 
+To view the metrics from the two configured targets, you can set up a Grafana dashboard. This lab provides a file that you can import into Grafana to visualize GPU-related metrics.
 
-## Task 3: 
+1. Download locally the file [Grafana_DCGM_dashboard.json](./../../dcgm_gpu_monitoring/metrics/files/Grafana_DCGM_dashboard.json)
 
-## Task 4: 
+2. Go to _Grafana_ -> _Dashboards_ -> _New_
 
-## Task 5: 
+    ![Grafana new dashboard](./../../dcgm_gpu_monitoring/metrics/images/grafana_new_dashboard.png)
+
+3. Import the file you downloaded: _Dashboard_ -> _Import_
+
+    ![Import Grafana dashboard](./../../dcgm_gpu_monitoring/metrics/images/import_dashboard.png)
+
+Use the Uplaod JSON file button.
+
+4. Select the Prometheus data source you configured previously. 
+
+    ![Select dashboard data source](./../../dcgm_gpu_monitoring/metrics/images/dashboard_data_source.png)
+
+5. See that the dashboard is visible.
+
+    ![Grafana dashboard without load](./../../dcgm_gpu_monitoring/metrics/images/grafana_final_dashboard.png)
+
+## Task 2: Run load on the Linux GPU
+
+1. To generate load on the Oracle Linux target VM, you will execute specific commands. First, connect to the public IP of the Linux A10 GPU instance.
+
+2. For load generation on the GPU, you can use the **gpu-burn** tool. 
+
+    * Follow these steps to install and run it (Below, `600` specifies the duration of the GPU burn test in seconds):
+
+        ```
+        <copy>
+        sudo dnf install git
+        git clone https://github.com/wilicc/gpu-burn.git
+        cd gpu-burn
+        make
+        ./gpu_burn 600
+        </copy>
+        ```
+
+3. Check the dashboard to see the load increase and also compare to the Ubuntu which is not loaded.
+
+    ![Linux load](./../../dcgm_gpu_monitoring/metrics/images/garafa_linux_power_usage.png)
+
+**Final note** - remember to Stop the A10 instances after finishing the labs or destroying the stack alltogether.
 
 ## Acknowledgements
 
