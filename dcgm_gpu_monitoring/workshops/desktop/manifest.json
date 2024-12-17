@@ -15,7 +15,7 @@
     {
       "title": "Lab 2: Install and configure Prometheus and Grafana",
       "description": "Install and configure Prometheus and Grafana on the designated VM",
-      "filename": "../../dcgm/dcgm.md"
+      "filename": "../../monitoring/monitoring.md"
     },
     {
       "title": "Lab 3: Deploy DCGM on Oracle Linux and Ubuntu",
