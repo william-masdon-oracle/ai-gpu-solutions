@@ -22,41 +22,47 @@ This lab assumes you have:
 
 ## Task 1: Install DCGM on Oracle Linux
 
-1. Install Required Packages and Docker:
+1. To install the required packages and set up Docker, follow these steps.
 
-    ```
-    <copy>
-    sudo dnf install -y dnf-utils zip unzip gcc
-    sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
-    sudo dnf remove -y runc
-    sudo dnf install -y docker-ce --nobest
-    sudo systemctl enable docker.service
-    sudo systemctl start docker.service
-    sudo usermod -a -G docker opc
-    </copy>
-    ```
+    * First, install necessary utilities and configure the Docker repository. Then, install Docker and enable it:
 
-2. Install DCGM:
+        ```
+        <copy>
+        sudo dnf install -y dnf-utils zip unzip gcc
+        sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+        sudo dnf remove -y runc
+        sudo dnf install -y docker-ce --nobest
+        sudo systemctl enable docker.service
+        sudo systemctl start docker.service
+        sudo usermod -a -G docker opc
+        </copy>
+        ```
 
-    ```
-    <copy>
-    sudo dnf install -y nvidia-container-toolkit
-    sudo dnf config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
-    sudo dnf clean expire-cache
-    sudo dnf install -y datacenter-gpu-manager
-    sudo systemctl --now enable nvidia-dcgm
-    </copy>
-    ```
+2. To install DCGM and configure it for your environment, follow these steps.
 
-3. Configure the Firewall:
+    *  First, install the NVIDIA Container Toolkit and set up the NVIDIA repository. Then, install DCGM and enable the service:
 
-    ```
-    <copy>
-    sudo systemctl stop firewalld
-    sudo firewall-offline-cmd --zone=public --add-port=9400/tcp
-    sudo systemctl start firewalld
-    </copy>
-    ```
+        ```
+        <copy>
+        sudo dnf install -y nvidia-container-toolkit
+        sudo dnf config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
+        sudo dnf clean expire-cache
+        sudo dnf install -y datacenter-gpu-manager
+        sudo systemctl --now enable nvidia-dcgm
+        </copy>
+        ```
+
+3. Configure the Firewall.
+
+    * To configure the firewall, stop the firewall service temporarily, open the required port for DCGM metrics, and restart the firewall to apply the changes:
+
+        ```
+        <copy>
+        sudo systemctl stop firewalld
+        sudo firewall-offline-cmd --zone=public --add-port=9400/tcp
+        sudo systemctl start firewalld
+        </copy>
+        ```
 
 4. Set Up Docker Compose for DCGM Exporter:
 
