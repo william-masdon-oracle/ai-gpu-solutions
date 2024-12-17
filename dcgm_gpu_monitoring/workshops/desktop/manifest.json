@@ -9,22 +9,22 @@
     },
     {
       "title": "Lab 1: Deploy VM infrastructure",
-      "description": "Deploy VM infrastructure (GPU shape and regular VMs); install and configure Prometheus and Grafana for later monitoring",
+      "description": "Deploy VM infrastructure (GPU shape and regular VMs)",
       "filename": "../../infra/infrastructure.md"
     },
     {
       "title": "Lab 2: Install and configure Prometheus and Grafana",
-      "description": "Deploy DCGM on the existing GPU, and configure Grafana to obtain metrics",
-      "filename": "../../monitoring/monitoring.md"
-    },
-    {
-      "title": "Lab 3: Deploy DCGM on Oracle Linux and Ubuntu",
-      "description": "Deploy DCGM on the existing GPU, and configure Grafana to obtain metrics",
+      "description": "Install and configure Prometheus and Grafana on the designated VM",
       "filename": "../../dcgm/dcgm.md"
     },
     {
-      "title": "Lab 4: ",
-      "description": "Configure Grafana for metrics. Simulate activity on the GPU to watch it in Grafana",
+      "title": "Lab 3: Deploy DCGM on Oracle Linux and Ubuntu",
+      "description": "Deploy DCGM on the existing GPU",
+      "filename": "../../dcgm/dcgm.md"
+    },
+    {
+      "title": "Lab 4: Simulate activity on the GPU machines and review metrics in Grafana",
+      "description": "Simulate activity on the GPU machines and review metrics in Grafana",
       "filename": "../../metrics/metrics.md"
     },
     {

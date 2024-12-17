@@ -4,7 +4,7 @@
 
 This lab will walk you through the steps for installing and configuring NVIDIA Data Center GPU Manager (DCGM) on the deployed A10 Oracle Linux and Ubuntu virtual machines. Using these instructions, you will set up the environment required to monitor GPU metrics and enable efficient GPU management for your workloads.
 
-Estimated Time: 60 minutes
+Estimated Time: 40 minutes
 
 ### Objectives
 
