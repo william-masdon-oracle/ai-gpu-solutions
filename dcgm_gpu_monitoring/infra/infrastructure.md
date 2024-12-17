@@ -61,12 +61,6 @@ To deploy the infrastructure for this lab, you will create and configure a stack
 
         ![Resource Manager](./../../dcgm_gpu_monitoring/infra/images/resource_manager.png " ")
 
-    OR
-
-    * You can use the single click deployment button below to launch the stack creation directly, accept the terms and click **Next**.
-
-        [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/labfiles%2Flivelab_dcgm_prometheus_grafana.zip)
-
 2. Choose or fill in the deployment options, including:
 
     * **Compartment**, **Availability domain**, **VCN**, **Public Subnet**, **Public SSH Key**
