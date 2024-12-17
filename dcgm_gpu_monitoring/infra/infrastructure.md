@@ -78,9 +78,9 @@ To deploy the infrastructure for this lab, you will create and configure a stack
 4. Wait for the job to complete, which should only take a few minutes. 
     
     * Once the stack creation is complete, you will have 3 new VMs:
-        * **demo_linux_1**: to be monitored with DCGM
-        * **demo_ubuntu_1**: to be monitored with DCGM
-        * **demo_grafana**: will host the monitoring tools, Prometheus and Grafana.
+        * **demo\_linux\_1**: to be monitored with DCGM
+        * **demo\_ubuntu\_1**: to be monitored with DCGM
+        * **demo\_grafana**: will host the monitoring tools, Prometheus and Grafana.
     
     * The IP addresses of these instances will be displayed in both the stack output and the stack log.
     
