@@ -430,7 +430,7 @@ This lab assumes you have:
         </copy>
         ```
 
-You may now proceed to the next lab.
+You may now **proceed to the next lab**.
 
 ## Acknowledgements
 

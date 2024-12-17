@@ -354,7 +354,7 @@ The next steps will walk you through the instructions to install Grafana, config
 
 -----------
 
-You may now proceed to the next lab.
+You may now **proceed to the next lab**.
 
 ## Acknowledgements
 

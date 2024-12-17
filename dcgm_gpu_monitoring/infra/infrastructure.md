@@ -50,7 +50,7 @@ Before deploying the infrastructure, ensure the following networking prerequisit
 
 Ensure these configurations are in place before proceeding to deploy the ORM stack.
 
-## Task 2: Provision GPUs and Standard VM with the ORM Stack
+## Task 2: Provision GPU VMs and Standard VM with the ORM Stack
 
 To deploy the infrastructure for this lab, you will create and configure a stack in Oracle Resource Manager (ORM) to automate the provisioning of GPU-enabled and standard virtual machines.
 
@@ -95,7 +95,7 @@ To deploy the infrastructure for this lab, you will create and configure a stack
     * **Note** - The ORM stack will deploy two VM.GPU.A10.1 instances. To save costs, ensure to stop or destroy them after completing the lab.
 
 
-You may now proceed to the next lab.
+You may now **proceed to the next lab**.
 
 ## Acknowledgements
 

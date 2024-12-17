@@ -23,7 +23,7 @@ This lab assumes you have:
 
 To view the metrics from the two configured targets, you can set up a Grafana dashboard. This lab provides a file that you can import into Grafana to visualize GPU-related metrics.
 
-1. Download locally the file [Grafana_DCGM_dashboard.json](./../../dcgm_gpu_monitoring/metrics/files/Grafana_DCGM_dashboard.json)
+1. Download locally the file [grafana_dcgm_dashboard.json](./../../dcgm_gpu_monitoring/metrics/files/grafana_dcgm_dashboard.json)
 
 2. Go to _Grafana_ -> _Dashboards_ -> _New_
 
