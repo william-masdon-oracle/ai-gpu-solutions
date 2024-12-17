@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This lab will walk you through the steps for installing and configuring NVIDIA Data Center GPU Manager (DCGM) on Oracle Linux and Ubuntu virtual machines. Using these instructions, you will set up the environment required to monitor GPU metrics and enable efficient GPU management for your workloads.
+This lab will walk you through the steps for installing and configuring NVIDIA Data Center GPU Manager (DCGM) on the deployed A10 Oracle Linux and Ubuntu virtual machines. Using these instructions, you will set up the environment required to monitor GPU metrics and enable efficient GPU management for your workloads.
 
 Estimated Time: 60 minutes
 
@@ -60,292 +60,300 @@ This lab assumes you have:
 
 4. Set Up Docker Compose for DCGM Exporter:
 
-* Create a directory for the Docker Compose file:
+    * Create a directory for the Docker Compose file:
 
-    ```
-    <copy>
-    mkdir /home/opc/dcgm-exporter-composer
-    cd /home/opc/dcgm-exporter-composer
-    </copy>
-    ```
+        ```
+        <copy>
+        mkdir /home/opc/dcgm-exporter-composer
+        cd /home/opc/dcgm-exporter-composer
+        </copy>
+        ```
 
-* Create the Docker Compose file:
+    * Create the Docker Compose file:
 
-    ```
-    <copy>
-    cat <<EOF > dcgm-exporter-composer.yaml
-    version: '3.8'
-    services:
-    dcgm-exporter:
-        image: nvcr.io/nvidia/k8s/dcgm-exporter:3.3.7-3.5.0-ubuntu22.04
-        deploy:
-        restart_policy:
-            condition: always
-        environment:
-        - DCGM_EXPORTER_VERSION=3.3.7-3.5.0
-        network_mode: host
-        cap_add:
-        - SYS_ADMIN
-        command: ["-r", "localhost:5555", "-f", "/etc/dcgm-exporter/dcp-metrics-included.csv"]
-        container_name: dcgm-exporter
-    EOF
-    </copy>
-    ```
+        ```
+        <copy>
+        cat <<EOF > dcgm-exporter-composer.yaml
+        version: '3.8'
+        services:
+        dcgm-exporter:
+            image: nvcr.io/nvidia/k8s/dcgm-exporter:3.3.7-3.5.0-ubuntu22.04
+            deploy:
+            restart_policy:
+                condition: always
+            environment:
+            - DCGM_EXPORTER_VERSION=3.3.7-3.5.0
+            network_mode: host
+            cap_add:
+            - SYS_ADMIN
+            command: ["-r", "localhost:5555", "-f", "/etc/dcgm-exporter/dcp-metrics-included.csv"]
+            container_name: dcgm-exporter
+        EOF
+        </copy>
+        ```
 
 5. Create a Systemd Service for Docker Compose:
 
-* Create the service daemon unit file:
+    * Create the service daemon unit file:
 
-    ```
-    <copy>
-    sudo cat <<EOF > /etc/systemd/system/docker-compose-dcgm.service
-    [Service]
-    Restart=always
-    WorkingDirectory=/home/opc/dcgm-exporter-composer
-    ExecStart=/usr/bin/docker compose -f dcgm-exporter-composer.yaml up
-    ExecStop=/usr/bin/docker compose -f dcgm-exporter-composer.yaml down
-    TimeoutStartSec=30
+        ```
+        <copy>
+        sudo cat <<EOF > /etc/systemd/system/docker-compose-dcgm.service
+        [Service]
+        Restart=always
+        WorkingDirectory=/home/opc/dcgm-exporter-composer
+        ExecStart=/usr/bin/docker compose -f dcgm-exporter-composer.yaml up
+        ExecStop=/usr/bin/docker compose -f dcgm-exporter-composer.yaml down
+        TimeoutStartSec=30
 
-    [Install]
-    WantedBy=multi-user.target
-    EOF
-    </copy>
-    ```
+        [Install]
+        WantedBy=multi-user.target
+        EOF
+        </copy>
+        ```
 
-* Enable and start the service:
+    * Enable and start the service:
 
-    ```
-    <copy>
-    sudo systemctl daemon-reload
-    sudo systemctl enable docker-compose-dcgm.service
-    sudo systemctl start docker-compose-dcgm.service
-    sudo systemctl status docker-compose-dcgm.service
-    </copy>
-    ```
+        ```
+        <copy>
+        sudo systemctl daemon-reload
+        sudo systemctl enable docker-compose-dcgm.service
+        sudo systemctl start docker-compose-dcgm.service
+        sudo systemctl status docker-compose-dcgm.service
+        </copy>
+        ```
 
 6. Verify the Setup:
 
-* Check the running Docker containers(it may take a few seconds until the container is started):
+    * Check the running Docker containers(it may take a few seconds until the container is started):
 
-    ```
-    <copy>
-    docker ps
-    </copy>
-    ```
+        ```
+        <copy>
+        docker ps
+        </copy>
+        ```
 
-    You should see a running container similar to the following:
+        You should see a running container similar to the following:
 
-    ```
-    <copy>
-    CONTAINER ID   IMAGE                                                      COMMAND                  CREATED          STATUS          PORTS                                       NAMES
-    5eb6522f4f06   nvcr.io/nvidia/k8s/dcgm-exporter:3.3.7-3.5.0-ubuntu22.04   "/usr/local/dcgm/dcg…"   41 seconds ago   Up 34 seconds   9400/tcp                                    dcgm-exporter
-    </copy>
-    ```
+        ```
+        <copy>
+        CONTAINER ID   IMAGE                                                      COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+        5eb6522f4f06   nvcr.io/nvidia/k8s/dcgm-exporter:3.3.7-3.5.0-ubuntu22.04   "/usr/local/dcgm/dcg…"   41 seconds ago   Up 34 seconds   9400/tcp                                    dcgm-exporter
+        </copy>
+        ```
 
-* Check the logs:
+    * Check the container logs.
 
-    ```
-    <copy>
-    docker logs dcgm-exporter
-    </copy>
-    ```
+        ```
+        <copy>
+        docker logs dcgm-exporter
+        </copy>
+        ```
 
 
-* Verify the DCGM metrics:
+    * Verify the DCGM metrics present on the VM:
 
-    ```
-    <copy>
-    curl <host IP>:9400/metrics
-    OR
-    curl localhost:9400/metrics
-    </copy>
-    ```
+        ```
+        <copy>
+        curl <host IP>:9400/metrics
+        OR
+        curl localhost:9400/metrics
+        </copy>
+        ```
 
 ## Task 2: Install DCGM on the Ubuntu A10 GPU VM
 
-1. Download the meta-package to set up the CUDA network repository
+1. Download the meta-package to set up the CUDA network repository.
 
-    ```
-    <copy>
-    distribution=$(. /etc/os-release;echo $ID$VERSION_ID | sed -e 's/\.//g')
-    wget https://developer.download.nvidia.com/compute/cuda/repos/$distribution/x86_64/cuda-keyring_1.1-1_all.deb
-    sudo dpkg -i cuda-keyring_1.1-1_all.deb
-    sudo apt-get update
-    </copy>
-    ```
+    * Use the following commands:
 
-2. Install DCGM:
+        ```
+        <copy>
+        distribution=$(. /etc/os-release;echo $ID$VERSION_ID | sed -e 's/\.//g')
+        wget https://developer.download.nvidia.com/compute/cuda/repos/$distribution/x86_64/cuda-keyring_1.1-1_all.deb
+        sudo dpkg -i cuda-keyring_1.1-1_all.deb
+        sudo apt-get update
+        </copy>
+        ```
 
-    ```
-    <copy>
-    sudo apt-get install -y datacenter-gpu-manager
-    sudo apt-get install -y nvidia-driver-555
-    </copy>
-    ```
+2. To install DCGM, start by using the package manager to set up the Datacenter GPU Manager.
+    
+    * Run the following commands to install both DCGM and the NVIDIA driver:
+
+        ```
+        <copy>
+        sudo apt-get install -y datacenter-gpu-manager
+        sudo apt-get install -y nvidia-driver-555
+        </copy>
+        ```
     
 3. Enable the DCGM service
 
-    ```
-    <copy>
-    sudo systemctl --now enable nvidia-dcgm
-    sudo systemctl status nvidia-dcgm
-    </copy>
-    ```
+    * To enable the DCGM service, use the systemctl command to start and enable it immediately. Verify the service status to ensure it is running
 
-    You should see an output similar to:
+        ```
+        <copy>
+        sudo systemctl --now enable nvidia-dcgm
+        sudo systemctl status nvidia-dcgm
+        </copy>
+        ```
+    
+    * You should see an output similar to:
 
-    ```
-    <copy>
-    nvidia-dcgm.service - NVIDIA DCGM service
-            Loaded: loaded (/lib/systemd/system/nvidia-dcgm.service; enabled; vendor preset: enabled)
-            Active: active (running) since Fri 2024-12-13 09:34:33 UTC; 35s ago
-        Main PID: 3983 (nv-hostengine)
-            Tasks: 6 (limit: 289832)
-            Memory: 1.3M
-                CPU: 11ms
-            CGroup: /system.slice/nvidia-dcgm.service
-                    └─3983 /usr/bin/nv-hostengine -n --service-account nvidia-dcgm
-    </copy>
-    ```
+        ```
+        <copy>
+        nvidia-dcgm.service - NVIDIA DCGM service
+                Loaded: loaded (/lib/systemd/system/nvidia-dcgm.service; enabled; vendor preset: enabled)
+                Active: active (running) since Fri 2024-12-13 09:34:33 UTC; 35s ago
+            Main PID: 3983 (nv-hostengine)
+                Tasks: 6 (limit: 289832)
+                Memory: 1.3M
+                    CPU: 11ms
+                CGroup: /system.slice/nvidia-dcgm.service
+                        └─3983 /usr/bin/nv-hostengine -n --service-account nvidia-dcgm
+        </copy>
+        ```
 
-4. Install NVIDIA Container Toolkit
+4. To install the NVIDIA Container Toolkit, use the package manager to set up the required toolkit for containerized GPU support.
 
-    ```
-    <copy>
-    sudo apt-get install -y nvidia-container-toolkit
-    </copy>
-    ```
+    * Run the following command:
+
+        ```
+        <copy>
+        sudo apt-get install -y nvidia-container-toolkit
+        </copy>
+        ```
 
 5. Install Docker:
 
-* Remove old installations, if any:
+    * Remove old installations, if any:
 
-    ```
-    <copy>
-    for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
-    </copy>
-    ```
+        ```
+        <copy>
+        for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+        </copy>
+        ```
 
-* Add Docker's official GPG key and repository:
+    * Add Docker's official GPG key and repository:
 
-    ```
-    <copy>
-    sudo apt-get update
-    sudo apt-get install ca-certificates curl
-    sudo install -m 0755 -d /etc/apt/keyrings
-    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-    sudo chmod a+r /etc/apt/keyrings/docker.asc
-    echo \
-    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    sudo apt-get update
-    </copy>
-    ```
+        ```
+        <copy>
+        sudo apt-get update
+        sudo apt-get install ca-certificates curl
+        sudo install -m 0755 -d /etc/apt/keyrings
+        sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+        sudo chmod a+r /etc/apt/keyrings/docker.asc
+        echo \
+        "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+        $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+        sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+        sudo apt-get update
+        </copy>
+        ```
 
-* Install Docker packages:
+    * Install Docker packages:
 
-    ```
-    <copy>
-    sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-    </copy>
-    ```
+        ```
+        <copy>
+        sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+        </copy>
+        ```
 
-* Add the Ubuntu user to the Docker group:
+    * Add the Ubuntu user to the Docker group:
 
-    ```
-    <copy>
-    sudo usermod -aG docker $USER
-    </copy>
-    ```
+        ```
+        <copy>
+        sudo usermod -aG docker $USER
+        </copy>
+        ```
 
-* Check Docker service status:
+    * Check Docker service status:
 
-    ```
-    <copy>
-    sudo systemctl status docker
-    sudo systemctl status containerd
-    </copy>
-    ```
+        ```
+        <copy>
+        sudo systemctl status docker
+        sudo systemctl status containerd
+        </copy>
+        ```
 
 6. Configure DCGM as a containerized service:
 
-* Become root:
+    * Become root:
 
-    ```
-    <copy>
-    sudo su -
-    </copy>
-    ```
+        ```
+        <copy>
+        sudo su -
+        </copy>
+        ```
 
-* Create a systemd service for DCGM:
+    * Create a systemd service for DCGM:
 
-    ```
-    <copy>
-    cat <<EOF > /etc/systemd/system/dcgm_service.service
-    [Unit]
-    Description=NVIDIA DCGM Exporter
-    After=docker.service
-    Requires=docker.service
+        ```
+        <copy>
+        cat <<EOF > /etc/systemd/system/dcgm_service.service
+        [Unit]
+        Description=NVIDIA DCGM Exporter
+        After=docker.service
+        Requires=docker.service
 
-    [Service]
-    Restart=always
-    ExecStart=/usr/bin/docker run --gpus all --cap-add SYS_ADMIN --rm -p 9400:9400 nvcr.io/nvidia/k8s/dcgm-exporter:3.3.7-3.5.0-ubuntu22.04
-    ExecStop=/usr/bin/docker stop %n
-    ExecStopPost=/usr/bin/docker rm %n
+        [Service]
+        Restart=always
+        ExecStart=/usr/bin/docker run --gpus all --cap-add SYS_ADMIN --rm -p 9400:9400 nvcr.io/nvidia/k8s/dcgm-exporter:3.3.7-3.5.0-ubuntu22.04
+        ExecStop=/usr/bin/docker stop %n
+        ExecStopPost=/usr/bin/docker rm %n
 
-    [Install]
-    WantedBy=multi-user.target
-    EOF
-    </copy>
-    ```
+        [Install]
+        WantedBy=multi-user.target
+        EOF
+        </copy>
+        ```
 
-* Return to the Ubuntu user:
+    * Return to the Ubuntu user:
 
-    ```
-    <copy>
-    exit
-    </copy>
-    ```
+        ```
+        <copy>
+        exit
+        </copy>
+        ```
 
-* Enable and start the DCGM service:
+    * Enable and start the DCGM service:
 
-    ```
-    <copy>
-    sudo systemctl daemon-reload
-    sudo systemctl enable dcgm_service.service
-    sudo systemctl start dcgm_service.service
-    </copy>
-    ```
+        ```
+        <copy>
+        sudo systemctl daemon-reload
+        sudo systemctl enable dcgm_service.service
+        sudo systemctl start dcgm_service.service
+        </copy>
+        ```
 
 7. Verify the DCGM service
 
-* Check the running Docker containers (it may take a few seconds until the container is started):
+    * Check the running Docker containers (it may take a few seconds until the container is started):
 
-    ```
-    <copy>
-    sudo docker ps
-    </copy>
-    ```
+        ```
+        <copy>
+        sudo docker ps
+        </copy>
+        ```
 
-    You should see output similar to:
+    * You should see output similar to:
 
-    ```
-    <copy>
-    CONTAINER ID   IMAGE                                                      COMMAND                  CREATED          STATUS          PORTS                                       NAMES
-    5eb6522f4f06   nvcr.io/nvidia/k8s/dcgm-exporter:3.3.7-3.5.0-ubuntu22.04   "/usr/local/dcgm/dcg…"   41 seconds ago   Up 34 seconds   0.0.0.0:9400->9400/tcp, :::9400->9400/tcp   hungry_lovelace
-    </copy>
-    ```
+        ```
+        <copy>
+        CONTAINER ID   IMAGE                                                      COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+        5eb6522f4f06   nvcr.io/nvidia/k8s/dcgm-exporter:3.3.7-3.5.0-ubuntu22.04   "/usr/local/dcgm/dcg…"   41 seconds ago   Up 34 seconds   0.0.0.0:9400->9400/tcp, :::9400->9400/tcp   hungry_lovelace
+        </copy>
+        ```
 
-* Check DCGM metrics:
+    * Check DCGM metrics:
 
-     ```
-    <copy>
-    curl <host IP>:9400/metrics
-    OR
-    curl localhost:9400/metric
-    </copy>
-    ```
+        ```
+        <copy>
+        curl <host IP>:9400/metrics
+        OR
+        curl localhost:9400/metric
+        </copy>
+        ```
 
 You may now proceed to the next lab.
 
