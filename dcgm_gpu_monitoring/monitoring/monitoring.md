@@ -348,7 +348,7 @@ The next steps will walk you through the instructions to install Grafana, config
 
 3. Enter the Prometheus server's private IP and port. You can also use localhost, as in this case Prometheus and Grafana are on the same VM. Prometheus typically runs on port `9000`:
 
-    * Example: `http://<private-ip>:9000`
+    * Example: `http://<private-ip>:9090`
 
 4. Click Save & Test to verify the connection.
 
