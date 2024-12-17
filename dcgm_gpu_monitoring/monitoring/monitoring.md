@@ -25,7 +25,7 @@ Follow these steps to install Prometheus on the **demo_grafana** VM. You can obt
 
 1. Connect to the `demo_grafana` VM:
 
-    * In your local terminal, use the SSH private key corresponding to the public key provided during the ORM stack deployment to connect to the demo_grafana VM. Replace <public-ip> with the public IP of the VM:
+    * In your local terminal, use the SSH private key corresponding to the public key provided during the ORM stack deployment to connect to the `demo_grafana` VM. Replace `<public-ip>` with the public IP of the VM:
 
         ```
         <copy>
