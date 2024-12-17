@@ -1,4 +1,4 @@
-# Deploy VM infrastructure (GPU shape); install & configure Prometheus and Grafana
+# Install & configure Prometheus and Grafana
 
 ## Introduction
 
