@@ -134,7 +134,7 @@ This lab assumes you have:
 
 6. Verify the Setup:
 
-    * Check the running Docker containers(it may take a few seconds until the container is started):
+    * Check the running Docker containers, still connected as `root`(it may take a few seconds until the container is started):
 
         ```
         <copy>
