@@ -104,7 +104,7 @@ This lab assumes you have:
 
         ```
         <copy>
-        sudo cat <<EOF > /etc/systemd/system/docker-compose-dcgm.service
+        sudo tee /etc/systemd/system/docker-compose-dcgm.service > /dev/null <<EOF
         [Service]
         Restart=always
         WorkingDirectory=/home/opc/dcgm-exporter-composer
