@@ -33,7 +33,7 @@ To view the metrics from the two configured targets, you can set up a Grafana da
 
     ![Import Grafana dashboard](./../../dcgm_gpu_monitoring/metrics/images/import_dashboard.png)
 
-Use the Uplaod JSON file button.
+    * Use the `Upload JSON file` button to load the downloaded file.
 
 4. Select the Prometheus data source you configured previously. 
 
