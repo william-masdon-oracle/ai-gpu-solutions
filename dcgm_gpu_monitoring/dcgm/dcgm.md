@@ -354,13 +354,13 @@ This lab assumes you have:
         </copy>
         ```
 
-    * Check DCGM metrics:
+    * Check DCGM metrics(wait a few seconds if the page does not return results initially):
 
         ```
         <copy>
         curl <host IP>:9400/metrics
         OR
-        curl localhost:9400/metric
+        curl localhost:9400/metrics
         </copy>
         ```
 
