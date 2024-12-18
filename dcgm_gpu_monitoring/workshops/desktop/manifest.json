@@ -1,5 +1,5 @@
 {
-  "workshoptitle": "Monitor GPU Metrics in Oracle Cloud Infrastructure (OCI) Using DCGM, Grafana and Prometheus",
+  "workshoptitle": "Monitor GPU Metrics in Oracle Cloud Infrastructure (OCI) with DCGM, Grafana and Prometheus",
   "help": "livelabs-help-oci_us@oracle.com",
   "tutorials": [
     {
