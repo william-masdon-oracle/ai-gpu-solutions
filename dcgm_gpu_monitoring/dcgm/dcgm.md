@@ -368,7 +368,7 @@ This lab assumes you have:
 
 1. On the Grafana server **demo_grafana** edit the `prometheus.yml` file:
 
-    * You can safely delete the previous content of the file and edit it as root. Make sure to replace the `<server_ip>` with the public IPs of the A10 targets
+    * You can safely delete the previous content of the file and edit it as root. Make sure to replace the `<server_ip>` with the **private IPs** of the A10 targets
 
         ```
         <copy>
