@@ -61,7 +61,7 @@ To view the metrics from the two configured targets, you can set up a Grafana da
         </copy>
         ```
 
-3. Check the dashboard to see the load increase and also compare to the Ubuntu which is not loaded.
+3. Check the dashboard to see that in a short time the load increase is visible and also compare to the Ubuntu which is not loaded.
 
     ![Linux load](./../../dcgm_gpu_monitoring/metrics/images/garafa_linux_power_usage.png)
 
