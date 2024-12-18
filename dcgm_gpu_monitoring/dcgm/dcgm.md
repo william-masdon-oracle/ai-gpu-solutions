@@ -28,13 +28,14 @@ This lab assumes you have:
 
         ```
         <copy>
-        sudo dnf install -y dnf-utils zip unzip gcc
-        sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
-        sudo dnf remove -y runc
-        sudo dnf install -y docker-ce --nobest
-        sudo systemctl enable docker.service
-        sudo systemctl start docker.service
-        sudo usermod -a -G docker opc
+        sudo su
+        dnf install -y dnf-utils zip unzip gcc
+        dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+        dnf remove -y runc
+        dnf install -y docker-ce --nobest
+        systemctl enable docker.service
+        systemctl start docker.service
+        usermod -a -G docker opc
         </copy>
         ```
 
@@ -44,11 +45,11 @@ This lab assumes you have:
 
         ```
         <copy>
-        sudo dnf install -y nvidia-container-toolkit
-        sudo dnf config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
-        sudo dnf clean expire-cache
-        sudo dnf install -y datacenter-gpu-manager
-        sudo systemctl --now enable nvidia-dcgm
+        dnf install -y nvidia-container-toolkit
+        dnf config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
+        dnf clean expire-cache
+        dnf install -y datacenter-gpu-manager
+        systemctl --now enable nvidia-dcgm
         </copy>
         ```
 
@@ -58,13 +59,14 @@ This lab assumes you have:
 
         ```
         <copy>
-        sudo systemctl stop firewalld
-        sudo firewall-offline-cmd --zone=public --add-port=9400/tcp
-        sudo systemctl start firewalld
+        systemctl stop firewalld
+        firewall-offline-cmd --zone=public --add-port=9400/tcp
+        systemctl start firewalld
+        exit
         </copy>
         ```
 
-4. Set Up Docker Compose for DCGM Exporter:
+4. Set Up Docker Compose for DCGM Exporter, while connected as `opc`:
 
     * Create a directory for the Docker Compose file:
 
@@ -100,11 +102,12 @@ This lab assumes you have:
 
 5. Create a Systemd Service for Docker Compose:
 
-    * Create the service daemon unit file:
+    * Create the service daemon unit file while connected as `root`:
 
         ```
         <copy>
-        sudo tee /etc/systemd/system/docker-compose-dcgm.service > /dev/null <<EOF
+        sudo su
+        cat <<EOF > /etc/systemd/system/docker-compose-dcgm.service
         [Service]
         Restart=always
         WorkingDirectory=/home/opc/dcgm-exporter-composer
@@ -122,10 +125,10 @@ This lab assumes you have:
 
         ```
         <copy>
-        sudo systemctl daemon-reload
-        sudo systemctl enable docker-compose-dcgm.service
-        sudo systemctl start docker-compose-dcgm.service
-        sudo systemctl status docker-compose-dcgm.service
+        systemctl daemon-reload
+        systemctl enable docker-compose-dcgm.service
+        systemctl start docker-compose-dcgm.service
+        systemctl status docker-compose-dcgm.service
         </copy>
         ```
 
