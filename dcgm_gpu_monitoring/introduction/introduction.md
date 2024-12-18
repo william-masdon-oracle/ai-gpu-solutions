@@ -1,6 +1,6 @@
 # Introduction
 
-## About this Workshop
+## Task
 
 This workshop walks you through provisioning the necessary infrastructure on Oracle Cloud Infrastructure (OCI) and deploying virtual machines to configure NVIDIA DCGM (Data Center GPU Manager) with Prometheus and Grafana. The lab involves setting up two GPU-enabled VMs (Oracle Linux and Ubuntu) for GPU activity generation and monitoring, alongside a separate VM for Prometheus and Grafana. Public subnet access is configured to enable connectivity, and GPU activity is generated to visualize performance metrics in real time. By the end of the guide, you will have a fully operational environment for monitoring GPU metrics using Prometheus and Grafana dashboards.
 
