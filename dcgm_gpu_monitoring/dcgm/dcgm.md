@@ -425,7 +425,7 @@ This lab assumes you have:
 
 2. Check that the target metrics are accessible on the Grafana VM.
 
-    * On the **demo_grafana** VM run the below command, using the private IPs of the GPU VMs:
+    * To see that the DCGM target metrics are available on the **demo_grafana** VM, run the below command, using the private IPs of the GPU VMs:
 
         ```
         <copy>
