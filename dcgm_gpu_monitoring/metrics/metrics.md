@@ -65,7 +65,7 @@ To view the metrics from the two configured targets, you can set up a Grafana da
 
     ![Linux load](./../../dcgm_gpu_monitoring/metrics/images/garafa_linux_power_usage.png)
 
-**Final note** - remember to Stop the A10 instances after finishing the labs or destroying the stack alltogether.
+**Final note** - remember to stop the A10 instances after finishing the labs or destroying the stack alltogether.
 
 ## Acknowledgements
 
