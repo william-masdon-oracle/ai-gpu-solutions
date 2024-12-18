@@ -25,7 +25,7 @@ To view the metrics from the two configured targets, you can set up a Grafana da
 
 1. Download locally the file [grafana\_dcgm\_dashboard.json](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/labfiles%2Fgrafana_dcgm_dashboard.json)
 
-2. Go to _Grafana_ -> _Dashboards_ -> _New_
+2. Go to _Grafana_ (`http://<demo_grafana public_IP>:3000`) -> _Dashboards_ -> _New_
 
     ![Grafana new dashboard](./../../dcgm_gpu_monitoring/metrics/images/grafana_new_dashboard.png)
 
