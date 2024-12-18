@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Manage Quota and  Schedule Priority in OKE",
+    "workshoptitle": "AIStore Cluster used in OCI",
     "help": "livelabs-help-oci_us@oracle.com",
     "tutorials": [
       {
@@ -14,7 +14,7 @@
       },
       {
         "title": "Lab 1: Provision of OCI infrastructure",
-        "description": "Provision of infrastructure with deployment of Kueue and Kuberay-Operator",
+        "description": "Provision of OCI infrastructure with deployment of AIStore cluster",
         "filename": "../../provision/provision.md"
       },
       {
