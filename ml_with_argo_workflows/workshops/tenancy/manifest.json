@@ -23,9 +23,9 @@
         "filename": "../../configurations/configurations.md"
       },
       {
-        "title": "Lab 3: Run and validate the pipeline",
+        "title": "Lab 3: Train and validate the pipeline",
         "description": "Run the pipline and validate the pipeline with",
-        "filename": "../../train_and_validate/train_and_validate.md"
+        "filename": "../../train_and_validation/train_and_validate.md"
       },
       {
         "title": "Need Help?",
