@@ -48,8 +48,10 @@ This lab assumes you have:
 
     ![OCIR](images/ocir.png)
 
+    NOTE: If the login command does not work use `podman login <OCI REGION PREFIX>.ocir.io` and provide the username as the format above.
 
-## Task 3: Create an OCI Function
+
+## Task 2: Create an OCI Function
 
 1. For this Task we will be using the Cloud Shell function for in order to make easy configurations. Go to OCI web console and in the top left corner select the Cloud Shell option.
 
@@ -59,7 +61,7 @@ This lab assumes you have:
 
 ![Create application](images/application.png)
 
-4. After the application is created follow the steps from Getting started - Cloud Shell setup.
+4. After the application is created follow the steps **1 through 7** from Getting started - Cloud Shell setup.
 
 5. Once you reach step 8 use the following commands instead:
 
@@ -73,9 +75,9 @@ This lab assumes you have:
 
 7. After the upload to Cloud Shell finishes, unzip it using this command:
 
-    `unzip livelab-ml-argo.zip -d ml-webhook`
+    `unzip -j argo-wf-webhook.zip -d ml-webhook`
 
-If you named your function differently than put the correct directory name.
+If you named your function differently than put the correct directory name. Approve the replacement of the files.
 
 8. Now we are going to deploy the function in our application:
 
@@ -88,12 +90,14 @@ If you named your function differently than put the correct directory name.
 9. While the function is being deployed go back to the operator and execute the following command to obtain the ARGO_TOKEN used for login:
 
 `ARGO_TOKEN="$(kubectl get secret oracle.service-account-token -o=jsonpath='{.data.token}' | base64 --decode)"`
+`echo $ARGO_TOKEN`
 
-Then copy execute `echo $ARGO_TOKEN` and copy the value returned.
+Then copy the value returned by the echo command.
 
-9. Once the deploy has finished, in web console go to the Configuration section of the Application and create the following two key:value pairs:
+10. Once the deploy has finished, in web console go to the Configuration section of the Application and create the following two key:value pairs:
 
 ARGO_TOKEN:the value you copied at step 8
+
 ARGO_SERVER_URL:go to Stack details -> Output and you can find it there
 
 ![Function Config](images/func_conf.png)
@@ -101,9 +105,10 @@ ARGO_SERVER_URL:go to Stack details -> Output and you can find it there
 10. In order for the function to work we also need to create the following Dynamic Group and Policies:
 
 DG: resource.compartment.id = '< ocid where you created the funcion >'
+
 Policy: `Allow dynamic-group <name of the DG> to use functions-family in compartment <name of the compartment from the DG>`
 
-## Task 4: Create an Event and link it to the Function
+## Task 3: Create an Event and link it to the Function
 
 1. In the webconsole search for Events Service and select Rules in the Services section.
 

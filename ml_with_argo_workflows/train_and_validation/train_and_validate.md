@@ -29,11 +29,15 @@ This lab assumes you have:
 
 1. SSH back into the operator and into the **ml_training_medical_images** directory.
 
-2. Execute the validate_model.py file using the following command:
+2. Install the requirements for the validation script using the following command:
+
+    `pip3.10 install -r requirements.txt`
+
+3. Execute the validate_model.py file using the following command:
 
     `python3.10 validate_model.py`
 
-3. The script validates against the images that were used for training and will return how accurate was the training.
+4. The script validates against the images that were used for training and will return how accurate was the training.
 
 This concludes our ML pipeline using OCI and Argo workflows.
 
