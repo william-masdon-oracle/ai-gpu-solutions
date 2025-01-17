@@ -23,15 +23,15 @@ This lab assumes you have:
 
 ## Task 1: Create the OCIR images
 
-1. Once the job has succeeded go to Stack details -> Output and copy the ssh_to_operator value.
+1. Once the job has succeeded go to _Stack details_ -> _Output_ and copy the ssh\_to\_operator value.
 
  ![Obtain ssh command](images/ssh.png)
 
-2. With the ssh command copied connect to the operator instance from the machine that you provided the ssh key during the provisioning of the infrastructure.
+2. With the ssh command copied, connect to the operator instance from the machine that you provided the ssh key during the provisioning of the infrastructure.
 
-3. Once logged into the operator, go into the **ml_training_medical_images** directory.
+3. Once logged into the operator, go into the **ml\_training\_medical\_images** directory.
 
-    `cd  ml_training_medical_images`
+    ```<copy>cd  ml_training_medical_images</copy>```
 
 4. Now we need to login to OCIR. For this you need to have an OCI Auth Token generated as mentioned in the prerequisites. Copy, edit and execute the following commands in order to login into OCIR, create the OCIR image and push it.
 
