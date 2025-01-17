@@ -25,7 +25,7 @@ This lab assumes you have:
 
 1. Once the job has succeeded go to _Stack details_ -> _Output_ and copy the ssh\_to\_operator value.
 
- ![Obtain ssh command](images/ssh.png)
+    ![Obtain ssh command](images/ssh.png)
 
 2. With the ssh command copied, connect to the operator instance from the machine that you provided the ssh key during the provisioning of the infrastructure.
 
@@ -73,7 +73,7 @@ This lab assumes you have:
 
 2. In the web console go to _Developer Services_ -> _Applications_ and create a new application. Set an appropriate name for it and then select a VCN which has a public subnet with **internet access**.
 
-![Create application](images/application.png)
+    ![Create application](images/application.png)
 
 3. After the application is created follow the steps **1 through 7** from _Getting started_ -> _Cloud Shell_ setup.
 
@@ -89,7 +89,7 @@ This lab assumes you have:
 
 5. Upload to the Cloud Shell the function that was downloaded at step 2. You can find the upload option on the right corner of the cloud shell window. 
 
-![Upload function](images/cloud_shell.png)
+    ![Upload function](images/cloud_shell.png)
 
 6. After the upload to Cloud Shell finishes, unzip it using this command:
 
@@ -134,25 +134,25 @@ Then copy the value returned by the echo command.
 
 9. Once the deploy has finished, in the web console go to the _Configuration_ section of the Application and create the following two **key:value** pairs:
 
-**ARGO\_TOKEN**: the value you copied at step 8  
-**ARGO\_SERVER\_URL**: go to _Stack details_ -> _Output_ and you can find it there
+    **ARGO\_TOKEN**: the value you copied at step 8  
+    **ARGO\_SERVER\_URL**: go to _Stack details_ -> _Output_ and you can find it there
 
-![Function Config](images/func_conf.png)
+    ![Function Config](images/func_conf.png)
 
 10. In order for the function to work we also need to create the following Dynamic Group and Policies:
 
-    Dynamic Group rule: `resource.compartment.id = '< ocid where you created the funcion >'`    
+    Dynamic Group rule: `resource.compartment.id = '< ocid where you created the function >'`    
     Policy rule: `Allow dynamic-group <name of the DG> to use functions-family in compartment <name of the compartment from the DG>`
 
 ## Task 3: Create an Event and link it to the Function
 
 1. In the webconsole search for _Events Service_ and select _Rules_ in the Services section.
 
-![Events](images/events.png)
+    ![Events](images/events.png)
 
 2. Create a Rule that triggers the execution of the function we just created every time an image is uploaded in the Object Storage. Bellow you can find an example on how to setup the rule. During the provision step we also created 3 Object Storage buckets and we need to trigger the function only when uploading to raw bucket.
 
-![Rule](images/rules.png)
+    ![Rule](images/rules.png)
 
 You may proceed to the next lab.
 

@@ -26,13 +26,15 @@ This lab assumes you have:
 
 1. In the web console got to _Storage_ -> _Object Storage_ -> _Buckets_ and select the **medical-images-raw bucket**.
 
-2. In this bucket you can upload any medical images that you want but they need to be of the same type(x-ray of brest cancer for example) and you should upload at least 10 files at first.
+2. In this bucket you can upload any medical images that you want but they need to be of the same type(x-ray of brest cancer for example) and you should upload at least 10 files at first. They need to be of type **.jpg or .png**.
 
-3. You can verify that the model was trainied once the **model.keras** file appears in the _trained-model_ bucket
+3. You can verify that the model was trained once the **model.keras** file appears in the _trained-model_ bucket. This may take up to 10 minutes to finish execution.
+
+    ![Trained model](images/trained_model.png)
 
 ## Task 2: Validate the model
 
-1. SSH back into the operator and into the **ml_training_medical_images** directory.
+1. SSH back into the operator and into the **ml\_training\_medical\_images** directory.
 
 2. Install the requirements for the validation script using the following command:
 
@@ -50,7 +52,9 @@ This lab assumes you have:
     </copy>
     ```
 
-4. The script validates against the images that were used for training and will return how accurate was the training.
+4. The script validates against the images that were used for training and will return how accurate the training was.
+
+    ![validation](images/validation.png)
 
 This concludes our ML pipeline using OCI and Argo workflows.
 
