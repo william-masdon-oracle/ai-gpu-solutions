@@ -31,7 +31,11 @@ This lab assumes you have:
 
 3. Once logged into the operator, go into the **ml\_training\_medical\_images** directory.
 
-    ```<copy>cd  ml_training_medical_images</copy>```
+    ```
+    <copy>
+    cd  ml_training_medical_images
+    </copy>
+    ```
 
 4. Now we need to login to OCIR. For this you need to have an OCI Auth Token generated as mentioned in the prerequisites. Copy, edit and execute the following commands in order to login into OCIR, create the OCIR image and push it.
 
