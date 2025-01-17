@@ -39,11 +39,23 @@ This lab assumes you have:
 
 4. Now we need to login to OCIR. For this you need to have an OCI Auth Token generated as mentioned in the prerequisites. Copy, edit and execute the following commands in order to login into OCIR, create the OCIR image and push it.
 
-    `podman login -u '<NAMESPACE>/oracleidentitycloudservice/<USERNAME>' <OCI REGION PREFIX>.ocir.io`
+    ```
+    <copy>
+    podman login -u '<NAMESPACE>/oracleidentitycloudservice/<USERNAME>' <OCI REGION PREFIX>.ocir.io
+    </copy>
+    ```
 
-    `podman build -t <OCI REGION PREFIX>.ocir.io/<NAMESPACE>/ml-train:latest -f Dockerfile.train`
+    ```
+    <copy>
+    podman build -t <OCI REGION PREFIX>.ocir.io/<NAMESPACE>/ml-train:latest -f Dockerfile.train
+    </copy>
+    ```
 
-    `podman push <OCI REGION PREFIX>.ocir.io/<NAMESPACE>/ml-train:latest`
+    ```
+    <copy>
+    podman push <OCI REGION PREFIX>.ocir.io/<NAMESPACE>/ml-train:latest
+    </copy>
+    ```
 
     The **NAMESPACE** is usually the name of the Tenancy and the **OCI REGION PREFIX** is the prefix in which you are running the livelab(for example phx for Phoenix). 
 
@@ -69,7 +81,11 @@ This lab assumes you have:
 
 5. Once you reach step 8 use the following commands instead:
 
-    `fn init --runtime python ml-webhook`
+    ```
+    <copy>
+    fn init --runtime python ml-webhook
+    </copy>
+    ```
 
     And **DO NOT** execute steps 9 through 11.
 
@@ -85,36 +101,50 @@ If you named your function differently than put the correct directory name. Appr
 
 8. Now we are going to deploy the function in our application:
 
-`cd ml-webhook`
+    ```
+    <copy>
+    cd ml-webhook
+    </copy>
+    ```
 
-`fn -v deploy --app argo-livelab` 
+    ```
+    <copy>
+    fn -v deploy --app argo-livelab
+    </copy>
+    ```
 
 (use the correct application name here if you have not used the same name)
 
 9. While the function is being deployed go back to the operator and execute the following command to obtain the ARGO_TOKEN used for login:
 
-`ARGO_TOKEN="$(kubectl get secret oracle.service-account-token -o=jsonpath='{.data.token}' | base64 --decode)"`
-`echo $ARGO_TOKEN`
+    ```
+    <copy>
+    ARGO_TOKEN="$(kubectl get secret oracle.service-account-token -o=jsonpath='{.data.token}' | base64 --decode)"
+    </copy>
+    ```
+    ```
+    <copy>
+    echo $ARGO_TOKEN
+    </copy>
+    ```
 
 Then copy the value returned by the echo command.
 
-10. Once the deploy has finished, in web console go to the Configuration section of the Application and create the following two key:value pairs:
+10. Once the deploy has finished, in the web console go to the _Configuration_ section of the Application and create the following two **key:value** pairs:
 
-ARGO_TOKEN:the value you copied at step 8
-
-ARGO_SERVER_URL:go to Stack details -> Output and you can find it there
+**ARGO_TOKEN**: the value you copied at step 8  
+**ARGO_SERVER_URL**: go to _Stack details_ -> _Output_ and you can find it there
 
 ![Function Config](images/func_conf.png)
 
 10. In order for the function to work we also need to create the following Dynamic Group and Policies:
 
-DG: resource.compartment.id = '< ocid where you created the funcion >'
-
+DG: `resource.compartment.id = '< ocid where you created the funcion >'`    
 Policy: `Allow dynamic-group <name of the DG> to use functions-family in compartment <name of the compartment from the DG>`
 
 ## Task 3: Create an Event and link it to the Function
 
-1. In the webconsole search for Events Service and select Rules in the Services section.
+1. In the webconsole search for _Events Service_ and select _Rules_ in the Services section.
 
 ![Events](images/events.png)
 
