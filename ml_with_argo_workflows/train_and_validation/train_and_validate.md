@@ -1,10 +1,15 @@
 # Train and validate the model
 
+## Introduction
+
+In this lab, you will train and validate a machine learning (ML) model using medical images. The lab demonstrates how to leverage Oracle Cloud Infrastructure (OCI) and Argo Workflows to create an end-to-end ML pipeline, from uploading images to training the model and validating its accuracy.
+
 ### Objectives
 
-In this lab we will train a ML model on medical images and validate that the model was trained succesfully.
+* Train an ML model on medical images.
+* Validate the model's performance post-training.
 
-Estimated Time: 1 hour
+Estimated Time: 30 minutes
 
 ### Prerequisites
 
@@ -19,11 +24,11 @@ This lab assumes you have:
 
 ## Task 1: Upload medical images to the Object Storage bucket
 
-1. In the web console got to Storage -> Object Storage -> Buckets and select the medical-images-raw bucket.
+1. In the web console got to _Storage_ -> _Object Storage_ -> _Buckets_ and select the **medical-images-raw bucket**.
 
 2. In this bucket you can upload any medical images that you want but they need to be of the same type(x-ray of brest cancer for example) and you should upload at least 10 files at first.
 
-3. You can verify that the model was trainied once the model.keras file appears in the trained-model bucket
+3. You can verify that the model was trainied once the **model.keras** file appears in the _trained-model_ bucket
 
 ## Task 2: Validate the model
 
@@ -31,11 +36,19 @@ This lab assumes you have:
 
 2. Install the requirements for the validation script using the following command:
 
-    `pip3.10 install -r requirements.txt`
+    ```
+    <copy>
+    pip3.10 install -r requirements.txt
+    </copy>
+    ```
 
 3. Execute the validate_model.py file using the following command:
 
-    `python3.10 validate_model.py`
+    ```
+    <copy>
+    python3.10 validate_model.py
+    </copy>
+    ```
 
 4. The script validates against the images that were used for training and will return how accurate was the training.
 
