@@ -19,11 +19,11 @@ Estimated Workshop Time: 45 minutes
 ### Prerequisites
 
 This lab assumes you have:
-* Downloaded the code repo [zip file](files/Stable_Diffusion_OCI_Deployment.zip)
+* [Download the code repo zip file](files/Stable_Diffusion_OCI_Deployment.zip)
 * A Github account
 * [Set up Git locally](https://docs.github.com/en/get-started/git-basics/set-up-git)
 * An Oracle account
-* Generated an SSH key pair and store it in the default directory (`~/.ssh/` on Linux/macOS or `C:\Users\YourUsername\.ssh\` on Windows)
+* Generate an SSH key pair and store it in the default directory (`~/.ssh/` on Linux/macOS or `C:\Users\YourUsername\.ssh\` on Windows)
 * An OCI compartment. An Oracle Cloud account comes with two pre-configured compartments - The tenancy (root compartment) and ManagedCompartmentForPaaS (created by Oracle for Oracle Platform services).
 * The logged-in user should have the necessary privileges to create and manage Compute instances in this compartment. You can configure these privileges via an OCI IAM Policy. If you are using a Free Tier account, it is likely that you already have all the necessary privileges.
 * [Install Terraform](https://developer.hashicorp.com/terraform/install)

@@ -1,5 +1,7 @@
 # Codebase Overview:
 
+This section provides a structured breakdown of essential files and directories, helping you understand their contents and purpose. Read before proceeding to the next section.
+
 ## infra/terraform/main.tf:
 Primary Terraform configuration file that defines the infrastructure resources to be deployed. Specifically, it includes OCI provider info, resource definitions, existing data sources, variables (for ssh public key and compartment id) and output (for displaying instance's public IP after provisioning).
 
@@ -26,3 +28,7 @@ This python application does the following:
 
 ## src/requirments.txt:
 This file tells ‘pip’ what python packages and versions to install onto the compute instance. 
+
+## Acknowledgements
+* **Author** - Jason Yan, Enterprise Cloud Architect; Blake Ramos, Enterprise Cloud Architect
+* **Last Updated By/Date** - Jason Yan, Enterprise Cloud Architect, February 2025

@@ -83,6 +83,12 @@ See how to fine-tune and serve LLM on OCI with dStack [here](https://docs.oracle
 
 This concludes our stable diffusion OCI deployment workshop.
 
+## Learn More
+* [Finetuning Stable Video Diffusion](https://github.com/pixeli99/SVD_Xtend?tab=readme-ov-file#part-1-training)
+* [Model Source](https://huggingface.co/stabilityai/stable-video-diffusion-img2vid)
+* [More Generative Models](https://github.com/Stability-AI/generative-models)
+* [Stability AI](https://stability.ai/)
+
 ## Acknowledgements
 * **Author** - Jason Yan, Enterprise Cloud Architect; Blake Ramos, Enterprise Cloud Architect
 * **Last Updated By/Date** - Jason Yan, Enterprise Cloud Architect, February 2025
