@@ -13,11 +13,6 @@
         "filename": "https://oracle-livelabs.github.io/common/labs/remote-desktop/using-novnc-remote-desktop.md"
       },
       {
-        "title": "Codebase Overview",
-        "description": "Overview of the codebase, detailing the structure and purpose of essential files.",
-        "filename": "../../overview/overview.md"
-      },
-      {
         "title": "Lab 1: Provision an A10 Instance",
         "description": "Provision an A10 instance with terraform",
         "filename": "../../provision/provision.md"

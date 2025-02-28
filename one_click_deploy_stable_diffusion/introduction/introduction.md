@@ -38,7 +38,7 @@ This section provides a structured breakdown of essential files and directories,
 Primary Terraform configuration file that defines the infrastructure resources to be deployed. Specifically, it includes OCI provider info, resource definitions, existing data sources, variables (for ssh public key and compartment id) and output (for displaying instance's public IP after provisioning).
 
 ### **infra/terraform/terraform.tfvars.example**:
-A template file that defines Terraform variables, specifically compartment_id and ssh_public_key. Users should copy and rename it to terraform.tfvars, then update values accordingly.
+A template file that defines Terraform variables, specifically `compartment_id` and `ssh_public_key`. Users should copy and rename it to terraform.tfvars, then update values accordingly.
 
 ### **.github/workflows/deployment.yml**:
 This yaml file is what controls the workflow for the Github action. The job that it runs is a series of sequential steps that:
