@@ -45,6 +45,8 @@ Once the public IP address appears in the output, congratulations! You have succ
 
 To verify your instance is running, try connecting to it via SSH with `ssh -i /path/to/private_key opc@<public_ip>`. If you need to remove the infrastructure, simply run the command `terraform destroy`.
 
+You may now proceed to the next lab.
+
 ## Learn More
 
 * [Applying Configurations](https://docs.oracle.com/en-us/iaas/Content/dev/terraform/applying.htm)
