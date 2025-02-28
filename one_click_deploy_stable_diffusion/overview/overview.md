@@ -2,7 +2,7 @@
 
 This section provides a structured breakdown of essential files and directories, helping you understand their contents and purpose. Read before proceeding to the next section.
 
-### infra/terraform/main.tf:
+### **infra/terraform/main.tf**:
 Primary Terraform configuration file that defines the infrastructure resources to be deployed. Specifically, it includes OCI provider info, resource definitions, existing data sources, variables (for ssh public key and compartment id) and output (for displaying instance's public IP after provisioning).
 
 ### infra/terraform/terraform.tfvars.example:
