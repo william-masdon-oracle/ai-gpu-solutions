@@ -20,7 +20,7 @@ In this lab, you will:
 
 This lab assumes you have:
 * [Set up Git locally](https://docs.github.com/en/get-started/git-basics/set-up-git)
-* Completed Lab 1
+* Complete Lab 1
 
 ## Task 1: Creating a GitHub Repository from the Downloaded Source Code
 

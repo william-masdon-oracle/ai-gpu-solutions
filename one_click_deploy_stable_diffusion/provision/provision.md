@@ -18,7 +18,7 @@ In this lab, you will:
 ### Prerequisites
 
 This lab assumes you have:
-* Completed all prerequisites in the intro section
+* Complete all prerequisites in the intro section
 
 ## Task 1: Initialize Terraform
 
