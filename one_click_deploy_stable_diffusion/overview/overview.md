@@ -1,6 +1,5 @@
 # Codebase Overview:
 
-## Introduction
 This section provides a structured breakdown of essential files and directories, helping you understand their contents and purpose. Read before proceeding to the next section.
 
 ### infra/terraform/main.tf:
@@ -30,6 +29,6 @@ This python application does the following:
 ### src/requirments.txt:
 This file tells ‘pip’ what python packages and versions to install onto the compute instance. 
 
-## Acknowledgements
+### Acknowledgements
 * **Author** - Jason Yan, Enterprise Cloud Architect; Blake Ramos, Enterprise Cloud Architect
 * **Last Updated By/Date** - Jason Yan, Enterprise Cloud Architect, February 2025
