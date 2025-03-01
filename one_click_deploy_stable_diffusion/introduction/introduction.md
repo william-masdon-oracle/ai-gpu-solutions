@@ -19,7 +19,7 @@ Estimated Workshop Time: 45 minutes
 ### Prerequisites
 
 This lab assumes you have:
-* [Download the code repo zip file](files/Stable_Diffusion_OCI_Deployment.zip)
+* [Download the code repo zip file](https://orasenatdpltintegration03.objectstorage.us-ashburn-1.oci.customer-oci.com/n/orasenatdpltintegration03/b/livelab_not_delete/o/Stable_Diffusion_OCI_Deployment_CodeStable_Diffusion_OCI_Deployment.zip)
 * A Github account
 * [Set up Git locally](https://docs.github.com/en/get-started/git-basics/set-up-git)
 * An Oracle account

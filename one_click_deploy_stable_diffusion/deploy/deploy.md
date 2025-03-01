@@ -41,10 +41,9 @@ This lab assumes you have:
 ## Task 2: Git Push to Start the Github Actions Workflow
 
 1. Push the code to GitHub with
-    ```sh
-    git branch -M main
-    git push -u origin main
-    ```
+    
+    `git branch -M main`  
+    `git push -u origin main`
 
 2. Head back to your Github repository and click `actions` -> select the running workflow -> click `deploy` -> and checkout the log.
 
@@ -55,7 +54,8 @@ This lab assumes you have:
 
 ## Task 3: Test drive the deployed stable diffusion app
 
-1. Click on the public URL and upload the <a href="images/sample-image.png" download>sample image</a> on the left hand side upload section of the app, and click ‘Submit’. 
+1. Click on the public URL and upload the
+[sample image](images/sample-image.png "download") on the left hand side upload section of the app, and click ‘Submit’. 
     ![Dashboard](images/python-app-frontend.png)
     ![Upload sample image](images/frontend-photo-upload.png)
     
