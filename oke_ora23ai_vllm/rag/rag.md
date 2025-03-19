@@ -2,7 +2,7 @@
 
 ## Introduction
 
-We can exploit the power of LLMs to get answers from our dataset directly. Such a technique is called retrieval-augmented generation, or RAG in short, because you would retrieve the relevant data and use it as augmented context for the LLM. A RAG workflow takes the relevant information out and connects static LLMs with sources pulling in data retrieval. This is instead of relying on knowledge derived only from training. In a RAG pipeline the information is stored inside a Vector DB which in our case will be the Autonomous Database Oracle 23ai. 
+We can exploit the power of LLMs to get answers from our dataset directly. Such a technique is called retrieval-augmented generation, or RAG in short, because you would retrieve the relevant data and use it as augmented context for the LLM. A RAG workflow takes the relevant information out and connects static LLMs with sources pulling in data retrieval. This is instead of relying on knowledge derived only from training. In a RAG pipeline the information is stored inside a Vector DB which in our case will be the Autonomous Oracle Database 23ai. 
 
 In this lab we will explore the Gradio interface and interact with the model that we have loaded in the previous Labs. We will use the Oracle Database 23ai to store document embeddings that will be used in the RAG pipeline.
 
