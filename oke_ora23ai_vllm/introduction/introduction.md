@@ -32,7 +32,7 @@ This lab assumes you have:
 * [What Is RAG Pipeline?](https://developer.nvidia.com/blog/rag-101-demystifying-retrieval-augmented-generation-pipelines/)
 * [What are Large Language Models?](https://www.nvidia.com/en-us/glossary/large-language-models/)
 * [What are Vector Embeddings?](https://docs.oracle.com/en/database/oracle/oracle-database/23/vecse/generate-vector-embeddings-node.html)
-* [Oracle 23ai Database](https://www.oracle.com/database/23ai/)
+* [Oracle Database 23ai](https://www.oracle.com/database/23ai/)
 
 You may now proceed to the next lab.
 
