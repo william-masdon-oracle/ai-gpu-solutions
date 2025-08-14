@@ -123,7 +123,7 @@ Follow the steps listed in the following link to generate an api key which will 
 
     ```text
         <copy>
-        sudo podman pull nvcr.io/nvidia/cuopt/cuopt:24.03
+        sudo podman pull nvcr.io/nvidia/cuopt/cuopt:25.08
         </copy>
     ```
 
@@ -138,7 +138,7 @@ Follow the steps listed in the following link to generate an api key which will 
         [Service]
         Type=simple
         Restart=always
-        ExecStart=/usr/bin/podman run --rm --device nvidia.com/gpu=all -p 5000:5000 nvcr.io/nvidia/cuopt/cuopt:24.03
+        ExecStart=/usr/bin/podman run --rm --device nvidia.com/gpu=all -p 5000:5000 nvcr.io/nvidia/cuopt/cuopt:25.08
         [Install]
         WantedBy=multi-user.target
         EOF
@@ -191,3 +191,6 @@ Run the following command to test the container
 
 * **Guido Alejandro Ferreyra**, Principal Cloud Architect, NACIE
 * **Abhinav Jain**, Senior Cloud Engineer, NACIE
+
+**Last Updated By/Date:**
+* **Abhinav Jain**, Senior Cloud Engineer, NACIE, August 2025
