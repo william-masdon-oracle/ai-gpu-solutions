@@ -1,0 +1,31 @@
+{
+  "workshoptitle": "One Click Deploy Stable Diffusion",
+  "help": "livelabs-help-aiservices_us@oracle.com",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "The Introduction is always second for LiveLabs. The title and contents menu title match for the Introduction.",
+      "filename": "../../introduction/introduction.md"
+    },
+    {
+      "title": "Get Started with noVNC Remote Desktop",
+      "description": "Using noVNC Remote Desktop",
+      "filename": "https://oracle-livelabs.github.io/common/labs/remote-desktop/using-novnc-remote-desktop.md"
+    },
+    {
+      "title": "Lab 1: Provision an A10 Instance",
+      "description": "Provision an A10 instance with terraform",
+      "filename": "../../provision/provision.md"
+    },
+    {
+      "title": "Lab 2: Deploy Stable Diffusion Model on A10 Instance",
+      "description": "Auto-config the A10 instance and deploy Stable Diffusion Model with Github Actions",
+      "filename": "../../deploy/deploy.md"
+    },
+    {
+      "title": "Need Help?",
+      "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+      "filename": "https://oracle-livelabs.github.io/common/labs/need-help/need-help-livelabs.md"
+    }
+  ]
+}

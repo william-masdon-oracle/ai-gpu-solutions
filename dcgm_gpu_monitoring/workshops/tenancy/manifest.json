@@ -1,0 +1,41 @@
+{
+    "workshoptitle": "Monitor GPU Metrics in Oracle Cloud Infrastructure (OCI) with DCGM, Grafana and Prometheus",
+    "help": "livelabs-help-oci_us@oracle.com",
+    "tutorials": [
+      {
+        "title": "Introduction",
+        "description": "The Introduction is always second for LiveLabs. The title and contents menu title match for the Introduction.",
+        "filename": "../../introduction/introduction.md"
+      },
+      {
+        "title": "Get Started",
+        "description": "Get a Free Trial",
+        "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/pre-register-free-tier-account.md"
+      },
+      {
+        "title": "Lab 1: Deploy VM infrastructure",
+        "description": "Deploy VM infrastructure (GPU shape and regular VMs)",
+        "filename": "../../infra/infrastructure.md"
+      },
+      {
+        "title": "Lab 2: Install and configure Prometheus and Grafana",
+        "description": "Install and configure Prometheus and Grafana on the designated VM",
+        "filename": "../../monitoring/monitoring.md"
+      },
+      {
+        "title": "Lab 3: Deploy DCGM on Oracle Linux and Ubuntu",
+        "description": "Deploy DCGM on the existing GPU",
+        "filename": "../../dcgm/dcgm.md"
+      },
+      {
+        "title": "Lab 4: Simulate activity on the GPU machines and review metrics in Grafana",
+        "description": "Simulate activity on the GPU machines and review metrics in Grafana",
+        "filename": "../../metrics/metrics.md"
+      },
+      {
+        "title": "Need Help?",
+        "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+        "filename": "https://oracle-livelabs.github.io/common/labs/need-help/need-help-freetier.md"
+      }
+    ]
+  }

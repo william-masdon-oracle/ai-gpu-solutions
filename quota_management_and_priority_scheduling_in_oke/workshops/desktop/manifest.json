@@ -1,0 +1,36 @@
+{
+  "workshoptitle": "Manage Quota and  Schedule Priority in OKE",
+  "help": "livelabs-help-oci_us@oracle.comm",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "The Introduction is always second for LiveLabs. The title and contents menu title match for the Introduction.",
+      "filename": "../../introduction/introduction.md"
+    },
+    {
+      "title": "Get Started with noVNC Remote Desktop",
+      "description": "Using noVNC Remote Desktop",
+      "filename": "https://oracle-livelabs.github.io/common/labs/remote-desktop/using-novnc-remote-desktop.md"
+    },
+    {
+      "title": "Lab 1: Provision of OCI infrastructure",
+      "description": "Provision of OCI infrastructure with deployment of Kueue and Kuberay-Operator",
+      "filename": "../../provision/provision.md"
+    },
+    {
+      "title": "Lab 2: Quota Management",
+      "description": "Quota Management",
+      "filename": "../../quota_management/quota_management.md"
+    },
+    {
+      "title": "Lab 3: Priority Scheduling",
+      "description": "Priority Scheduling",
+      "filename": "../../priority_scheduling/priority_scheduling.md"
+    },
+    {
+      "title": "Need Help?",
+      "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+      "filename": "https://oracle-livelabs.github.io/common/labs/need-help/need-help-livelabs.md"
+    }
+  ]
+}

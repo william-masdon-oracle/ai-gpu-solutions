@@ -1,0 +1,31 @@
+{
+    "workshoptitle": "NVIDIA Triton LLM Inference Server for Llama3.2 models",
+    "help": "livelabs-help-oci_us@oracle.com",
+    "tutorials": [
+      {
+        "title": "Introduction",
+        "description": "The Introduction is always second for LiveLabs. The title and contents menu title match for the Introduction.",
+        "filename": "../../introduction/introduction.md"
+      },
+      {
+        "title": "Get Started",
+        "description": "Get a Free Trial",
+        "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/pre-register-free-tier-account.md"
+      },
+      {
+        "title": "Lab 1: Deploy Llama3.2 on A10 instance",
+        "description": "Provision of resources to run Llama3.2 models on A10 instance",
+        "filename": "../../standalone/standalone.md"
+      },
+      {
+        "title": "Lab 2: Deploy Llama 3.2 on OKE",
+        "description": "Provision of resources to run Llama3.2 models in OCI OKE",
+        "filename": "../../oke/oke.md"
+      },
+      {
+        "title": "Need Help?",
+        "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+        "filename": "https://oracle-livelabs.github.io/common/labs/need-help/need-help-freetier.md"
+      }
+    ]
+  }
