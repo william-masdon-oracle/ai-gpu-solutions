@@ -24,13 +24,13 @@ This lab assumes you have:
 
 ## Task 1: Provision resources
 
-1. Go to Resource manager -> Stacks -> Create Stack. Choose My configuration and upload the provided zip file and click Next: [nim_ocw-main-2.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/_6xhcBfNAwTr5mm0O1pP-8wuFyk9IUkNsMyKdwLXejLdE-SRiZDLTqwEiDdPgJo5/n/c4u02/b/hosted_workshops/o/nim_ocw-main-2.zip)
+1. Go to Resource manager -> Stacks -> Create Stack. Choose My configuration and upload the provided zip file and click Next: [agent_workflow-main.zip](https://objectstorage.us-chicago-1.oraclecloud.com/p/Q1dcuvYmcyFSdDFAURK1s8N7EvEVoSFbZvpqo9-W1EzYo_3azMzz1QDUkTODHP21/n/idb6enfdcxbl/b/Excel-Chicago/o/Livelabs/agent_workflow-main.zip)
 
     ![Resource Manager](images/resource_manager.png)
 
     Or you could use a single click deployment button shown below
 
-    [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-ashburn-1.oraclecloud.com/p/_6xhcBfNAwTr5mm0O1pP-8wuFyk9IUkNsMyKdwLXejLdE-SRiZDLTqwEiDdPgJo5/n/c4u02/b/hosted_workshops/o/nim_ocw-main-2.zip)
+    [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://objectstorage.us-chicago-1.oraclecloud.com/p/Q1dcuvYmcyFSdDFAURK1s8N7EvEVoSFbZvpqo9-W1EzYo_3azMzz1QDUkTODHP21/n/idb6enfdcxbl/b/Excel-Chicago/o/Livelabs/agent_workflow-main.zip)
 
 2. Provide the information for **Compartment**, **Kubernetes Cluster Name (Any suitable name)** , **Check Create new VCN**, **VCN Name (Any suitable name)**, **Leave other Networking information as default**, **Kubernetes nodepool configuration (You have to keep GPU Nodepool size as 3 rest you can leave them as default or change according to your preference)**
 
@@ -84,3 +84,6 @@ You may now proceed to the next lab.
 
 * **Ionut Sturzu**, Principal Cloud Architect, NACIE
 * **Abhinav Jain**, Senior Cloud Engineer, NACIE
+
+* **Last Updated By/Date**
+    * **Abhinav Jain**, Senior Cloud Engineer, NACIE, March 2025
